@@ -1,0 +1,231 @@
+.
+├── .astro
+│   ├── astro
+│   │   └── content.d.ts
+│   ├── collections
+│   ├── integrations
+│   │   └── _inox-tools_astro-when
+│   │       └── types.d.ts
+│   ├── settings.json
+│   └── types.d.ts
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       └── remotes
+│   │           └── origin
+│   │               ├── HEAD
+│   │               └── main
+│   ├── objects
+│   │   ├── 00
+│   │   │   └── e835e246866beff31d94c21fb32fc211bd5595
+│   │   ├── 03
+│   │   │   └── e03aef5e70a59e179ebc3d63e0fbc85e5872e8
+│   │   ├── 04
+│   │   │   └── 5ed1788eae26595fb8e5c3bb43141dbb72f9ca
+│   │   ├── 05
+│   │   │   └── 76caf677ec7d03cf4e25acc8af82e17d03b8c0
+│   │   ├── 13
+│   │   │   └── 51c9bb1d5db8bbcc59d8952686d9edd50ecace
+│   │   ├── 14
+│   │   │   └── 89acf19b79ccac0ae94c7311c68ab1713754f7
+│   │   ├── 1a
+│   │   │   └── 3166fb8a2c5f3d6d0fbf576310a3b0a0884776
+│   │   ├── 1e
+│   │   │   └── c61f7abbd050de79dabe6cec76ac02140f1611
+│   │   ├── 2a
+│   │   │   └── ee00942e0801ff32ed1b4910e30d46221f5536
+│   │   ├── 35
+│   │   │   └── 147419865f284e7ff4c3b36cf7f52c17b7a1f5
+│   │   ├── 37
+│   │   │   └── 7f707c1bf069002d76463d05f6be10481e58ea
+│   │   ├── 38
+│   │   │   ├── 0b8789ce588fb9e41477768a8907a7db96f272
+│   │   │   └── 366ae482e0814abb3c752e2df37c08bdb0822f
+│   │   ├── 3a
+│   │   │   └── 6b977ad5f89f918de720e3392c0b12b389241f
+│   │   ├── 3c
+│   │   │   └── 69197860e66d421cd0759d7c6f361a6cc74a8f
+│   │   ├── 43
+│   │   │   └── 73898b78ef13d33ed7f99c711b9d296bc1c9e9
+│   │   ├── 4b
+│   │   │   └── e202a944bd0ac17302bab0973b06d9e66b3a09
+│   │   ├── 4e
+│   │   │   └── 1e10c98c4e79ab1fc1af2350f7dea3bd868c7b
+│   │   ├── 50
+│   │   │   └── 144e16cc566ad2a24345d7b6b92d64280a3e63
+│   │   ├── 55
+│   │   │   └── 1650d0814515e573a3ca3c0fa7b89a1864c57c
+│   │   ├── 7f
+│   │   │   └── 88aae93d0a6e0dab0994baeaf2d89ae85d8c5b
+│   │   ├── 8a
+│   │   │   └── 275be5df429e7d2475dd8503051be6de9fe98a
+│   │   ├── 8b
+│   │   │   └── 3bd2298ebb4712aee228eebcb4a277a85d4e37
+│   │   ├── 93
+│   │   │   └── a396f7d3c51c1667cc9a302a2179b17cc7160b
+│   │   ├── 96
+│   │   │   └── 300a8c631263698a3f4f9a7ca6321f979752cb
+│   │   ├── 97
+│   │   │   └── 00bf750f69d0ab58ae5e4a6d61ee1dc41623f5
+│   │   ├── 9b
+│   │   │   └── c5cb41c24efc40c0c90abe23ec56c974f16a6c
+│   │   ├── 9e
+│   │   │   └── 28392aea3ba7669f55990a799f6be31b7f86bb
+│   │   ├── a1
+│   │   │   └── 683cc7c68525a0c6b6cd8562aa8906fbf63ec1
+│   │   ├── a2
+│   │   │   ├── 78b137cbceab8617deab1706841fa6c7107af1
+│   │   │   └── e63b16bf6731a25ea2e65bb335f301251136d6
+│   │   ├── a4
+│   │   │   └── a9f587131269d755919eac4a8ef907111c99e4
+│   │   ├── ad
+│   │   │   └── 97754ddcd94eff4071618640fe7a3b7797e17c
+│   │   ├── b1
+│   │   │   └── 15dde1c20938dfbb4b73ffc3bb5e43da19d1b8
+│   │   ├── b4
+│   │   │   └── 12e89889afe4ae4c627f8428ef09c8f191c40c
+│   │   ├── b6
+│   │   │   └── 818140f064bfa89ca2bd002d69c02113f1e66e
+│   │   ├── bf
+│   │   │   └── a07190bc998de741445d9caf5c78e45297c32a
+│   │   ├── c2
+│   │   │   └── 9540c1bf95fd4cf15d6574435994b3face1e18
+│   │   ├── c4
+│   │   │   ├── 1be57fca3455d842c432f34c596ff2d274afdd
+│   │   │   └── 851118e3219fb560daf052d60aaf16a7ba83da
+│   │   ├── c5
+│   │   │   └── a5e3f0e0e6ec53ec5d1bcc1e71b53e34a87881
+│   │   ├── d5
+│   │   │   └── 62fdc4f4af414b24460af8ba0448486072944d
+│   │   ├── d7
+│   │   │   └── 99ca466ea5b21ca58acd365d344f3368712daf
+│   │   ├── e2
+│   │   │   └── 59ed77e9be796829ef072e239aabdd1ae4cd8d
+│   │   ├── e4
+│   │   │   └── a445865d0e95aa4f66d30b813075936248845c
+│   │   ├── e9
+│   │   │   └── 2dc873e1f2d37ba435f72376252a2609affb48
+│   │   ├── ec
+│   │   │   └── 43ead0310aa81e8521062632bd1a8759cf6678
+│   │   ├── f3
+│   │   │   └── 7ccf9a4937ade5ec49b521058c5b69e524be44
+│   │   ├── info
+│   │   └── pack
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       ├── remotes
+│       │   └── origin
+│       │       ├── HEAD
+│       │       └── main
+│       └── tags
+├── .gitignore
+├── .wrangler
+│   ├── state
+│   │   └── v3
+│   │       └── workflows
+│   └── tmp
+├── astro.config.mjs
+├── dist
+│   ├── _astro
+│   │   └── about.DuxvRmCj.css
+│   ├── _routes.json
+│   ├── _worker.js
+│   │   ├── _@astrojs-ssr-adapter.mjs
+│   │   ├── _astro-internal_middleware.mjs
+│   │   ├── chunks
+│   │   │   ├── _astro_asset-imports_Dno0vHp6.mjs
+│   │   │   ├── _astro_data-layer-content_tqJQiZwR.mjs
+│   │   │   ├── astro
+│   │   │   │   ├── assets-service_Cf9Q3jvq.mjs
+│   │   │   │   └── server_D-yBXADH.mjs
+│   │   │   ├── astro-designed-error-pages_BJUlubyt.mjs
+│   │   │   ├── idea-to-art_BENT9LaA.mjs
+│   │   │   ├── idea-to-art_BEPDb4Vm.mjs
+│   │   │   ├── idea-to-art_Cg9y_rw5.mjs
+│   │   │   ├── idea-to-song_-yK-NMf3.mjs
+│   │   │   ├── idea-to-song_BIuv3AYh.mjs
+│   │   │   ├── idea-to-song_DaZm9uie.mjs
+│   │   │   ├── idea-to-story_CKmiGJfw.mjs
+│   │   │   ├── idea-to-story_DdN_kMTC.mjs
+│   │   │   ├── idea-to-story_kfnefiHR.mjs
+│   │   │   ├── index_DjFdqRfP.mjs
+│   │   │   ├── noop-middleware_Cn6FcXQR.mjs
+│   │   │   └── parse_CnF-VkrI.mjs
+│   │   ├── index.js
+│   │   ├── manifest_B11vVerJ.mjs
+│   │   ├── pages
+│   │   │   ├── _image.astro.mjs
+│   │   │   ├── about.astro.mjs
+│   │   │   └── index.astro.mjs
+│   │   └── renderers.mjs
+│   ├── about
+│   │   └── index.html
+│   ├── assets
+│   │   ├── art.png
+│   │   ├── song.png
+│   │   ├── story.png
+│   │   └── vision.png
+│   └── index.html
+├── ideas-to-life-repo-init.sh
+├── package-lock.json
+├── package.json
+├── project-structure.txt
+├── public
+│   └── assets
+│       ├── art.png
+│       ├── song.png
+│       ├── story.png
+│       └── vision.png
+├── README.md
+├── src
+│   ├── components
+│   │   ├── ExperimentCard.astro
+│   │   ├── Footer.astro
+│   │   ├── Hero.astro
+│   │   └── Navigation.astro
+│   ├── content
+│   │   ├── config.ts
+│   │   └── experiments
+│   │       ├── idea-to-art.md
+│   │       ├── idea-to-song.md
+│   │       └── idea-to-story.md
+│   ├── env.d.ts
+│   ├── layouts
+│   │   ├── BaseLayout.astro
+│   │   └── PageLayout.astro
+│   ├── pages
+│   │   ├── about.astro
+│   │   └── index.astro
+│   └── styles
+│       └── global.css
+├── tailwind.config.mjs
+└── tsconfig.json
+
+89 directories, 140 files

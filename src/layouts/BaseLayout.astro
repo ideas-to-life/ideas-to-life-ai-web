@@ -7,14 +7,16 @@ interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
+	canonical?: string;
 	showNav?: boolean;
 	showFooter?: boolean;
 }
 
 const { 
-	title = "Idea to Life | Turning Human Ideas into Digital Reality", 
+	title = "Ideas to Life | Turning Ideas into Digital Reality", 
 	description = "Turning ideas into real experiences with Generative AI—explore flagship AI experiments, code, and learnings.", 
 	image = "/assets/social-share.png",
+	canonical = Astro.url.href,
 	showNav = true,
 	showFooter = true
 } = Astro.props;
@@ -32,17 +34,19 @@ const {
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<meta name="robots" content="index, follow" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={canonical} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(image, Astro.url)} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:url" content={canonical} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={new URL(image, Astro.url)} />
