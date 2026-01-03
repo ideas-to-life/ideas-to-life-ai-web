@@ -6,5 +6,6 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'hybrid',
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  site: 'https://ideas-to-life.ai'
 });

@@ -16,7 +16,7 @@ const {
 	title = "Ideas to Life | Turning Ideas into Digital Reality", 
 	description = "Turning ideas into real experiences with Generative AI—explore flagship AI experiments, code, and learnings.", 
 	image = "/assets/social-share.png",
-	canonical = Astro.url.href,
+	canonical = new URL(Astro.url.pathname, Astro.site).href,
 	showNav = true,
 	showFooter = true
 } = Astro.props;
