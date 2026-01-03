@@ -1,0 +1,6 @@
+#!/bin/bash
+git remote add origin https://github.com/ideas-to-life/ideas-to-life-ai-web.git
+git add .
+git commit -m "Initial homepage for ideas-to-life.ai"
+git branch -M main
+git push -u origin main
