@@ -1,10 +1,10 @@
 Hero Section (above the fold)
 
 Headline
-Ideas to Life — Turning human ideas into real, meaningful experiences with Generative AI
+Ideas to Life — Turning ideas into real, meaningful experiences with Generative AI
 
 Sub-headline
-A public studio exploring how AI can solve real, day-to-day human problems and evolve from prototypes into production-ready consumer products.
+A public exploration of how AI can solve real, day-to-day human problems and evolve from prototypes into production-ready consumer products.
 
 Call to Action
 🔗 Join the journey → (link to LinkedIn post / newsletter / GitHub)
@@ -16,7 +16,7 @@ Section 1 — Why Ideas to Life Exists
 Most ideas never become real because transformation from concept → product is fragmented, slow, and tool-limited.
 
 Ideas to Life exists to close that gap. We ask:
-	•	What if a simple human idea could become a tangible experience?
+	•	What if a simple idea could become a tangible experience?
 	•	What does good AI collaboration look like in real life?
 	•	How do we design AI systems that people trust and use?
 
@@ -32,6 +32,7 @@ We focus on:
 
 ✅ Solving real, everyday problems
 ✅ Moving from idea → usable experience
+✅ Applying the right tools to the right problems
 ✅ Architecting systems with production in mind
 ✅ Balancing AI autonomy + human intent
 ✅ Publishing learnings publicly

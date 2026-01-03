@@ -1,0 +1,21 @@
+---
+title: "Ideas to Life | Home"
+description: "Turning ideas into real experiences with Generative AI—explore flagship AI experiments, code, and learnings."
+heroTitle: "Ideas to Life"
+heroSubtitle: "Turning ideas into real, meaningful experiences with Generative AI."
+heroDetails: "A public exploration of how AI can solve real, day-to-day human problems and evolve from prototypes into production-ready consumer products."
+whyTitle: "Why Ideas to Life Exists"
+whyText: "Most ideas never become real because transformation from concept → product is fragmented, slow, and tool-limited."
+whyBullets:
+  - "What if a simple idea could become a tangible experience?"
+  - "What does good AI collaboration look like in real life?"
+  - "How do we design AI systems that people trust and use?"
+focusTitle: "Our Focus"
+focusSubtitle: "We’re not here for demos or novelty."
+experimentsTitle: "🚀 Flagship Experiments"
+experimentsSubtitle: "Each experiment is a step toward products that matter — not just cool outputs."
+howTitle: "How We Work"
+howSubtitle: "Building with transparency. Shipping with intent."
+joinTitle: "Join the Journey"
+joinText: "You don’t have to wait for product launch — be part of the evolution. This is a public build in progress — your curiosity, collaboration, and feedback make it better."
+---

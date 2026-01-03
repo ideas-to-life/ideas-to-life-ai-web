@@ -3,9 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ExperimentCard from '../components/ExperimentCard.astro';
 
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
+const home = await getEntry('pages', 'home');
 const experiments = await getCollection('experiments');
+
+const { data } = home;
 
 const focusItems = [
   { icon: '✅', text: 'Solving real, everyday problems' },
@@ -25,26 +28,26 @@ const steps = [
 ];
 ---
 
-<BaseLayout>
+<BaseLayout title={data.title} description={data.description}>
   
   <Hero 
-    headline="Ideas to Life" 
-    subheadline="Turning human ideas into real, meaningful experiences with Generative AI."
-    details="A public studio exploring how AI can solve real, day-to-day human problems and evolve from prototypes into production-ready consumer products."
+    headline={data.heroTitle ?? ""} 
+    subheadline={data.heroSubtitle ?? ""}
+    details={data.heroDetails}
   />
 
   <main class="space-y-32">
     <!-- Why Section -->
     <section id="why" class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl font-bold mb-12">Why Ideas to Life Exists</h2>
+      <h2 class="font-display text-4xl font-bold mb-12">{data.whyTitle ?? ""}</h2>
       <div class="glass p-12 rounded-[2rem] space-y-8">
         <p class="text-2xl font-medium leading-relaxed">
-          Most ideas never become real because transformation from concept → product is fragmented, slow, and tool-limited.
+          {data.whyText ?? ""}
         </p>
         <div class="text-left space-y-4 max-w-lg mx-auto text-white/70">
-          <p>• What if a simple human idea could become a tangible experience?</p>
-          <p>• What does good AI collaboration look like in real life?</p>
-          <p>• How do we design AI systems that people trust and use?</p>
+          {data.whyBullets?.map(bullet => (
+            <p>• {bullet}</p>
+          ))}
         </div>
       </div>
     </section>
@@ -52,8 +55,8 @@ const steps = [
     <!-- Focus Section -->
     <section id="focus" class="max-w-[1100px] mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold mb-4">Our Focus</h2>
-        <p class="text-white/50 text-xl text-center">We’re not here for demos or novelty.</p>
+        <h2 class="font-display text-4xl font-bold mb-4">{data.focusTitle ?? ""}</h2>
+        <p class="text-white/50 text-xl text-center">{data.focusSubtitle ?? ""}</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {focusItems.map(item => (
@@ -68,8 +71,8 @@ const steps = [
     <!-- Experiments Section -->
     <section id="experiments" class="max-w-[1100px] mx-auto px-6">
       <div class="mb-16">
-        <h2 class="font-display text-4xl font-bold mb-4">🚀 Flagship Experiments</h2>
-        <p class="text-white/50 text-xl">Each experiment is a step toward products that matter — not just cool outputs.</p>
+        <h2 class="font-display text-4xl font-bold mb-4">{data.experimentsTitle ?? ""}</h2>
+        <p class="text-white/50 text-xl">{data.experimentsSubtitle ?? ""}</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -81,8 +84,8 @@ const steps = [
 
     <!-- Process Section -->
     <section id="how" class="max-w-[1100px] mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl font-bold mb-4">How We Work</h2>
-      <p class="text-white/50 text-xl mb-16">Building with transparency. Shipping with intent.</p>
+      <h2 class="font-display text-4xl font-bold mb-4">{data.howTitle ?? ""}</h2>
+      <p class="text-white/50 text-xl mb-16">{data.howSubtitle ?? ""}</p>
       
       <div class="flex flex-wrap items-center justify-between gap-8 relative">
         <!-- Connecting Line (Desktop) -->
@@ -102,9 +105,9 @@ const steps = [
     <!-- Join Section -->
     <section id="journey" class="max-w-4xl mx-auto px-6 text-center pb-20">
       <div class="glass p-16 rounded-[3rem] space-y-12">
-        <h2 class="font-display text-5xl font-bold">Join the Journey</h2>
+        <h2 class="font-display text-5xl font-bold">{data.joinTitle ?? ""}</h2>
         <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          You don’t have to wait for product launch — be part of the evolution. This is a public build in progress — your curiosity and feedback make it better.
+          {data.joinText ?? ""}
         </p>
         <div class="flex flex-wrap items-center justify-center gap-4">
           <a href="https://www.linkedin.com/in/avfranco" class="px-8 py-4 bg-accent-blue text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(0,210,255,0.4)] transition-all">

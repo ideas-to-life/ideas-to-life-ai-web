@@ -11,6 +11,30 @@ const experimentsCollection = defineCollection({
     }),
 });
 
+const pagesCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        heroTitle: z.string().optional(),
+        heroSubtitle: z.string().optional(),
+        heroDetails: z.string().optional(),
+        whyTitle: z.string().optional(),
+        whyText: z.string().optional(),
+        whyBullets: z.array(z.string()).optional(),
+        focusTitle: z.string().optional(),
+        focusSubtitle: z.string().optional(),
+        experimentsTitle: z.string().optional(),
+        experimentsSubtitle: z.string().optional(),
+        howTitle: z.string().optional(),
+        howSubtitle: z.string().optional(),
+        joinTitle: z.string().optional(),
+        joinText: z.string().optional(),
+        quote: z.string().optional(),
+    }),
+});
+
 export const collections = {
     'experiments': experimentsCollection,
+    'pages': pagesCollection,
 };
