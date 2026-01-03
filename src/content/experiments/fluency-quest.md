@@ -2,7 +2,7 @@
 title: "Fluency Quest"
 summary: "Gamified language learning powered by dynamic AI storytelling."
 description: "An interactive language learning experience where the story adapts to your proficiency level."
-image: "/assets/fluency.png"
+image: "/assets/fluency.quest.ai.png"
 date: 2026-01-03
 status: "exploring"
 domain: ["EdTech", "Language Learning"]

@@ -2,7 +2,7 @@
 title: "EA4ALL.AI – Agentic Workforce"
 summary: "Simulating organizational behavior with multi-agent systems."
 description: "An extension of EA4ALL that uses agentic workflows to explore and optimize workforce dynamics."
-image: "/assets/agentic-workforce.png"
+image: "/assets/ea4all.ai.workforce.png"
 date: 2026-01-03
 status: "validating"
 domain: ["Workforce Simulation", "Multi-Agent Systems"]

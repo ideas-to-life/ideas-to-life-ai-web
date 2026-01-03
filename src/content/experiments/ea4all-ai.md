@@ -2,7 +2,7 @@
 title: "EA4ALL.AI"
 summary: "Enterprise Architecture for All - Democratizing strategic alignment with AI."
 description: "A comprehensive platform for generating and managing enterprise architecture artifacts using generative AI."
-image: "/assets/ea4all.png"
+image: "/assets/ea4all.ai.multi.agents.png"
 date: 2026-01-03
 status: "validating"
 domain: ["Enterprise Architecture", "Strategic Planning"]
