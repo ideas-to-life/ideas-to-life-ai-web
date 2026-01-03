@@ -1,0 +1,85 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <!-- Immersive Hero -->
+  <div class="relative min-h-[75vh] w-full overflow-hidden flex items-center justify-center pt-32 pb-20">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/assets/vision.png" 
+        alt="Inspirational Vision Background" 
+        class="w-full h-full object-cover scale-105 animate-pulse-slow opacity-60"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-midnight/20 via-midnight/40 to-midnight"></div>
+    </div>
+    
+    <div class="relative z-10 text-center max-w-5xl px-6 space-y-6">
+      <div class="inline-block px-4 py-1.5 rounded-full border border-accent-blue/30 bg-accent-blue/5 text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 animate-fade-in-down">
+        The Studio Philosophy
+      </div>
+      <h1 class="font-display text-6xl md:text-9xl font-extrabold tracking-tighter leading-[0.85] bg-gradient-to-b from-white to-white/30 bg-clip-text text-transparent animate-fade-in-up">
+        {frontmatter.title}
+      </h1>
+      <p class="text-xl md:text-2xl text-white/40 max-w-2xl mx-auto font-medium tracking-tight animate-fade-in-up delay-100">
+        {frontmatter.description}
+      </p>
+    </div>
+  </div>
+
+  <!-- Narrative Content -->
+  <main class="relative z-10 -mt-16 md:-mt-24 px-6 pb-32">
+    <div class="max-w-4xl mx-auto">
+      <div class="glass p-8 md:p-24 rounded-[3rem] shadow-2xl space-y-20">
+        
+        <!-- Vision Statement -->
+        {frontmatter.quote && (
+          <div class="border-l-4 border-accent-sunset pl-8 md:pl-12 py-6 mb-24">
+            <p class="text-3xl md:text-5xl font-display font-bold leading-[1.15] tracking-tight italic text-white/95">
+              "{frontmatter.quote}"
+            </p>
+          </div>
+        )}
+
+        <!-- Main Body -->
+        <div class="prose prose-invert prose-lg md:prose-xl max-w-none 
+          prose-p:leading-relaxed md:prose-p:leading-[1.8] prose-p:text-white/80 prose-p:mb-10
+          prose-headings:font-display prose-headings:text-white prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:mt-16 prose-headings:mb-8
+          prose-strong:text-accent-blue prose-strong:font-bold
+          prose-li:text-white/70 prose-li:mb-4">
+          <slot />
+        </div>
+
+        <!-- Future Call to Action -->
+        <div class="pt-12 border-t border-white/10 flex flex-col items-center text-center space-y-8">
+           <h3 class="font-display text-3xl font-bold">Want to build the future with us?</h3>
+           <a href="https://www.linkedin.com/in/avfranco" class="px-10 py-5 bg-white text-black font-extrabold rounded-full hover:scale-105 transition-transform shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+             Connect on LinkedIn
+           </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-down { animation: fade-in-down 1s ease-out forwards; }
+  .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
+  .delay-100 { animation-delay: 0.2s; }
+  .animate-pulse-slow {
+    animation: pulse 10s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1.05); }
+    50% { transform: scale(1.1); }
+  }
+</style>

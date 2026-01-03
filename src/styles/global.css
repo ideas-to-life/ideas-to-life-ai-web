@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-midnight text-white selection:bg-accent-blue selection:text-midnight;
+    }
+}
+
+@layer components {
+    .glass {
+        @apply bg-glass-white border border-glass-border backdrop-blur-xl;
+    }
+
+    .container-custom {
+        @apply max-width-[1100px] mx-auto px-6;
+    }
+}

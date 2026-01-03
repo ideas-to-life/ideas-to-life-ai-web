@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ExperimentCard from '../components/ExperimentCard.astro';
+
+import { getCollection } from 'astro:content';
+
+const experiments = await getCollection('experiments');
+
+const focusItems = [
+  { icon: '✅', text: 'Solving real, everyday problems' },
+  { icon: '✅', text: 'Moving from idea → usable experience' },
+  { icon: '✅', text: 'Architecting systems for production' },
+  { icon: '✅', text: 'Balancing AI autonomy + human intent' },
+  { icon: '✅', text: 'Publishing learnings publicly' }
+];
+
+const steps = [
+  'Human idea',
+  'AI interpretation',
+  'Agentic orchestration',
+  'Rapid prototype',
+  'User feedback',
+  'Path to production'
+];
+---
+
+<BaseLayout>
+  
+  <Hero 
+    headline="Idea to Life" 
+    subheadline="Turning human ideas into real, meaningful experiences with Generative AI."
+    details="A public studio exploring how AI can solve real, day-to-day human problems and evolve from prototypes into production-ready consumer products."
+  />
+
+  <main class="space-y-32">
+    <!-- Why Section -->
+    <section id="why" class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl font-bold mb-12">Why Idea to Life Exists</h2>
+      <div class="glass p-12 rounded-[2rem] space-y-8">
+        <p class="text-2xl font-medium leading-relaxed">
+          Most ideas never become real because transformation from concept → product is fragmented, slow, and tool-limited.
+        </p>
+        <div class="text-left space-y-4 max-w-lg mx-auto text-white/70">
+          <p>• What if a simple human idea could become a tangible experience?</p>
+          <p>• What does good AI collaboration look like in real life?</p>
+          <p>• How do we design AI systems that people trust and use?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus Section -->
+    <section id="focus" class="max-w-[1100px] mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold mb-4">Our Focus</h2>
+        <p class="text-white/50 text-xl text-center">We’re not here for demos or novelty.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {focusItems.map(item => (
+          <div class="bg-white/5 border border-white/5 p-8 rounded-3xl flex gap-4 items-center">
+            <span class="text-2xl">{item.icon}</span>
+            <span class="font-medium">{item.text}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Experiments Section -->
+    <section id="experiments" class="max-w-[1100px] mx-auto px-6">
+      <div class="mb-16">
+        <h2 class="font-display text-4xl font-bold mb-4">🚀 Flagship Experiments</h2>
+        <p class="text-white/50 text-xl">Each experiment is a step toward products that matter — not just cool outputs.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {experiments.map(exp => (
+          <ExperimentCard experiment={exp} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="how" class="max-w-[1100px] mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl font-bold mb-4">How We Work</h2>
+      <p class="text-white/50 text-xl mb-16">Building with transparency. Shipping with intent.</p>
+      
+      <div class="flex flex-wrap items-center justify-between gap-8 relative">
+        <!-- Connecting Line (Desktop) -->
+        <div class="hidden lg:block absolute top-[25px] left-0 w-full h-[2px] bg-white/10 -z-10"></div>
+        
+        {steps.map((step, i) => (
+          <div class="flex-1 min-w-[150px] space-y-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent-blue to-accent-violet flex items-center justify-center font-extrabold mx-auto shadow-[0_0_20px_rgba(0,210,255,0.3)]">
+              {i + 1}
+            </div>
+            <p class="font-medium text-sm md:text-base">{step}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="journey" class="max-w-4xl mx-auto px-6 text-center pb-20">
+      <div class="glass p-16 rounded-[3rem] space-y-12">
+        <h2 class="font-display text-5xl font-bold">Join the Journey</h2>
+        <p class="text-xl text-white/70 max-w-2xl mx-auto">
+          You don’t have to wait for product launch — be part of the evolution. This is a public build in progress — your curiosity and feedback make it better.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://www.linkedin.com/in/avfranco" class="px-8 py-4 bg-accent-blue text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(0,210,255,0.4)] transition-all">
+            Follow on LinkedIn
+          </a>
+          <a href="https://github.com/ideas-to-life" class="px-8 py-4 bg-white/5 hover:bg-white/10 font-bold rounded-full transition-all">
+            Watch on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</BaseLayout>

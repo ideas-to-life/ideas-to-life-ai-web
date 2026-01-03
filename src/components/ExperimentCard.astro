@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  experiment: CollectionEntry<'experiments'>;
+}
+
+const { experiment } = Astro.props;
+---
+
+<div class="glass group relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2">
+  <div class="aspect-square overflow-hidden">
+     <img 
+       src={experiment.data.image} 
+       alt={experiment.data.title} 
+       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+     />
+  </div>
+  <div class="p-8 space-y-4">
+    <h3 class="font-display text-2xl font-bold">{experiment.data.title}</h3>
+    <p class="text-white/60 tracking-tight">{experiment.data.description}</p>
+  </div>
+</div>
