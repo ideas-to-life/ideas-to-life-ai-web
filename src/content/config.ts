@@ -5,8 +5,14 @@ const experimentsCollection = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
+        summary: z.string(),
         image: z.string(),
         date: z.date().optional(),
+        status: z.enum(['exploring', 'validating', 'shipping', 'paused']),
+        domain: z.array(z.string()),
+        deployment: z.string().optional(),
+        repo: z.string().url().optional(),
+        demo: z.string().url().optional(),
         tags: z.array(z.string()).optional(),
     }),
 });

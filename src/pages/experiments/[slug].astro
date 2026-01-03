@@ -1,0 +1,68 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const experiments = await getCollection('experiments');
+  return experiments.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const frontmatter = {
+    title: entry.data.title,
+    description: entry.data.description,
+};
+---
+
+<PageLayout frontmatter={frontmatter}>
+    <div class="mb-12">
+        <div class="flex items-center gap-4 mb-6">
+            <span class:list={[
+                 "px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider backdrop-blur-md border border-white/10",
+                 {
+                   "bg-emerald-500/20 text-emerald-300": entry.data.status === 'shipping',
+                   "bg-blue-500/20 text-blue-300": entry.data.status === 'validating',
+                   "bg-purple-500/20 text-purple-300": entry.data.status === 'exploring',
+                   "bg-gray-500/20 text-gray-300": entry.data.status === 'paused',
+                 }
+               ]}>
+                 {entry.data.status}
+            </span>
+            <div class="flex gap-2">
+                {entry.data.domain.map(tag => (
+                    <span class="text-sm font-medium px-3 py-1 bg-white/5 rounded-full text-white/50 border border-white/5">
+                      {tag}
+                    </span>
+                  ))}
+            </div>
+        </div>
+    </div>
+
+    {entry.data.image && (
+        <div class="mb-16 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+            <img 
+                src={entry.data.image} 
+                alt={entry.data.title} 
+                class="w-full h-auto object-cover"
+                transition:name={`experiment-image-${entry.slug}`}
+            />
+        </div>
+    )}
+
+  <section class="mb-20">
+    <h2 class="text-xl uppercase tracking-widest text-white/40 mb-6">
+      Experiment Details
+    </h2>
+    <hr class="border-white/10" />
+  </section>
+
+  <article class="prose prose-invert prose-lg md:prose-xl max-w-none">
+    <Content />
+  </article>
+
+</PageLayout>

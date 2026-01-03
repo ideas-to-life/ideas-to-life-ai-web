@@ -1,6 +1,9 @@
 ---
 title: "idea-to-story"
+summary: "Expand a seed idea into coherent stories, scripts, and world-building assets."
 description: "Expand a seed idea into coherent stories, scripts, and world-building assets."
+status: "exploring"
+domain: ["Storytelling", "World Building"]
 image: "/assets/story.png"
 date: 2026-01-03
 tags: ["writing", "storytelling", "genai"]
@@ -8,6 +11,7 @@ tags: ["writing", "storytelling", "genai"]
 
 # idea-to-story
 
+## Why This Exists
 Writer's block often comes from having a great premise but no clear path forward. **idea-to-story** acts as an infinite co-writer that never gets tired.
 
 ## Key Capabilities
@@ -15,4 +19,5 @@ Writer's block often comes from having a great premise but no clear path forward
 - **Character Development**: Generate deep backstories, motivations, and arcs for your characters.
 - **World Building**: Create consistent rules, history, and geography for your fictional world.
 
-We are actively using this tool to write the narrative layer for our other experiments.
+## Current Status
+This experiment is in the **Exploring** phase. We are actively using this tool to write the narrative layer for our other experiments.

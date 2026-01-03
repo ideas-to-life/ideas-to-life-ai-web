@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExperimentCard from '../components/ExperimentCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const experiments = await getCollection('experiments');
+
+const byTitle = (a: CollectionEntry<'experiments'>, b: CollectionEntry<'experiments'>) => a.data.title.localeCompare(b.data.title);
+const shipping = experiments.filter(e => e.data.status === 'shipping').sort(byTitle);
+const validating = experiments.filter(e => e.data.status === 'validating').sort(byTitle);
+const exploring = experiments.filter(e => e.data.status === 'exploring').sort(byTitle);
+const paused = experiments.filter(e => e.data.status === 'paused').sort(byTitle);
+
+const statusConfig = {
+    shipping: { emoji: '🚢', title: 'Shipping', desc: 'Systems approaching production, with real deployments or pilots.' },
+    validating: { emoji: '🚧', title: 'Validating', desc: 'Active pilots and prototypes being tested with real users.' },
+    exploring: { emoji: '🧪', title: 'Exploring', desc: 'Early-stage research and proof-of-concepts.' },
+    paused: { emoji: '⏸️', title: 'Paused', desc: 'Experiments on hold or completed.' }
+};
+---
+
+<BaseLayout title="Experiments | Ideas to Life" description="Our public lab of AI experiments.">
+    <!-- Header -->
+    <div class="pt-32 pb-12 px-6 text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">The Lab</h1>
+        <p class="text-xl text-white/60 max-w-2xl mx-auto">
+            Where we build, break, and refine the future of agentic AI. 
+            Not every experiment makes it to production, but every one teaches us something.
+        </p>
+    </div>
+
+    <main class="max-w-[1400px] mx-auto px-6 pb-32 space-y-24">
+        {shipping.length > 0 && (
+            <section>
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.shipping.emoji}</span>
+                        {statusConfig.shipping.title}
+                    </h2>
+                    <p class="text-white/50 pb-1 hidden md:block">{statusConfig.shipping.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {shipping.map(e => <ExperimentCard experiment={e} />)}
+                 </div>
+            </section>
+        )}
+
+        {validating.length > 0 && (
+            <section>
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.validating.emoji}</span>
+                        {statusConfig.validating.title}
+                    </h2>
+                     <p class="text-white/50 pb-1 hidden md:block">{statusConfig.validating.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {validating.map(e => <ExperimentCard experiment={e} />)}
+                 </div>
+            </section>
+        )}
+
+        {exploring.length > 0 && (
+            <section>
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.exploring.emoji}</span>
+                        {statusConfig.exploring.title}
+                    </h2>
+                     <p class="text-white/50 pb-1 hidden md:block">{statusConfig.exploring.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {exploring.map(e => <ExperimentCard experiment={e} />)}
+                 </div>
+            </section>
+        )}
+
+        {paused.length > 0 && (
+            <section class="opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.paused.emoji}</span>
+                        {statusConfig.paused.title}
+                    </h2>
+                     <p class="text-white/50 pb-1 hidden md:block">{statusConfig.paused.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {paused.map(e => <ExperimentCard experiment={e} />)}
+                 </div>
+            </section>
+        )}
+</main>
+    <section class="text-center pt-24">
+      <p class="text-white/50 max-w-3xl mx-auto text-lg">
+        Some of these experiments will evolve into real products.
+        Others exist to sharpen our understanding.
+        Both outcomes are success.
+      </p>
+    </section>
+</BaseLayout>

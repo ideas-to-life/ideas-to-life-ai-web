@@ -8,16 +8,42 @@ interface Props {
 const { experiment } = Astro.props;
 ---
 
-<div class="glass group relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2">
-  <div class="aspect-square overflow-hidden">
-     <img 
-       src={experiment.data.image} 
-       alt={experiment.data.title} 
-       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-     />
+<a href={`/experiments/${experiment.slug}`} class="block h-full">
+  <div class="glass group relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2 h-full flex flex-col">
+    <div class="aspect-video overflow-hidden relative">
+       <img 
+         src={experiment.data.image} 
+         alt={experiment.data.title} 
+         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+         transition:name={`experiment-image-${experiment.slug}`}
+       />
+       <div class="absolute top-4 left-4">
+         <span class:list={[
+           "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/10",
+           {
+             "bg-emerald-500/20 text-emerald-300": experiment.data.status === 'shipping',
+             "bg-blue-500/20 text-blue-300": experiment.data.status === 'validating',
+             "bg-purple-500/20 text-purple-300": experiment.data.status === 'exploring',
+             "bg-gray-500/20 text-gray-300": experiment.data.status === 'paused',
+           }
+         ]}>
+           {experiment.data.status}
+         </span>
+       </div>
+    </div>
+    <div class="p-8 space-y-4 flex-1 flex flex-col">
+      <div class="space-y-2 flex-1">
+        <h3 class="font-display text-2xl font-bold leading-tight">{experiment.data.title}</h3>
+        <p class="text-white/60 text-sm leading-relaxed">{experiment.data.summary}</p>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+        {experiment.data.domain.map(tag => (
+          <span class="text-xs font-medium px-2 py-1 bg-white/5 rounded-md text-white/50 border border-white/5">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
   </div>
-  <div class="p-8 space-y-4">
-    <h3 class="font-display text-2xl font-bold">{experiment.data.title}</h3>
-    <p class="text-white/60 tracking-tight">{experiment.data.description}</p>
-  </div>
-</div>
+</a>

@@ -3,7 +3,7 @@ title: "Ideas to Life | Home"
 description: "Turning ideas into real experiences with Generative AI—explore flagship AI experiments, code, and learnings."
 heroTitle: "Ideas to Life"
 heroSubtitle: "Turning ideas into real, meaningful experiences with Generative AI."
-heroDetails: "A public exploration of how AI can solve real, day-to-day human problems and evolve from prototypes into production-ready consumer products."
+heroDetails: "A public lab exploring how Generative AI transforms raw concepts into production realities."
 whyTitle: "Why Ideas to Life Exists"
 whyText: "Most ideas never become real because transformation from concept → product is fragmented, slow, and tool-limited."
 whyBullets:
