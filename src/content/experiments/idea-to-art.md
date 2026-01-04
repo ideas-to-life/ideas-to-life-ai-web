@@ -9,8 +9,6 @@ date: 2026-01-03
 tags: ["visual", "design", "genai"]
 ---
 
-# idea-to-art
-
 ## Why This Exists
 Visualizing thoughts is one of the hardest challenges in creative work. **idea-to-art** removes the friction between the mind's eye and the screen.
 
@@ -20,4 +18,5 @@ Visualizing thoughts is one of the hardest challenges in creative work. **idea-t
 3. **Iterative Refinement**: You can tweak specific elements (e.g., "make it darker", "add neon lights") without regenerating the entire image.
 
 ## Current Status
-This experiment is currently **Exploring** different diffusion models. It is actively powering our internal marketing material.
+
+This experiment is currently in the **Exploring** phase. At this stage, it exists as a conceptual exploration rather than a working prototype.

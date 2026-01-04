@@ -47,4 +47,17 @@ We build with the Product Triad in mind:
 - **Desirable**: Do people actually want it?
 - **Viable**: Can it sustain itself as a product?
 
-Ideas-to-Life is for those who want to move beyond the hype and start building the systems of tomorrow.
+## Want to collaborate?
+
+🔹 Want to build the future with us?
+
+Ideas to Life is intentionally open. If you’re curious to explore ideas together, challenge assumptions, or contribute code, prompts, or feedback, you’re very welcome to engage.
+
+🔹 Engagement
+- ⭐ Explore or star the repositories on GitHub  
+- 🗨 Open an issue or start a discussion with ideas, questions, or critiques  
+
+🔹 The simplest ways to do that today:
+- Join the conversation on <a href="https://github.com/orgs/ideas-to-life/discussions" target="_blank" class="text-white hover:underline transition-all">Ideas to Life Discussions</a>
+
+Ideas-to-Life is for those who want to move beyond the hype and start building the systems of tomorrow. Not everything here is finished — that’s the point.

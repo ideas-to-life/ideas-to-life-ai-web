@@ -9,8 +9,6 @@ date: 2026-01-03
 tags: ["writing", "storytelling", "genai"]
 ---
 
-# idea-to-story
-
 ## Why This Exists
 Writer's block often comes from having a great premise but no clear path forward. **idea-to-story** acts as an infinite co-writer that never gets tired.
 
@@ -20,4 +18,6 @@ Writer's block often comes from having a great premise but no clear path forward
 - **World Building**: Create consistent rules, history, and geography for your fictional world.
 
 ## Current Status
-This experiment is in the **Exploring** phase. We are actively using this tool to write the narrative layer for our other experiments.
+
+This experiment is currently in the **Exploring** phase.
+At this stage, it exists as a conceptual exploration rather than a working prototype.

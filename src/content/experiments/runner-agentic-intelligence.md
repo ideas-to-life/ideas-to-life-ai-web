@@ -1,6 +1,6 @@
 ---
 title: "Runner Agentic Intelligence"
-summary: "Autonomous agents that execute complex, long-running tasks."
+summary: "Agentic Intelligent ecosystem that empowers every runner with insights."
 description: "Multi-agentic system that coaches runners by generating personalised training plans, insights, charts, and chat with your running data."
 image: "/assets/runner.ai.png"
 date: 2026-01-03
@@ -8,8 +8,6 @@ status: "validating"
 domain: ["Autonomous Agents", "Task Execution"]
 tags: ["agents", "automation", "validating"]
 ---
-
-# Runner Agentic Intelligence
 
 ## Why This Exists
 Recreational and experienced runners, like myself, lack an intelligent, automated system that:

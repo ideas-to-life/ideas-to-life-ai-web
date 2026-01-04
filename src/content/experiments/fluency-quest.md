@@ -1,15 +1,13 @@
 ---
 title: "Fluency Quest"
 summary: "Gamified language learning powered by dynamic AI storytelling."
-description: "An interactive language learning experience where the story adapts to your proficiency level."
+description: "An interactive AI-powered, multimodal language-learning game designed to help English learners improve listening comprehension, spoken fluency, and confidence through immersive, interactive scenarios."
 image: "/assets/fluency.quest.ai.png"
 date: 2026-01-03
 status: "exploring"
 domain: ["EdTech", "Language Learning"]
 tags: ["education", "language", "genai"]
 ---
-
-# Fluency Quest
 
 ## Why This Exists
 Language learning apps are often repetitive. **Fluency Quest** turns learning into an adventure where the narrative evolves based on your progress and choices.
@@ -19,4 +17,4 @@ Language learning apps are often repetitive. **Fluency Quest** turns learning in
 - **Adaptive Difficulty**: The complexity of the language scales with your ability.
 
 ## Current Status
-We are **Exploring** the mechanics of real-time narrative adaptation and speech recognition latency.
+**Exploring** user journeys, gamification options, mechanics of real-time narrative adaptation and speech recognition latency.
