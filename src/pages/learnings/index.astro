@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import WeeklyLearningCard from '../../components/WeeklyLearningCard.astro';
 import { getCollection } from 'astro:content';
 
-const learnings = await getCollection('learnings');
+const learnings = await getCollection('learnings', ({ data }) => {
+    return !data.draft;
+});
 const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
@@ -14,6 +16,10 @@ const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.
       Insights, failures, and breakthroughs from our journey.
       Sharing what we learn as we build.
     </p>
+    <a href="/rss.xml" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-accent-blue transition-colors mt-6 border border-white/10 px-4 py-2 rounded-full hover:border-accent-blue/30 hover:bg-accent-blue/5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+      Subscribe via RSS
+    </a>
   </div>
 
   <main class="max-w-[1400px] mx-auto px-6 pb-32">

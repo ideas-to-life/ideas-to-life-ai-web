@@ -43,10 +43,14 @@ const pagesCollection = defineCollection({
 const learningsCollection = defineCollection({
     type: 'content',
     schema: z.object({
-        title: z.string(),
-        date: z.date(),
-        summary: z.string(),
-        tags: z.array(z.string()).optional(),
+        title: z.string().trim().min(8),
+        date: z.coerce.date(),
+        summary: z.string().trim().min(20).max(180),
+        tags: z
+            .array(z.string().trim().toLowerCase().min(2).max(24))
+            .max(8)
+            .optional(),
+        draft: z.boolean().optional().default(false),
     }),
 });
 

@@ -8,7 +8,9 @@ import { getCollection, getEntry } from 'astro:content';
 
 const home = await getEntry('pages', 'home');
 const experiments = await getCollection('experiments');
-const learnings = await getCollection('learnings');
+const learnings = await getCollection('learnings', ({ data }) => {
+    return !data.draft;
+});
 const latestLearning = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
 
 const { data } = home;
