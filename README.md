@@ -89,23 +89,3 @@ Published by Alexandre Franco
 Turning ideas into consumer experiences with Generative AI.
 
 — Built with transparency. Shipped with intent.
-
-⸻
-
-Optional Add-Ons (for later)
-
-If you want to expand in future weeks:
-
-Testimonials / Early Reactions
-
-“This is how AI should be built — with humans at the center.” — Beta tester
-
-Live Experiments Feed
-
-Embed recent experiment results, videos, demos.
-
-Newsletter / Waitlist
-
-Invite users to join for early access.
-
-⸻

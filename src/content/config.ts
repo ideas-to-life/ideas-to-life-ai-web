@@ -40,7 +40,18 @@ const pagesCollection = defineCollection({
     }),
 });
 
+const learningsCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        date: z.date(),
+        summary: z.string(),
+        tags: z.array(z.string()).optional(),
+    }),
+});
+
 export const collections = {
     'experiments': experimentsCollection,
     'pages': pagesCollection,
+    'learnings': learningsCollection,
 };

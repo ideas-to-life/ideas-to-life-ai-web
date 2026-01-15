@@ -2,11 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ExperimentCard from '../components/ExperimentCard.astro';
+import WeeklyLearningCard from '../components/WeeklyLearningCard.astro';
 
 import { getCollection, getEntry } from 'astro:content';
 
 const home = await getEntry('pages', 'home');
 const experiments = await getCollection('experiments');
+const learnings = await getCollection('learnings');
+const latestLearning = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
 
 const { data } = home;
 
@@ -102,6 +105,22 @@ const steps = [
         ))}
       </div>
     </section>
+
+    <!-- Latest Learning Section -->
+    {latestLearning && (
+        <section id="learnings" class="max-w-[1100px] mx-auto px-6">
+            <div class="mb-12 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Latest Learning</h2>
+                <p class="text-white/50 text-xl">Fresh insights from the lab.</p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <WeeklyLearningCard learning={latestLearning} />
+            </div>
+            <div class="mt-8 text-center">
+                 <a href="/learnings" class="text-white/50 hover:text-white transition-colors border-b border-transparent hover:border-white/50 pb-1">View all learnings →</a>
+            </div>
+        </section>
+    )}
 
     <!-- Join Section -->
     <section id="journey" class="max-w-4xl mx-auto px-6 text-center pb-20">

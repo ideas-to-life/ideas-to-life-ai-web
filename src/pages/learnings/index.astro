@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WeeklyLearningCard from '../../components/WeeklyLearningCard.astro';
+import { getCollection } from 'astro:content';
+
+const learnings = await getCollection('learnings');
+const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Weekly Learnings | Ideas to Life" description="Weekly insights and learnings from our experiments.">
+  <div class="pt-32 pb-12 px-6 text-center">
+    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">Learnings</h1>
+    <p class="text-xl text-white/60 max-w-2xl mx-auto">
+      Insights, failures, and breakthroughs from our journey.
+      Sharing what we learn as we build.
+    </p>
+  </div>
+
+  <main class="max-w-[1400px] mx-auto px-6 pb-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedLearnings.map(learning => (
+        <WeeklyLearningCard learning={learning} />
+      ))}
+    </div>
+  </main>
+</BaseLayout>
