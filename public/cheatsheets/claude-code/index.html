@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .provenance {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .search-section {
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2d3561;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #2d3561;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .command {
+            background: #2d3561;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            background: #fff59d;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        footer {
+            background: #000000;
+            color: #808080;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            color: #808080;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #808080;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #808080;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .provenance {
+                font-size: 0.7rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .search-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="provenance">An Ideas to Life experiment</div>
+            <h1>🚀 Claude Code Cheat Sheet</h1>
+            <p class="subtitle">Your quick reference guide for AI-powered coding</p>
+        </header>
+
+        <div class="search-section">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search commands, tips, or workflows...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="getting-started">Getting Started</button>
+                <button class="filter-btn" data-filter="commands">Commands</button>
+                <button class="filter-btn" data-filter="workflows">Workflows</button>
+                <button class="filter-btn" data-filter="tips">Tips & Tricks</button>
+                <button class="filter-btn" data-filter="git">Git</button>
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <div class="section" data-category="getting-started">
+                <h2 class="section-title">Getting Started</h2>
+
+                <div class="card">
+                    <div class="card-title">Installation (Homebrew on Mac)</div>
+                    <div class="command">brew install --cask claude-code</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">First Time Setup</div>
+                    <div class="command">cd /path/to/your/project<br>claude
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+                        Start interactive mode<br>/login
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Log in
+                        (first time only)</div>
+                </div>
+            </div>
+
+            <div class="section" data-category="commands">
+                <h2 class="section-title">Essential Commands</h2>
+
+                <div class="card">
+                    <div class="card-title">Starting Claude Code</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>claude</code></td>
+                                <td>Start interactive mode</td>
+                            </tr>
+                            <tr>
+                                <td><code>claude "task"</code></td>
+                                <td>Run a one-time task</td>
+                            </tr>
+                            <tr>
+                                <td><code>claude -p "query"</code></td>
+                                <td>Quick query, then exit</td>
+                            </tr>
+                            <tr>
+                                <td><code>claude -c</code></td>
+                                <td>Continue most recent conversation</td>
+                            </tr>
+                            <tr>
+                                <td><code>claude -r</code></td>
+                                <td>Resume a previous conversation</td>
+                            </tr>
+                            <tr>
+                                <td><code>claude commit</code></td>
+                                <td>Create a Git commit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Slash Commands (Inside Claude Code)</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/help</code></td>
+                                <td>Show available commands</td>
+                            </tr>
+                            <tr>
+                                <td><code>/clear</code></td>
+                                <td>Clear conversation history</td>
+                            </tr>
+                            <tr>
+                                <td><code>/login</code></td>
+                                <td>Switch accounts</td>
+                            </tr>
+                            <tr>
+                                <td><code>/resume</code></td>
+                                <td>Resume a previous session</td>
+                            </tr>
+                            <tr>
+                                <td><code>/rename</code></td>
+                                <td>Name your current session</td>
+                            </tr>
+                            <tr>
+                                <td><code>/stats</code></td>
+                                <td>See usage graphs and history</td>
+                            </tr>
+                            <tr>
+                                <td><code>exit</code> or <code>Ctrl+C</code></td>
+                                <td>Exit Claude Code</td>
+                            </tr>
+                            <tr>
+                                <td><code>?</code></td>
+                                <td>See keyboard shortcuts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Keyboard Shortcuts</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Shortcut</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>Tab</code></td>
+                                <td>Command completion</td>
+                            </tr>
+                            <tr>
+                                <td><code>↑</code></td>
+                                <td>Command history</td>
+                            </tr>
+                            <tr>
+                                <td><code>Escape</code></td>
+                                <td>Interrupt Claude during any phase</td>
+                            </tr>
+                            <tr>
+                                <td><code>Double Escape</code></td>
+                                <td>Jump back in history and edit previous prompt</td>
+                            </tr>
+                            <tr>
+                                <td><code>Shift+Tab</code></td>
+                                <td>Toggle accept all mode</td>
+                            </tr>
+                            <tr>
+                                <td><code>?</code></td>
+                                <td>Show all shortcuts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section" data-category="workflows">
+                <h2 class="section-title">Common Workflows</h2>
+
+                <div class="card">
+                    <div class="card-title">Understanding Your Codebase</div>
+                    <div class="command">&gt; what does this project do?<br>&gt; explain the folder structure<br>&gt;
+                        what technologies does this project use?<br>&gt; where is the main entry point?</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Making Code Changes</div>
+                    <div class="command">&gt; add a hello world function to the main file<br>&gt; refactor the
+                        authentication module to use async/await<br>&gt; add input validation to the user registration
+                        form</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Debugging</div>
+                    <div class="command">&gt; there's a bug where users can submit empty forms - fix it<br>&gt; paste
+                        error message here - help me fix it<br>&gt; analyze why the login fails</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Testing & Documentation</div>
+                    <div class="command">&gt; write unit tests for the calculator functions<br>&gt; update the README
+                        with installation instructions<br>&gt; add inline documentation to this function<br>&gt; review
+                        my changes and suggest improvements</div>
+                </div>
+            </div>
+
+            <div class="section" data-category="git">
+                <h2 class="section-title">Git Operations</h2>
+
+                <div class="card">
+                    <div class="card-title">Common Git Commands</div>
+                    <div class="command">&gt; what files have I changed?<br>&gt; commit my changes with a descriptive
+                        message<br>&gt; create a new branch called feature/quickstart<br>&gt; show me the last 5
+                        commits<br>&gt; help me resolve merge conflicts</div>
+                </div>
+            </div>
+
+            <div class="section" data-category="tips">
+                <h2 class="section-title">Pro Tips & Best Practices</h2>
+
+                <div class="tip">
+                    <div class="tip-title">💡 Be Specific</div>
+                    <strong>Instead of:</strong> "fix the bug"<br>
+                    <strong>Try:</strong> "fix the login bug where users see a blank screen after entering wrong
+                    credentials"
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">💡 Break Down Complex Tasks</div>
+                    <div class="command">&gt; 1. create a new database table for user profiles<br>&gt; 2. create an API
+                        endpoint to get and update user profiles<br>&gt; 3. build a webpage that allows users to see and
+                        edit their information</div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">💡 Let Claude Explore First</div>
+                    <div class="command">&gt; analyze the database schema before making changes<br>&gt; read the
+                        authentication module and explain how it works</div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">💡 Use CLAUDE.md File</div>
+                    Create a <code>CLAUDE.md</code> file in your project root to provide context:
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Project overview and architecture</li>
+                        <li>Coding standards and conventions</li>
+                        <li>Dependencies and setup instructions</li>
+                        <li>Custom commands and workflows</li>
+                    </ul>
+                    Claude automatically reads this file at the start of each session.
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">💡 Talk Like a Colleague</div>
+                    Talk to Claude Code like you would a helpful colleague - describe what you want to achieve in
+                    natural language, and Claude will help you get there.
+                </div>
+            </div>
+
+            <div class="section" data-category="tips">
+                <h2 class="section-title">Advanced Features</h2>
+
+                <div class="card">
+                    <div class="card-title">Permission Modes</div>
+                    <p>Claude always asks for permission before modifying files:</p>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li><strong>Individual approval:</strong> Review each change</li>
+                        <li><strong>Accept all mode:</strong> Auto-approve for current session (Shift+Tab to toggle)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Sub-agents</div>
+                    <p>Create specialized AI assistants for specific tasks:</p>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Code Reviewer</li>
+                        <li>Test Engineer</li>
+                        <li>Documentation Writer</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Getting Help</div>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li><strong>In Claude Code:</strong> Type <code>/help</code> or ask "how do I..."</li>
+                        <li><strong>Documentation:</strong> <a href="https://code.claude.com/docs"
+                                target="_blank">https://code.claude.com/docs</a></li>
+                        <li><strong>Community:</strong> Join the Discord at <a href="https://www.anthropic.com/discord"
+                                target="_blank">https://www.anthropic.com/discord</a></li>
+                        <li><strong>Bug reports:</strong> Use <code>/bug</code> command within Claude Code</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <p>No results found. Try a different search term or filter.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-title">Ideas to Life</div>
+                <div class="footer-subtitle">Published by Alexandre Franco · <a href="https://ideas-to-life.ai"
+                        target="_blank">ideas-to-life.ai</a></div>
+                <div class="footer-tagline">
+                    Turning ideas into consumer experiences with Generative AI.<br>
+                    — Built with transparency. Shipped with intent.
+                </div>
+                <div class="footer-links">
+                    <span>© 2026 Ideas to Life. All rights reserved.</span>
+                    <span>·</span>
+                    <a href="#" target="_blank">RSS</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const content = document.getElementById('content');
+        const sections = document.querySelectorAll('.section');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const noResults = document.getElementById('noResults');
+
+        let currentFilter = 'all';
+
+        // Search functionality
+        searchBox.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filterContent(searchTerm, currentFilter);
+        });
+
+        // Filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                filterContent(searchBox.value.toLowerCase(), currentFilter);
+            });
+        });
+
+        function filterContent(searchTerm, filter) {
+            let visibleCount = 0;
+
+            sections.forEach(section => {
+                const category = section.dataset.category;
+
+                // Check if category matches the filter
+                const matchesFilter = filter === 'all' || category === filter;
+
+                // For search, check both section title and individual cards
+                let matchesSearch = searchTerm === '';
+                let hasMatchingCards = false;
+
+                if (searchTerm !== '') {
+                    const sectionTitle = section.querySelector('.section-title').textContent.toLowerCase();
+                    const cards = section.querySelectorAll('.card, .tip');
+
+                    // Check section title
+                    if (sectionTitle.includes(searchTerm)) {
+                        matchesSearch = true;
+                    }
+
+                    // Check individual cards and hide/show them
+                    cards.forEach(card => {
+                        const cardText = card.textContent.toLowerCase();
+                        if (cardText.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            matchesSearch = true;
+                            hasMatchingCards = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                } else {
+                    // Show all cards when no search term
+                    const cards = section.querySelectorAll('.card, .tip');
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if (matchesSearch && matchesFilter) {
+                    section.classList.remove('hidden');
+                    visibleCount++;
+
+                    // Highlight search term
+                    if (searchTerm !== '') {
+                        highlightText(section, searchTerm);
+                    } else {
+                        removeHighlights(section);
+                    }
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function highlightText(element, searchTerm) {
+            const cards = element.querySelectorAll('.card, .tip');
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('.card-title, .tip-title');
+                if (cardTitle) {
+                    const text = cardTitle.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        card.style.borderLeftColor = '#ffc107';
+                        card.style.background = '#fff9e6';
+                    }
+                }
+            });
+        }
+
+        function removeHighlights(element) {
+            const cards = element.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.borderLeftColor = '#667eea';
+                card.style.background = '#f8f9fa';
+            });
+            const tips = element.querySelectorAll('.tip');
+            tips.forEach(tip => {
+                tip.style.borderLeftColor = '#ffc107';
+                tip.style.background = '#fff3cd';
+            });
+        }
+
+        // Add copy functionality to code blocks
+        document.querySelectorAll('.command').forEach(cmd => {
+            cmd.style.cursor = 'pointer';
+            cmd.title = 'Click to copy';
+            cmd.addEventListener('click', () => {
+                const text = cmd.textContent.replace(/\s+/g, ' ').trim();
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = cmd.style.background;
+                    cmd.style.background = '#4caf50';
+                    setTimeout(() => {
+                        cmd.style.background = original;
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

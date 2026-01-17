@@ -12,7 +12,7 @@ const experimentsCollection = defineCollection({
         domain: z.array(z.string()),
         deployment: z.string().optional(),
         repo: z.string().url().optional(),
-        demo: z.string().url().optional(),
+        demo: z.string().optional(),
         tags: z.array(z.string()).optional(),
     }),
 });
