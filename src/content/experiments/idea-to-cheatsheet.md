@@ -1,30 +1,35 @@
 ---
-title: "idea-to-cheatsheet"
-summary: "Interactive cheat sheet for idea generation."
-description: "A tool to help you convert ideas into structured formats."
+title: "Idea to Cheat Sheet"
+summary: "Interactive cheat sheets that lower the barrier to learning new tools, ideas, and frameworks."
+description: "An experiment exploring how interactive cheat sheets can turn ideas into fast, practical reference artifacts."
 status: "exploring"
-domain: ["Productivity", "Frameworks"]
+domain: ["Productivity", "Frameworks", "Learning"]
 image: "/assets/ideas-to-cheatsheet.png"
 date: 2026-01-17
 tags: ["cheatsheet", "ideas", "structure"]
 demo: "/cheatsheets/claude-code/"
 ---
 
-# idea-to-cheatsheet
+# Idea to Cheat Sheet
 
 ## Why This Exists
-Great ideas often get lost because they lack structure. This experiment explores how to quickly convert raw thoughts into actionable cheat sheets and frameworks.
+Learning new tools and frameworks often involves jumping between long-form documentation, tutorials, and scattered notes. This experiment explores a lighter alternative: concise, interactive cheat sheets that make it easier to get started and stay productive.
 
 ## What This Experiment Explores
-We are testing structured templates and interactive inputs to help users organize their thinking patterns into reusable formats.
+Interactive cheat sheets designed to sit between documentation and tutorials:
+- Smaller than tutorials
+- More actionable than blog posts
+- Easier to maintain than full documentation
+- Well suited for fast-moving tools (such as AI coding CLIs)
 
 ## Key Features
-- Interactive input fields
-- Pre-defined structure templates
-- Instant content formatting
+- Clear visual hierarchy for fast scanning
+- Search and filter for real usability
+- Click-to-copy commands for frictionless reuse
+- Categories that reflect real workflows rather than marketing concepts
 
 ## Current Status
-We are **Exploring** different cheat sheet layouts and interactive elements.
+This experiment is currently in the **Exploring** phase, focusing on layout patterns, interaction design, and reusability across multiple cheat sheets.
 
 ## Links
-- [Open Interactive Cheat Sheet](/cheatsheets/claude-code/index.html)
+- <a href="/cheatsheets/claude-code/index.html" target="_blank" rel="noopener noreferrer">Open interactive Claude Code cheat sheet</a>
