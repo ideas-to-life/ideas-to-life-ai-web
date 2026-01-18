@@ -32,4 +32,7 @@ Interactive cheat sheets designed to sit between documentation and tutorials:
 This experiment is currently in the **Exploring** phase, focusing on layout patterns, interaction design, and reusability across multiple cheat sheets.
 
 ## Links
-- <a href="/cheatsheets/claude-code/index.html" target="_blank" rel="noopener noreferrer">Open interactive Claude Code cheat sheet</a>
+Interactive cheat sheets:
+- <a href="/cheatsheets/claude-index.html" target="_blank" rel="noopener noreferrer">Claude Code cheat sheet</a>
+- <a href="/cheatsheets/google-adk-index.html" target="_blank" rel="noopener noreferrer">Google ADK cheat sheet</a>
+- <a href="/cheatsheets/powerpoint-index.html" target="_blank" rel="noopener noreferrer">PowerPoint cheat sheet</a>
