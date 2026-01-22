@@ -2,7 +2,7 @@
 title: "idea-to-story"
 summary: "Expand a seed idea into coherent stories, scripts, and world-building assets."
 description: "Expand a seed idea into coherent stories, scripts, and world-building assets."
-status: "exploring"
+status: "paused"
 domain: ["Storytelling", "World Building"]
 image: "/assets/story.png"
 date: 2026-01-03

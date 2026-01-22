@@ -8,7 +8,7 @@ const experimentsCollection = defineCollection({
         summary: z.string(),
         image: z.string(),
         date: z.date().optional(),
-        status: z.enum(['exploring', 'validating', 'shipping', 'paused']),
+        status: z.enum(['exploring', 'validating', 'shipping', 'paused', 'archived']),
         domain: z.array(z.string()),
         deployment: z.string().optional(),
         repo: z.string().url().optional(),

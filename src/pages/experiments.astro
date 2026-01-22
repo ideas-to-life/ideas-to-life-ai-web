@@ -10,12 +10,14 @@ const shipping = experiments.filter(e => e.data.status === 'shipping').sort(byTi
 const validating = experiments.filter(e => e.data.status === 'validating').sort(byTitle);
 const exploring = experiments.filter(e => e.data.status === 'exploring').sort(byTitle);
 const paused = experiments.filter(e => e.data.status === 'paused').sort(byTitle);
+const archived = experiments.filter(e => e.data.status === 'archived').sort(byTitle);
 
 const statusConfig = {
     shipping: { emoji: '🚢', title: 'Shipping', desc: 'Systems approaching production, with real deployments or pilots.' },
     validating: { emoji: '🚧', title: 'Validating', desc: 'Active pilots and prototypes being tested with real users.' },
     exploring: { emoji: '🧪', title: 'Exploring', desc: 'Early-stage research and proof-of-concepts.' },
-    paused: { emoji: '⏸️', title: 'Paused', desc: 'Experiments on hold or completed.' }
+    paused: { emoji: '⏸️', title: 'Paused', desc: 'Experiments on hold or completed.' },
+    archived: { emoji: '📦', title: 'Archived', desc: 'Past experiments that are no longer active.' }
 };
 ---
 
@@ -86,6 +88,21 @@ const statusConfig = {
                  </div>
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {paused.map(e => <ExperimentCard experiment={e} />)}
+                 </div>
+            </section>
+        )}
+
+        {archived.length > 0 && (
+            <section class="opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.archived.emoji}</span>
+                        {statusConfig.archived.title}
+                    </h2>
+                     <p class="text-white/50 pb-1 hidden md:block">{statusConfig.archived.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {archived.map(e => <ExperimentCard experiment={e} />)}
                  </div>
             </section>
         )}

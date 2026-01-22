@@ -2,7 +2,7 @@
 title: "idea-to-art"
 summary: "Transform abstract concepts into fully realized visual art and movie posters."
 description: "Transform abstract concepts into fully realized visual art and movie posters."
-status: "exploring"
+status: "paused"
 domain: ["Visual Design", "Style Transfer"]
 image: "/assets/art.png"
 date: 2026-01-03
