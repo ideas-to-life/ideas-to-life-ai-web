@@ -4,7 +4,7 @@ import WeeklyLearningCard from '../../components/WeeklyLearningCard.astro';
 import { getCollection } from 'astro:content';
 
 const learnings = await getCollection('learnings', ({ data }) => {
-    return !data.draft;
+    return !data.draft && data.type === 'weekly';
 });
 const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---

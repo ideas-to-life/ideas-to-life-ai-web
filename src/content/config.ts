@@ -42,16 +42,42 @@ const pagesCollection = defineCollection({
 
 const learningsCollection = defineCollection({
     type: 'content',
-    schema: z.object({
-        title: z.string().trim().min(8),
-        date: z.coerce.date(),
-        summary: z.string().trim().min(20).max(180),
-        tags: z
-            .array(z.string().trim().toLowerCase().min(2).max(24))
-            .max(8)
-            .optional(),
-        draft: z.boolean().optional().default(false),
-    }),
+    // Use preprocess to default 'type' to 'weekly' if missing
+    schema: z.preprocess(
+        (data) => {
+            const d = data as Record<string, unknown>;
+            if (!d.type) return { ...d, type: 'weekly' };
+            return d;
+        },
+        z.discriminatedUnion('type', [
+            // Type: Weekly (Legacy behavior - strictly validated)
+            z.object({
+                type: z.literal('weekly'),
+                title: z.string().trim().min(8),
+                date: z.coerce.date(),
+                summary: z.string().trim().min(20).max(180),
+                tags: z
+                    .array(z.string().trim().toLowerCase().min(2).max(24))
+                    .max(8)
+                    .optional(),
+                draft: z.boolean().optional().default(false),
+            }),
+            // Type: Thread (New behavior - looser validation)
+            z.object({
+                type: z.literal('thread'),
+                title: z.string().trim().min(8),
+                date: z.coerce.date().optional(), // Optional for threads
+                summary: z.string().optional(),     // Optional for threads
+                firstObserved: z.coerce.date().optional(),
+                lastUpdated: z.coerce.date().optional(),
+                tags: z
+                    .array(z.string().trim().toLowerCase().min(2).max(24))
+                    .max(8)
+                    .optional(),
+                draft: z.boolean().optional().default(false),
+            }),
+        ])
+    ),
 });
 
 export const collections = {

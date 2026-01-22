@@ -4,14 +4,15 @@ import Hero from '../components/Hero.astro';
 import ExperimentCard from '../components/ExperimentCard.astro';
 import WeeklyLearningCard from '../components/WeeklyLearningCard.astro';
 
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 
 const home = await getEntry('pages', 'home');
 const experiments = await getCollection('experiments');
-const learnings = await getCollection('learnings', ({ data }) => {
-    return !data.draft;
+const learnings = await getCollection('learnings');
+const weeklyLearnings = learnings.filter((entry): entry is CollectionEntry<'learnings'> & { data: { type: 'weekly' } } => {
+    return !entry.data.draft && entry.data.type === 'weekly';
 });
-const latestLearning = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+const latestLearning = weeklyLearnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
 
 const { data } = home;
 

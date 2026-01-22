@@ -1,11 +1,12 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function GET(context: any) {
-    const learnings = await getCollection('learnings', ({ data }) => {
-        return !data.draft;
-    });
+    const learnings = await getCollection('learnings');
     const validLearnings = learnings
+        .filter((entry): entry is CollectionEntry<'learnings'> & { data: { type: 'weekly' } } => {
+            return !entry.data.draft && entry.data.type === 'weekly';
+        })
         .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
     return rss({

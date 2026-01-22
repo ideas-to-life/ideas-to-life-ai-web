@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const learnings = await getCollection('learnings', ({ data }) => {
@@ -12,30 +12,42 @@ export async function getStaticPaths() {
   }));
 }
 
+interface Props {
+  entry: CollectionEntry<'learnings'>;
+}
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const formattedDate = entry.data.date.toLocaleDateString('en-US', {
+const dateToDisplay = entry.data.type === 'weekly' 
+  ? entry.data.date 
+  : (entry.data.type === 'thread' ? (entry.data.lastUpdated || entry.data.firstObserved) : undefined);
+
+const formattedDate = dateToDisplay ? dateToDisplay.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
-});
+}) : null;
+
+const typeLabel = entry.data.type === 'weekly' ? 'Weekly Learning' : 'Learning Thread';
 ---
 
-<BaseLayout title={`${entry.data.title} | Weekly Learnings`} description={entry.data.summary}>
+<BaseLayout title={`${entry.data.title} | ${typeLabel}`} description={entry.data.summary ?? entry.data.title}>
   <article class="pt-32 pb-32 max-w-3xl mx-auto px-6">
     <header class="text-center mb-16 space-y-6">
         <div class="flex items-center justify-center gap-4 text-sm text-white/40 font-mono uppercase tracking-widest">
-            <time datetime={entry.data.date.toISOString()}>{formattedDate}</time>
-            <span>•</span>
-            <span>Weekly Learning</span>
+            {formattedDate && <time datetime={dateToDisplay?.toISOString()}>{formattedDate}</time>}
+            {formattedDate && <span>•</span>}
+            <span>{typeLabel}</span>
         </div>
       <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight">
         {entry.data.title}
       </h1>
-      <p class="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-        {entry.data.summary}
-      </p>
+      {entry.data.summary && (
+        <p class="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+            {entry.data.summary}
+        </p>
+      )}
     </header>
 
     <div class="prose prose-invert prose-lg mx-auto prose-headings:font-display prose-headings:font-bold prose-p:text-white/80 prose-a:text-accent-blue hover:prose-a:text-accent-violet prose-a:no-underline hover:prose-a:underline prose-li:text-white/80">

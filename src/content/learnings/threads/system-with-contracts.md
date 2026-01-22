@@ -1,9 +1,10 @@
 ---
 title: "From components to a system with contracts"
-date: 2026-01-30
-summary: "This week focused on turning Ideas-to-Life from a loose collection of prompts into a coherent system by clarifying structure, dependencies, and explicit contracts."
+type: thread
+first-observed: 2026-01-23
+last-updated: 2026-01-23
+related-weeks: ["2026-01-23"]
 tags: ["process", "experimentation", "platform", "governance"]
-draft: true
 ---
 
 ### This week’s focus
