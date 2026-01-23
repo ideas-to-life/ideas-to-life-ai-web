@@ -47,7 +47,7 @@ Use a concrete personal need as a test case to refine how Ideas to Life experime
 - Separate narrative (experiments) from artefacts to keep systems legible.
 - Velocity comes from removing friction, not rushing execution.
 
-### Looking ahead (optional)
+### Looking ahead
 
 - Make intent and deployment defaults explicit earlier in future experiments.
 - Define clearer heuristics for when to stop exploring options and commit.

@@ -39,6 +39,6 @@ The feeling of being “lost” was not due to system complexity, but to the abs
 - Separating intent (templates) from execution (prompts) prevents drift.
 - Governance artefacts work best when treated as first-class system components.
 
-### Looking ahead (optional)
+### Looking ahead
 
 Next steps are to validate whether the current structure holds under new experiments, and to observe where the contracts or lifecycle vocabulary need refinement as the platform evolves.
