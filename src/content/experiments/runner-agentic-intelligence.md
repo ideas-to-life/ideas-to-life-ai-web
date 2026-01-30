@@ -37,7 +37,7 @@ All without requiring data science or coaching expertise.
 • Pydantic schemas for model outputs
 
 **Data Pipeline**
-• TCX file ingestion
+• TCX, GPX, FIT files ingestion
 • Multi-agent reasoning
 • Visualisation generation
 • Chat interface for coaching
