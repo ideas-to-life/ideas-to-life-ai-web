@@ -2,7 +2,7 @@
 title: "Runner Agentic Intelligence"
 summary: "Agentic Intelligent ecosystem that empowers every runner with insights."
 description: "Multi-agentic system that coaches runners by generating personalised training plans, insights, charts, and chat with your running data."
-image: "/assets/runner.ai.png"
+image: "/assets/runner.ai.v2.png"
 date: 2026-01-03
 status: "exploring"
 domain: ["Autonomous Agents", "Task Execution"]
