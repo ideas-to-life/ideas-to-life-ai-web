@@ -8,8 +8,6 @@ tags: ["architecture", "experimentation"]
 draft: false
 ---
 
-# Architecture Signals & Invalidated Assumptions — Retrospective
-
 Scope:
 - Source: Weekly Learnings from 2026-01-09 to 2026-01-30
 - Nature: Retrospective synthesis
