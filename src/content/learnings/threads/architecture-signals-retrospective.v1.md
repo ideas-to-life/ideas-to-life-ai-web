@@ -1,5 +1,6 @@
 ---
 title: "Architecture signals & invalidated assumptions"
+slug: threads/architecture-signals-retrospective.v1
 type: thread
 first-observed: 2026-01-31
 last-updated: 2026-01-31
@@ -25,6 +26,6 @@ Scope:
 - Assumption: Progress equals visible shipping every week → Progress can be stabilisation, hardening, and synthesis when it protects system integrity.
 - Assumption: Flexible prompts and ad-hoc workflows are sufficient → Explicit contracts and structured pipelines are required for consistency.
 
-## Confidence notes (optional)
+## Confidence notes
 
 - Signals observed across multiple weeks: stabilization-before-scaling, prompt/schema contracts, evidence-first documentation, synthesis guardrails.

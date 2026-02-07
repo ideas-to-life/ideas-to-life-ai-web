@@ -3,8 +3,8 @@ title: "Runner Agentic Intelligence"
 summary: "Agentic Intelligent ecosystem that empowers every runner with insights."
 description: "Multi-agentic system that coaches runners by generating personalised training plans, insights, charts, and chat with your running data."
 image: "/assets/runner.ai.v2.png"
-date: 2026-01-03
-status: "exploring"
+date: 2026-02-07
+status: "validating"
 domain: ["Autonomous Agents", "Task Execution"]
 tags: ["agents", "automation", "validating"]
 ---
@@ -42,6 +42,15 @@ All without requiring data science or coaching expertise.
 • Visualisation generation
 • Chat interface for coaching
 
-
 ## Current Status
 This experiment is in the **Validating** phase.
+
+## Live demo
+A first public release of Runner Agentic Intelligence is now live. Supports English and Brazilian Portuguese.
+
+This is an early, validating release intended to:
+- test usefulness with real runners
+- surface gaps in insights and interaction
+- inform the next iteration of the system
+
+→ https://runner.ideas-to-life.ai
