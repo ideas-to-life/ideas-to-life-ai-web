@@ -14,6 +14,7 @@ const experimentsCollection = defineCollection({
         repo: z.string().url().optional(),
         demo: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        draft: z.boolean().optional().default(false),
     }),
 });
 

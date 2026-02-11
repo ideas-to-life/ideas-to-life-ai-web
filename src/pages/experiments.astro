@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperimentCard from '../components/ExperimentCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const experiments = await getCollection('experiments');
+const experiments = (await getCollection('experiments')).filter(e => !e.data.draft);
 
 const byTitle = (a: CollectionEntry<'experiments'>, b: CollectionEntry<'experiments'>) => a.data.title.localeCompare(b.data.title);
 const shipping = experiments.filter(e => e.data.status === 'shipping').sort(byTitle);
