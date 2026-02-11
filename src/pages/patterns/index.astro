@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PatternCard from '../../components/PatternCard.astro';
+import { getCollection } from 'astro:content';
+
+const patterns = (await getCollection('patterns'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+---
+
+<BaseLayout title="Architecture Patterns | Ideas to Life" description="A reusable architecture catalogue for agentic systems.">
+    <!-- Header -->
+    <div class="pt-32 pb-12 px-6 text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">Patterns</h1>
+        <p class="text-xl text-white/60 max-w-2xl mx-auto">
+            A reusable architecture catalogue of patterns and heuristics for agentic AI systems.
+            These patterns are derived from evidence across our experiments and learnings.
+        </p>
+    </div>
+
+    <main class="max-w-[1400px] mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {patterns.map(p => <PatternCard pattern={p} />)}
+        </div>
+
+        {patterns.length === 0 && (
+          <div class="text-center py-20">
+            <p class="text-white/40 italic">No patterns published yet. Check back soon.</p>
+          </div>
+        )}
+    </main>
+
+    <section class="text-center pt-24 pb-32">
+      <p class="text-white/50 max-w-3xl mx-auto text-lg">
+        Patterns are not just ideas—they are proven solutions to recurring problems in specific contexts.
+      </p>
+    </section>
+</BaseLayout>

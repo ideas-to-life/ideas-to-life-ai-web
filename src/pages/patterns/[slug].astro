@@ -1,0 +1,133 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const patterns = await getCollection('patterns');
+  return patterns.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const frontmatter = {
+    title: entry.data.title,
+    description: entry.data.summary,
+};
+
+// Fetch related content if IDs are provided
+const relatedExperiments = entry.data.relatedExperiments 
+    ? await Promise.all(entry.data.relatedExperiments.map(slug => getEntry('experiments', slug)))
+    : [];
+
+const relatedLearnings = entry.data.relatedLearnings
+    ? await Promise.all(entry.data.relatedLearnings.map(slug => getEntry('learnings', slug)))
+    : [];
+
+const statusColors = {
+  exploring: "bg-purple-500/20 text-purple-300",
+  validating: "bg-blue-500/20 text-blue-300",
+  stable: "bg-emerald-500/20 text-emerald-300",
+  retired: "bg-gray-500/20 text-gray-300",
+};
+
+const confidenceColors = {
+  low: "bg-amber-500/20 text-amber-300",
+  medium: "bg-blue-500/20 text-blue-300",
+  high: "bg-emerald-500/20 text-emerald-300",
+};
+
+---
+
+<PageLayout frontmatter={frontmatter}>
+    <div class="mb-12">
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+            <span class:list={[
+                 "px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/10",
+                 confidenceColors[entry.data.confidence]
+               ]}>
+                 Confidence: {entry.data.confidence}
+            </span>
+            <span class="text-sm font-medium px-4 py-2 bg-white/5 rounded-full text-white/50 border border-white/5 tracking-widest">
+                <span class="uppercase">Pattern ID:</span>
+                <code class="ml-2 font-mono text-white/70">{entry.data.patternId}</code>
+            </span>
+            <span class:list={[
+                 "px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/10",
+                 statusColors[entry.data.status]
+               ]}>
+                 {entry.data.status}
+            </span>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-12">
+            {entry.data.domain.map(d => (
+                <span class="text-xs font-bold px-3 py-1 bg-accent-blue/10 rounded-full text-accent-blue border border-accent-blue/20 uppercase tracking-tight">
+                  {d}
+                </span>
+            ))}
+            {entry.data.tags.map(tag => (
+                <span class="text-xs font-medium px-3 py-1 bg-white/5 rounded-full text-white/40 border border-white/5 uppercase tracking-tight">
+                  #{tag}
+                </span>
+            ))}        
+            <span class="text-sm font-medium px-3 py-1 bg-white/5 rounded-full text-white/50 border border-white/5 uppercase tracking-widest">
+                {entry.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </span>
+        </div>
+    </div>
+
+  <article class="prose prose-invert prose-lg md:prose-xl max-w-none mb-20">
+    <Content />
+  </article>
+
+  {(relatedExperiments.length > 0 || relatedLearnings.length > 0 || entry.data.sources) && (
+    <section class="mt-32 pt-16 border-t border-white/10 space-y-16">
+        {relatedLearnings.length > 0 && (
+            <div>
+                <h3 class="font-display text-2xl font-bold mb-6">Related Learnings</h3>
+                <ul class="space-y-4">
+                    {relatedLearnings.map(learn => learn && (
+                        <li>
+                            <a href={`/learnings/${learn.slug}`} class="flex items-center gap-4 text-white/70 hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent-blue"></span>
+                                <span class="font-medium underline decoration-white/20 underline-offset-4">{learn.data.title}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )}
+
+        {entry.data.sources && (
+            <div>
+                <h3 class="font-display text-2xl font-bold mb-4">Sources & References</h3>
+                <ul class="list-disc list-inside text-white/60 space-y-2">
+                    {entry.data.sources.map(source => (
+                        <li>{source}</li>
+                    ))}
+                </ul>
+            </div>
+        )}
+
+        {relatedExperiments.length > 0 && (
+            <div>
+                <h3 class="font-display text-2xl font-bold mb-6">Related Experiments</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {relatedExperiments.map(exp => exp && (
+                        <a href={`/experiments/${exp.slug}`} class="glass p-6 rounded-2xl hover:bg-white/5 transition-colors group">
+                            <h4 class="font-bold group-hover:text-accent-blue transition-colors">{exp.data.title}</h4>
+                            <p class="text-sm text-white/50 mt-1">{exp.data.summary}</p>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        )}
+
+    </section>
+  )}
+
+</PageLayout>

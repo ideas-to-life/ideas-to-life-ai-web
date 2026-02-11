@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const learnings = await getCollection('learnings', ({ data }) => {
     return !data.draft && data.type === 'weekly';
 });
-const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sortedLearnings = learnings.sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
 ---
 
 <BaseLayout title="Weekly Learnings | Ideas to Life" description="Weekly insights and learnings from our experiments.">

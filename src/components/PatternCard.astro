@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  pattern: CollectionEntry<'patterns'>;
+}
+
+const { pattern } = Astro.props;
+
+const statusColors = {
+  exploring: "bg-purple-500/20 text-purple-300",
+  validating: "bg-blue-500/20 text-blue-300",
+  stable: "bg-emerald-500/20 text-emerald-300",
+  retired: "bg-gray-500/20 text-gray-300",
+};
+
+const confidenceColors = {
+  low: "text-amber-400/80",
+  medium: "text-blue-400/80",
+  high: "text-emerald-400/80",
+};
+---
+
+<a href={`/patterns/${pattern.slug}`} class="block h-full">
+  <div class="glass group relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2 h-full flex flex-col p-8 space-y-6">
+    <div class="flex justify-between items-start">
+      <span class:list={[
+        "px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border border-white/10",
+        statusColors[pattern.data.status]
+      ]}>
+        {pattern.data.status}
+      </span>
+      <span class="text-[10px] font-medium text-white/40 uppercase tracking-widest">
+        {new Date(pattern.data.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+      </span>
+    </div>
+
+    <div class="space-y-3 flex-1">
+      <h3 class="font-display text-2xl font-bold leading-tight group-hover:text-accent-blue transition-colors">
+        {pattern.data.title}
+      </h3>
+      <p class="text-white/60 text-sm leading-relaxed line-clamp-3">
+        {pattern.data.summary}
+      </p>
+    </div>
+
+    <div class="space-y-4 pt-4 border-t border-white/5">
+      <div class="flex items-center gap-2">
+        <span class="text-[10px] uppercase tracking-widest text-white/30 font-bold">Confidence:</span>
+        <span class:list={["text-xs font-bold uppercase tracking-tight", confidenceColors[pattern.data.confidence]]}>
+          {pattern.data.confidence}
+        </span>
+      </div>
+      
+      <div class="flex flex-wrap gap-2">
+        {pattern.data.tags.slice(0, 3).map(tag => (
+          <span class="text-[10px] font-medium px-2 py-1 bg-white/5 rounded-md text-white/40 border border-white/5 uppercase tracking-wider">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</a>

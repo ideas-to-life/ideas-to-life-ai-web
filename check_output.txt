@@ -1,0 +1,35 @@
+23:05:01 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+23:05:01 [@astrojs/cloudflare] If you see the error "Invalid binding `SESSION`" in your build output, you need to add the binding to your wrangler config file.
+23:05:01 [WARN] [adapter] Cloudflare does not support sharp at runtime. However, you can configure `imageService: "compile"` to optimize images with sharp on prerendered pages during build time.
+23:05:02 [content] Syncing content
+23:05:02 [content] Synced content
+23:05:02 [types] Generated 781ms
+23:05:02 [check] Getting diagnostics for Astro files in /Users/avfranco/Documents/ideas-to-life/ideas-to-file-ai-web...
+[96msrc/components/WeeklyLearningCard.astro[0m:[93m10[0m:[93m23[0m - [91merror[0m[90m ts(18048): [0m'learning.data.date' is possibly 'undefined'.
+
+[7m10[0m const formattedDate = learning.data.date.toLocaleDateString('en-US', {
+[7m  [0m [91m                      ~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/index.astro[0m:[93m55[0m:[93m33[0m - [91merror[0m[90m ts(7006): [0mParameter 'bullet' implicitly has an 'any' type.
+
+[7m55[0m           {data.whyBullets?.map(bullet => (
+[7m  [0m [91m                                ~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m17[0m:[93m9[0m - [91merror[0m[90m ts(2339): [0mProperty 'data' does not exist on type '{ id: string; render(): Promise<RenderResult>; slug: string; body: string; collection: "pages"; data: { title: string; description: string; heroTitle?: string | undefined; ... 13 more ...; quote?: string | undefined; }; rendered?: RenderedContent | undefined; filePath?: string | undefined; } | undefined'.
+
+[7m17[0m const { data } = home;
+[7m  [0m [91m        ~~~~[0m
+
+[96msrc/pages/learnings/index.astro[0m:[93m9[0m:[93m74[0m - [91merror[0m[90m ts(18048): [0m'a.data.date' is possibly 'undefined'.
+
+[7m9[0m const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+[7m [0m [91m                                                                         ~~~~~~~~~~~[0m
+[96msrc/pages/learnings/index.astro[0m:[93m9[0m:[93m50[0m - [91merror[0m[90m ts(18048): [0m'b.data.date' is possibly 'undefined'.
+
+[7m9[0m const sortedLearnings = learnings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+[7m [0m [91m                                                 ~~~~~~~~~~~[0m
+
+Result (23 files): 
+- 5 errors
+- 0 warnings
+- 0 hints
+

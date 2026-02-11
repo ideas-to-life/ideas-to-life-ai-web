@@ -81,8 +81,26 @@ const learningsCollection = defineCollection({
     ),
 });
 
+const patternsCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        patternId: z.string(),
+        title: z.string(),
+        summary: z.string(),
+        date: z.coerce.date(),
+        tags: z.array(z.string()),
+        status: z.enum(['exploring', 'validating', 'stable', 'retired']),
+        confidence: z.enum(['low', 'medium', 'high']),
+        domain: z.array(z.string()),
+        relatedExperiments: z.array(z.string()).optional(),
+        relatedLearnings: z.array(z.string()).optional(),
+        sources: z.array(z.string()).optional(),
+    }),
+});
+
 export const collections = {
     'experiments': experimentsCollection,
     'pages': pagesCollection,
     'learnings': learningsCollection,
+    'patterns': patternsCollection,
 };

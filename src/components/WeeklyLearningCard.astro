@@ -7,7 +7,8 @@ interface Props {
 
 const { learning } = Astro.props;
 
-const formattedDate = learning.data.date.toLocaleDateString('en-US', {
+const date = learning.data.date || new Date();
+const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
