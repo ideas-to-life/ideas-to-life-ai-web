@@ -38,3 +38,7 @@ Empower people with ability to harness the value of Enterprise Architecture with
 
 ## Current Status
 This experiment is in the **Validating** phase and continuous evolution exploring new architecture patterns and capabilities with sample datasets.
+
+## Live demo
+
+→ https://ea4all.ideas-to-life.ai

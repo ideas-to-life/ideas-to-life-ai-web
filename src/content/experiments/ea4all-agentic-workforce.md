@@ -35,3 +35,7 @@ Enhance user experience by providing a more personalised and interactive way to 
 ## Current Status
 
 This experiment is in the **Validating** phase and continuous evolution, with active UI refactoring and ongoing exploration of agent behaviors and orchestration patterns.
+
+## Live demo
+
+→ https://ea4all-workforce.ideas-to-life.ai
