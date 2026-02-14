@@ -55,4 +55,4 @@ Moving to Validating will require evidence that the pattern catalogue improves c
 ## Links
 
 - <a href="/cheatsheets/agentic-ai-patterns.html" target="_blank" rel="noopener noreferrer">Agentic AI Patterns cheat sheet</a>
-- <a href="/patterns">Catalog of Patterns</a>
+- <a href="/patterns">Catalogue of Patterns</a>
