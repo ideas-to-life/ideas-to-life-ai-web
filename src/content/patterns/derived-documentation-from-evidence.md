@@ -33,7 +33,7 @@ Introduce an **Evidence Collector** step before doc updates:
 - use the result to decide next work
 
 ## Implementation signals
-- Explicit separation between “current state” and “planned work”
+- Explicit separation between "current state" and "planned work"
 - Doc updates gated by evidence collection
 - Closed-loop workflow: issue → PR → tests → evidence → docs update
 
@@ -45,11 +45,11 @@ Introduce an **Evidence Collector** step before doc updates:
 
 ### Costs
 - Requires discipline to collect evidence before updating docs
-- Needs a minimal structure for what “evidence” means (tests, PRs, behaviours)
+- Needs a minimal structure for what "evidence" means (tests, PRs, behaviours)
 
 ### Failure modes
 - Evidence collection becomes incomplete or performative
-- Docs become “generated noise” if evidence sources aren’t constrained
+- Docs become "generated noise" if evidence sources aren't constrained
 
 ## Reuse notes
 Apply this anywhere documentation drift is common:

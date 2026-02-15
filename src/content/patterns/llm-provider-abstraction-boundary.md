@@ -31,7 +31,7 @@ Create a clear boundary between:
 Expose a stable interface (OpenAI-compatible or similar), and route all model calls through the adapter. Keep model selection in config, not code.
 
 ## Implementation signals
-- A single “LLM client” used across agents
+- A single "LLM client" used across agents
 - Provider/model selection occurs via configuration
 - Regression tests run across multiple providers with the same prompts/contracts
 

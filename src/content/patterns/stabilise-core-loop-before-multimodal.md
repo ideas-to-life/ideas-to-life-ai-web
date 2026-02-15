@@ -29,7 +29,7 @@ If the core loop is unstable, multimodal work becomes hard to diagnose and easy 
 - Feature breadth vs debuggability
 
 ## Solution
-Define a clear “core loop” (inputs → reasoning → tools → outputs) and stabilise it first:
+Define a clear "core loop" (inputs → reasoning → tools → outputs) and stabilise it first:
 - contracts (prompt/schema)
 - evaluation and regression tests
 - observability and traceability
@@ -51,12 +51,12 @@ Only then expand modalities behind flags or separate adapters.
 - Some insights may be delayed until richer inputs exist
 
 ### Failure modes
-- “Deferral” becomes permanent avoidance
+- "Deferral" becomes permanent avoidance
 - Multimodal requires rethinking contracts if postponed too long without design foresight
 
 ## Reuse notes
 Make deferral explicit:
-- define what “core loop stable” means
+- define what "core loop stable" means
 - list preconditions for enabling multimodal
 - keep a small spike path to avoid total blindness
 

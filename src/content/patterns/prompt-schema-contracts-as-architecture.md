@@ -15,7 +15,7 @@ sources: ["Runner Agentic Intelligence weekly learnings: output quality improved
 Improve reliability by constraining agent outputs through explicit structure rather than relying on model intelligence.
 
 ## Context
-Agentic systems fail subtly when outputs are ambiguous: inconsistent formatting, missing fields, low-actionability. These failures often appear as “quality issues” rather than bugs.
+Agentic systems fail subtly when outputs are ambiguous: inconsistent formatting, missing fields, low-actionability. These failures often appear as "quality issues" rather than bugs.
 
 ## Forces
 - Flexibility vs consistency
