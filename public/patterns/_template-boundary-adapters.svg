@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Pattern diagram template: boundary and adapters">
+  <defs>
+    <style>
+      .bg { fill: #0b0b0c; }
+      .panel { fill: #111114; stroke: #2a2a2f; stroke-width: 2; rx: 18; }
+      .node { fill: #0f0f12; stroke: #3a3a42; stroke-width: 2; rx: 16; }
+      .title { font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #f2f2f4; }
+      .subtitle { font: 500 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #b8b8c2; }
+      .label { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e6e6ea; letter-spacing: 0.3px; }
+      .note { font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a6a6b1; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #b8b8c2; }
+      .arrow { stroke: #5a5a66; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 7 7; }
+      .boundary { fill: none; stroke: #5a5a66; stroke-width: 2; stroke-dasharray: 10 8; rx: 18; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#5a5a66"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="620" rx="22"/>
+
+  <!-- Header -->
+  <rect class="panel" x="36" y="28" width="1128" height="92"/>
+  <text class="title" x="64" y="68">Pattern Name (Boundary + adapters)</text>
+  <text class="subtitle" x="64" y="98">A stable interface isolates internal logic from external providers</text>
+  <text class="mono" x="1048" y="68" text-anchor="end">patternId: your-pattern-id</text>
+
+  <!-- Diagram panel -->
+  <rect class="panel" x="36" y="140" width="1128" height="452"/>
+
+  <!-- Left: internal system -->
+  <rect class="node" x="90" y="280" width="260" height="140"/>
+  <text class="label" x="220" y="318" text-anchor="middle">Internal system</text>
+  <text class="note"  x="220" y="346" text-anchor="middle">agents / orchestration</text>
+  <text class="note"  x="220" y="368" text-anchor="middle">domain logic</text>
+
+  <!-- Boundary box -->
+  <rect class="boundary" x="390" y="220" width="360" height="260"/>
+  <text class="label" x="570" y="252" text-anchor="middle">Stable boundary</text>
+  <text class="note"  x="570" y="276" text-anchor="middle">interface + contracts</text>
+
+  <!-- Boundary node (adapter facade) -->
+  <rect class="node" x="450" y="310" width="240" height="120"/>
+  <text class="label" x="570" y="345" text-anchor="middle">Adapter / Facade</text>
+  <text class="note"  x="570" y="372" text-anchor="middle">validation, retries</text>
+  <text class="note"  x="570" y="394" text-anchor="middle">normalisation</text>
+
+  <!-- Right: external providers -->
+  <rect class="node" x="820" y="200" width="290" height="110"/>
+  <text class="label" x="965" y="234" text-anchor="middle">Provider A</text>
+  <text class="note"  x="965" y="262" text-anchor="middle">OpenAI / HF / etc.</text>
+
+  <rect class="node" x="820" y="340" width="290" height="110"/>
+  <text class="label" x="965" y="374" text-anchor="middle">Provider B</text>
+  <text class="note"  x="965" y="402" text-anchor="middle">Anthropic / local</text>
+
+  <rect class="node" x="820" y="480" width="290" height="90"/>
+  <text class="label" x="965" y="514" text-anchor="middle">Provider N</text>
+  <text class="note"  x="965" y="542" text-anchor="middle">(optional)</text>
+
+  <!-- Arrows -->
+  <path class="arrow" d="M 350 350 L 450 350"/>
+  <path class="arrow" d="M 690 350 L 820 255"/>
+  <path class="arrow" d="M 690 370 L 820 395"/>
+  <path class="arrow dashed" d="M 690 410 L 820 520"/>
+
+  <text class="note" x="80" y="178">Notes: Use for abstraction boundaries (LLM providers, tool protocols, storage, evaluation).</text>
+</svg>

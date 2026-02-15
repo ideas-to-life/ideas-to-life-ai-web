@@ -9,6 +9,7 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Runner Agentic Intelligence weekly learnings: output quality improved via stricter prompt structure and JSON schema"]
+diagram: "/patterns/prompt-schema-contracts-as-architecture.svg"
 ---
 
 ## Intent

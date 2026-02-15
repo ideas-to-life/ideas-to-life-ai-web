@@ -9,6 +9,7 @@ confidence: "medium"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Runner Agentic Intelligence weekly learnings: multimodal deferred until core flow stabilized"]
+diagram: "/patterns/stabilise-core-loop-before-multimodal.svg"
 ---
 
 ## Intent

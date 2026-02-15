@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Structured Output via Schema diagram">
+  <defs>
+    <style>
+      .bg { fill: #0b0b0c; }
+      .panel { fill: #111114; stroke: #2a2a2f; stroke-width: 2; rx: 18; }
+      .node { fill: #0f0f12; stroke: #3a3a42; stroke-width: 2; rx: 16; }
+      .title { font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #f2f2f4; }
+      .subtitle { font: 500 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #b8b8c2; }
+      .label { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e6e6ea; letter-spacing: 0.3px; }
+      .note { font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a6a6b1; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #b8b8c2; }
+      .arrow { stroke: #5a5a66; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 7 7; }
+      .boundary { fill: none; stroke: #5a5a66; stroke-width: 2; stroke-dasharray: 10 8; rx: 18; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#5a5a66"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="620" rx="22"/>
+
+  <rect class="panel" x="36" y="28" width="1128" height="92"/>
+  <text class="title" x="64" y="68">Structured Output via Schema</text>
+  <text class="subtitle" x="64" y="98">A schema boundary keeps agent outputs machine-readable</text>
+  <text class="mono" x="1048" y="68" text-anchor="end">patternId: structured-output-via-schema</text>
+
+  <rect class="panel" x="36" y="140" width="1128" height="452"/>
+
+  <rect class="node" x="90" y="280" width="260" height="140"/>
+  <text class="label" x="220" y="318" text-anchor="middle">Agent</text>
+  <text class="note"  x="220" y="346" text-anchor="middle">Generates insight/plan</text>
+  <text class="note"  x="220" y="368" text-anchor="middle">as structured output</text>
+
+  <rect class="boundary" x="390" y="220" width="360" height="260"/>
+  <text class="label" x="570" y="252" text-anchor="middle">Schema contract</text>
+  <text class="note"  x="570" y="276" text-anchor="middle">typed model + validation</text>
+
+  <rect class="node" x="450" y="310" width="240" height="120"/>
+  <text class="label" x="570" y="345" text-anchor="middle">Validator</text>
+  <text class="note"  x="570" y="372" text-anchor="middle">Pydantic / JSON</text>
+  <text class="note"  x="570" y="394" text-anchor="middle">reject / retry</text>
+
+  <rect class="node" x="820" y="240" width="290" height="110"/>
+  <text class="label" x="965" y="274" text-anchor="middle">Downstream</text>
+  <text class="note"  x="965" y="302" text-anchor="middle">UI / DB / charts</text>
+
+  <rect class="node" x="820" y="390" width="290" height="110"/>
+  <text class="label" x="965" y="424" text-anchor="middle">Fallback</text>
+  <text class="note"  x="965" y="452" text-anchor="middle">safe default output</text>
+
+  <path class="arrow" d="M 350 350 L 450 350"/>
+  <path class="arrow" d="M 690 350 L 820 295"/>
+  <path class="arrow dashed" d="M 690 390 L 820 445"/>
+
+  <text class="note" x="80" y="178">Notes: use when outputs must be parsed reliably; keep schemas small to reduce failures.</text>
+</svg>

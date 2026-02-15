@@ -9,6 +9,7 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Runner Agentic Intelligence weekly learnings: LLM abstraction via LiteLLM; cross-provider regression testing"]
+diagram: "/patterns/llm-provider-abstraction-boundary.svg"
 ---
 
 ## Intent

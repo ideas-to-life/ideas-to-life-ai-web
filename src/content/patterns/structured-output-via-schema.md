@@ -9,6 +9,7 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Formalising the Pattern Publication System"]
+diagram: "/patterns/structured-output-via-schema.svg"
 ---
 
 Intent

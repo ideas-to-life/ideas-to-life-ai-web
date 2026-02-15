@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Pattern diagram template: hub and spoke">
+  <defs>
+    <style>
+      .bg { fill: #0b0b0c; }
+      .panel { fill: #111114; stroke: #2a2a2f; stroke-width: 2; rx: 18; }
+      .node { fill: #0f0f12; stroke: #3a3a42; stroke-width: 2; rx: 16; }
+      .title { font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #f2f2f4; }
+      .subtitle { font: 500 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #b8b8c2; }
+      .label { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e6e6ea; letter-spacing: 0.3px; }
+      .note { font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a6a6b1; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #b8b8c2; }
+      .arrow { stroke: #5a5a66; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 7 7; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#5a5a66"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="720" rx="22"/>
+
+  <!-- Header -->
+  <rect class="panel" x="36" y="28" width="1128" height="92"/>
+  <text class="title" x="64" y="68">Pattern Name (Hub-and-spoke)</text>
+  <text class="subtitle" x="64" y="98">Orchestrator coordinates specialised workers via a shared contract</text>
+  <text class="mono" x="1048" y="68" text-anchor="end">patternId: your-pattern-id</text>
+
+  <!-- Diagram panel -->
+  <rect class="panel" x="36" y="140" width="1128" height="552"/>
+
+  <!-- Hub -->
+  <rect class="node" x="480" y="330" width="240" height="140"/>
+  <text class="label" x="600" y="368" text-anchor="middle">Hub / Orchestrator</text>
+  <text class="note"  x="600" y="396" text-anchor="middle">Routing / planning</text>
+  <text class="note"  x="600" y="418" text-anchor="middle">contract enforcement</text>
+
+  <!-- Spoke 1 -->
+  <rect class="node" x="120" y="200" width="240" height="120"/>
+  <text class="label" x="240" y="235" text-anchor="middle">Worker A</text>
+  <text class="note"  x="240" y="262" text-anchor="middle">Specialised task</text>
+  <text class="note"  x="240" y="284" text-anchor="middle">tool / skill</text>
+
+  <!-- Spoke 2 -->
+  <rect class="node" x="840" y="200" width="240" height="120"/>
+  <text class="label" x="960" y="235" text-anchor="middle">Worker B</text>
+  <text class="note"  x="960" y="262" text-anchor="middle">Specialised task</text>
+  <text class="note"  x="960" y="284" text-anchor="middle">tool / skill</text>
+
+  <!-- Spoke 3 -->
+  <rect class="node" x="120" y="520" width="240" height="120"/>
+  <text class="label" x="240" y="555" text-anchor="middle">Worker C</text>
+  <text class="note"  x="240" y="582" text-anchor="middle">Specialised task</text>
+  <text class="note"  x="240" y="604" text-anchor="middle">tool / skill</text>
+
+  <!-- Spoke 4 -->
+  <rect class="node" x="840" y="520" width="240" height="120"/>
+  <text class="label" x="960" y="555" text-anchor="middle">Worker D</text>
+  <text class="note"  x="960" y="582" text-anchor="middle">Specialised task</text>
+  <text class="note"  x="960" y="604" text-anchor="middle">tool / skill</text>
+
+  <!-- Arrows (bi-directional represented as two arrows) -->
+  <path class="arrow" d="M 360 260 L 480 360"/>
+  <path class="arrow" d="M 480 410 L 360 300"/>
+
+  <path class="arrow" d="M 840 260 L 720 360"/>
+  <path class="arrow" d="M 720 410 L 840 300"/>
+
+  <path class="arrow" d="M 360 580 L 480 440"/>
+  <path class="arrow" d="M 480 390 L 360 540"/>
+
+  <path class="arrow" d="M 840 580 L 720 440"/>
+  <path class="arrow" d="M 720 390 L 840 540"/>
+
+  <!-- Optional shared state / blackboard (dashed) -->
+  <rect class="node" x="480" y="520" width="240" height="90"/>
+  <text class="label" x="600" y="552" text-anchor="middle">Shared state</text>
+  <text class="note"  x="600" y="576" text-anchor="middle">(optional)</text>
+
+  <path class="arrow dashed" d="M 600 470 L 600 520"/>
+
+  <text class="note" x="80" y="178">Notes: Use for orchestrator-worker, coordinator, router patterns. Keep spokes to 2–6 max.</text>
+</svg>

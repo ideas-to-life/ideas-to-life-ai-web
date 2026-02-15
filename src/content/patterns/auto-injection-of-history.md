@@ -8,6 +8,7 @@ status: "exploring"
 confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 sources: ["agentic-ai-architecture"]
+diagram: "/patterns/auto-injection-of-history.svg"
 ---
 
 Intent

@@ -95,6 +95,7 @@ const patternsCollection = defineCollection({
         relatedExperiments: z.array(z.string()).optional(),
         relatedLearnings: z.array(z.string()).optional(),
         sources: z.array(z.string()).optional(),
+        diagram: z.string().optional(),
     }),
 });
 

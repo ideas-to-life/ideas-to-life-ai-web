@@ -9,6 +9,7 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Weekly Learnings 2026-01-09 to 2026-01-30"]
+diagram: "/patterns/derived-documentation-from-evidence.svg"
 ---
 
 ## Intent

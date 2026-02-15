@@ -80,6 +80,16 @@ const confidenceColors = {
         </div>
     </div>
 
+    {entry.data.diagram && (
+        <div class="mb-12 p-8 glass rounded-3xl border border-white/10 flex justify-center items-center overflow-hidden">
+            <img 
+                src={entry.data.diagram} 
+                alt={`Diagram for ${entry.data.title}`} 
+                class="max-w-full h-auto"
+            />
+        </div>
+    )}
+
   <article class="prose prose-invert prose-lg md:prose-xl max-w-none mb-20">
     <Content />
   </article>
