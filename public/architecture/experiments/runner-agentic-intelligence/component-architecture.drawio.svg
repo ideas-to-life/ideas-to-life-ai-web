@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="1040" viewBox="0 0 1540 1040">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow3); }
+    </style>
+    <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1540" height="1040" fill="#ffffff"/>
+  <text x="40" y="48" class="title">Runner Intelligence Engine: Component Architecture</text>
+  <rect x="90" y="100" width="1320" height="140" rx="14" ry="14" fill="#eef5ff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="120" y="136" class="label">UI / Application Boundary</text>
+  <rect x="150" y="155" width="260" height="60" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="280" y="190" text-anchor="middle" class="label">Gradio UI + App Entry</text>
+  <rect x="470" y="155" width="260" height="60" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="600" y="190" text-anchor="middle" class="label">RunnerOrchestrator</text>
+  <rect x="790" y="155" width="260" height="60" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="920" y="190" text-anchor="middle" class="label">PipelineContext</text>
+  <rect x="90" y="280" width="1320" height="290" rx="14" ry="14" fill="#fff7ef" stroke="#d79b00" stroke-width="2"/>
+  <text x="120" y="316" class="label">Pipeline / Process Components</text>
+  <rect x="140" y="350" width="150" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="215" y="390" text-anchor="middle" class="label">FeatureEngineering</text>
+  <rect x="320" y="350" width="130" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="385" y="390" text-anchor="middle" class="label">PersistRuns</text>
+  <rect x="480" y="350" width="130" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="545" y="390" text-anchor="middle" class="label">Snapshot</text>
+  <rect x="640" y="350" width="130" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="705" y="390" text-anchor="middle" class="label">Guardrail</text>
+  <rect x="800" y="350" width="140" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="870" y="390" text-anchor="middle" class="label">Positioning</text>
+  <rect x="970" y="350" width="140" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="1040" y="390" text-anchor="middle" class="label">GoalTrajectory</text>
+  <rect x="1140" y="350" width="170" height="70" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="1225" y="390" text-anchor="middle" class="label">PersistAnalysis</text>
+  <rect x="805" y="455" width="420" height="85" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1015" y="488" text-anchor="middle" class="label">Intelligence Block</text>
+  <text x="1015" y="510" text-anchor="middle" class="small">parallel Insights + Plan, then sequential Brief generation</text>
+  <rect x="90" y="610" width="1320" height="230" rx="14" ry="14" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="120" y="646" class="label">Agent / Service / Infrastructure Components</text>
+  <rect x="140" y="690" width="280" height="110" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="280" y="725" text-anchor="middle" class="label">Agents</text>
+  <text x="280" y="748" text-anchor="middle" class="small">FeatureEngineeringAgent, InsightsAgent,</text>
+  <text x="280" y="766" text-anchor="middle" class="small">PlanAgent, VisualizationAgent, ChatAgent, GuardrailAgent</text>
+  <rect x="470" y="690" width="340" height="110" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="640" y="725" text-anchor="middle" class="label">Services and Domain</text>
+  <text x="640" y="748" text-anchor="middle" class="small">SnapshotService, GoalService, BriefService,</text>
+  <text x="640" y="766" text-anchor="middle" class="small">RecommendationService, Positioning services, Pydantic models</text>
+  <rect x="860" y="690" width="260" height="110" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="990" y="725" text-anchor="middle" class="label">Prompt and LLM Layer</text>
+  <text x="990" y="748" text-anchor="middle" class="small">prompt store, model registry, LiteLLM,</text>
+  <text x="990" y="766" text-anchor="middle" class="small">structured output hardening</text>
+  <rect x="1170" y="690" width="190" height="110" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1265" y="725" text-anchor="middle" class="label">Persistence</text>
+  <text x="1265" y="748" text-anchor="middle" class="small">SQLite repositories for</text>
+  <text x="1265" y="766" text-anchor="middle" class="small">runs, snapshots, trends, goals</text>
+  <line x1="410" y1="185" x2="470" y2="185" class="edge"/>
+  <line x1="730" y1="185" x2="790" y2="185" class="edge"/>
+  <line x1="600" y1="215" x2="215" y2="350" class="edge"/>
+  <line x1="290" y1="385" x2="320" y2="385" class="edge"/>
+  <line x1="450" y1="385" x2="480" y2="385" class="edge"/>
+  <line x1="610" y1="385" x2="640" y2="385" class="edge"/>
+  <line x1="770" y1="385" x2="800" y2="385" class="edge"/>
+  <line x1="940" y1="385" x2="970" y2="385" class="edge"/>
+  <line x1="1110" y1="385" x2="1140" y2="385" class="edge"/>
+  <line x1="870" y1="420" x2="920" y2="455" class="edge"/>
+  <line x1="1040" y1="420" x2="1045" y2="455" class="edge"/>
+  <line x1="1225" y1="420" x2="1225" y2="690" class="edge"/>
+  <line x1="1015" y1="540" x2="990" y2="690" class="edge"/>
+  <line x1="215" y1="420" x2="280" y2="690" class="edge"/>
+  <line x1="545" y1="420" x2="640" y2="690" class="edge"/>
+  <rect x="90" y="885" width="1320" height="85" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="110" y="918" class="label">Pattern Overlay</text>
+  <text x="110" y="944" class="small">This subsystem exhibits an orchestrator-managed pipeline, deterministic guardrail logic, provider-agnostic LLM access, prompt schema contracts, and graceful fallback behavior in routing and brief generation.</text>
+</svg>

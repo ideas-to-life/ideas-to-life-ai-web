@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1120" viewBox="0 0 1880 1120">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 14px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow3); }
+      .life { stroke: #999; stroke-dasharray: 6 4; }
+    </style>
+    <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="1880" height="1120" fill="#fff"/>
+  <text x="40" y="48" class="title">Sequence: Intelligence Updates</text>
+
+  <rect x="70" y="90" width="1740" height="960" rx="14" ry="14" fill="#fffdf5" stroke="#c9b458" stroke-width="2"/>
+  <text x="100" y="125" class="label">Observed flow from `RunnerPipeline.execute()`, `IntelligenceStep`, `VisualizationStep`, and related services</text>
+
+  <rect x="100" y="150" width="150" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="175" y="180" text-anchor="middle" class="label">Pipeline</text>
+  <rect x="310" y="150" width="160" height="50" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="390" y="180" text-anchor="middle" class="label">PositioningStep</text>
+  <rect x="530" y="150" width="170" height="50" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="615" y="180" text-anchor="middle" class="label">IntelligenceStep</text>
+  <rect x="760" y="150" width="170" height="50" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="845" y="180" text-anchor="middle" class="label">VisualizationStep</text>
+  <rect x="990" y="150" width="150" height="50" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1065" y="180" text-anchor="middle" class="label">InsightsAgent</text>
+  <rect x="1200" y="150" width="150" height="50" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1275" y="180" text-anchor="middle" class="label">PlanAgent</text>
+  <rect x="1410" y="150" width="170" height="50" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1495" y="180" text-anchor="middle" class="label">VisualizationAgent</text>
+  <rect x="1640" y="150" width="160" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1720" y="180" text-anchor="middle" class="label">Brief/Guardrail</text>
+
+  <line x1="175" y1="200" x2="175" y2="980" class="life"/>
+  <line x1="390" y1="200" x2="390" y2="980" class="life"/>
+  <line x1="615" y1="200" x2="615" y2="980" class="life"/>
+  <line x1="845" y1="200" x2="845" y2="980" class="life"/>
+  <line x1="1065" y1="200" x2="1065" y2="980" class="life"/>
+  <line x1="1275" y1="200" x2="1275" y2="980" class="life"/>
+  <line x1="1495" y1="200" x2="1495" y2="980" class="life"/>
+  <line x1="1720" y1="200" x2="1720" y2="980" class="life"/>
+
+  <line x1="175" y1="240" x2="390" y2="240" class="edge"/>
+  <text x="282" y="230" text-anchor="middle" class="small">positioning and recommendation computed</text>
+  <line x1="390" y1="300" x2="175" y2="300" class="edge"/>
+  <text x="282" y="290" text-anchor="middle" class="small">context.positioning set</text>
+  <line x1="175" y1="360" x2="615" y2="360" class="edge"/>
+  <text x="395" y="350" text-anchor="middle" class="small">detect IntelligenceStep + VisualizationStep parallel block</text>
+  <line x1="175" y1="420" x2="845" y2="420" class="edge"/>
+  <text x="510" y="410" text-anchor="middle" class="small">start VisualizationStep.execute(context)</text>
+  <line x1="175" y1="470" x2="615" y2="470" class="edge"/>
+  <text x="395" y="460" text-anchor="middle" class="small">run_parallel_agents(context)</text>
+  <line x1="615" y1="530" x2="1065" y2="530" class="edge"/>
+  <text x="840" y="520" text-anchor="middle" class="small">if positioning changed: _run_insights()</text>
+  <line x1="615" y1="580" x2="1275" y2="580" class="edge"/>
+  <text x="945" y="570" text-anchor="middle" class="small">if positioning changed: _run_plan()</text>
+  <line x1="845" y1="630" x2="1495" y2="630" class="edge"/>
+  <text x="1170" y="620" text-anchor="middle" class="small">VisualizationAgent.run(features)</text>
+  <line x1="1275" y1="680" x2="1720" y2="680" class="edge"/>
+  <text x="1498" y="670" text-anchor="middle" class="small">guardrail arbitration applies risk to draft plan</text>
+  <line x1="615" y1="750" x2="1720" y2="750" class="edge"/>
+  <text x="1168" y="740" text-anchor="middle" class="small">generate_brief() after insights/plan phase completes</text>
+  <line x1="1720" y1="810" x2="615" y2="810" class="edge"/>
+  <text x="1168" y="800" text-anchor="middle" class="small">brief + focus returned and cache updated</text>
+  <line x1="615" y1="870" x2="175" y2="870" class="edge"/>
+  <text x="395" y="860" text-anchor="middle" class="small">complete block and continue pipeline</text>
+  <line x1="615" y1="930" x2="175" y2="930" class="edge"/>
+  <text x="395" y="920" text-anchor="middle" class="small">if state unchanged, reuse cached insights/plan/brief instead</text>
+
+  <rect x="110" y="1010" width="1670" height="35" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="130" y="1032" class="small">Note: this flow captures the key optimization in the codebase: intelligence generation is conditional on positioning change, and the pipeline parallelizes Insights/Plan with Visualization before finishing the brief sequentially.</text>
+</svg>

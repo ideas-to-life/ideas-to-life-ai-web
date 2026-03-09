@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="840" viewBox="0 0 1360 840">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1360" height="840" fill="#ffffff"/>
+  <text x="40" y="48" class="title">Runner Agentic Intelligence: System Context</text>
+  <rect x="500" y="180" width="380" height="190" rx="14" ry="14" fill="#dae8fc" stroke="#6c8ebf" stroke-width="3"/>
+  <text x="690" y="232" text-anchor="middle" class="label">Runner Agentic Intelligence</text>
+  <text x="690" y="258" text-anchor="middle" class="small">Local Gradio application for running analysis,</text>
+  <text x="690" y="278" text-anchor="middle" class="small">coaching, planning, charting, and persistence-aware operation</text>
+  <rect x="70" y="210" width="170" height="70" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="155" y="250" text-anchor="middle" class="label">Runner</text>
+  <rect x="60" y="90" width="220" height="90" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="170" y="124" text-anchor="middle" class="label">Activity Export Sources</text>
+  <text x="170" y="148" text-anchor="middle" class="small">Strava / Garmin / Apple exports</text>
+  <text x="170" y="166" text-anchor="middle" class="small">TCX, GPX, FIT, Apple Health</text>
+  <rect x="1060" y="90" width="220" height="90" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="1170" y="124" text-anchor="middle" class="label">LLM Providers</text>
+  <text x="1170" y="148" text-anchor="middle" class="small">Gemini, OpenAI, Hugging Face</text>
+  <text x="1170" y="166" text-anchor="middle" class="small">accessed through LiteLLM</text>
+  <rect x="1060" y="250" width="220" height="90" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="1170" y="284" text-anchor="middle" class="label">SQLite Storage</text>
+  <text x="1170" y="308" text-anchor="middle" class="small">runs, snapshots, trends, goals,</text>
+  <text x="1170" y="326" text-anchor="middle" class="small">analysis records</text>
+  <rect x="1060" y="410" width="220" height="90" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="1170" y="444" text-anchor="middle" class="label">HuggingFace Spaces</text>
+  <text x="1170" y="468" text-anchor="middle" class="small">optional deployment target</text>
+  <text x="1170" y="486" text-anchor="middle" class="small">with storage capability guards</text>
+  <rect x="70" y="420" width="220" height="90" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="180" y="454" text-anchor="middle" class="label">Developers</text>
+  <text x="180" y="478" text-anchor="middle" class="small">work from repo, tests, docs,</text>
+  <text x="180" y="496" text-anchor="middle" class="small">runbook, and GitHub workflow</text>
+  <rect x="470" y="430" width="440" height="110" rx="12" ry="12" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="690" y="462" text-anchor="middle" class="label">Architecture Signals</text>
+  <text x="690" y="488" text-anchor="middle" class="small">Orchestrator-managed pipeline • Prompt schema contracts</text>
+  <text x="690" y="508" text-anchor="middle" class="small">Deterministic guardrail • Graceful fallback • Derived docs from evidence</text>
+  <line x1="240" y1="245" x2="500" y2="245" class="edge"/>
+  <text x="370" y="234" text-anchor="middle" class="small">asks for coaching and charts</text>
+  <line x1="280" y1="165" x2="500" y2="212" class="edge"/>
+  <text x="385" y="160" text-anchor="middle" class="small">uploads run history</text>
+  <line x1="880" y1="222" x2="1060" y2="140" class="edge"/>
+  <text x="970" y="165" text-anchor="middle" class="small">structured agent calls</text>
+  <line x1="880" y1="275" x2="1060" y2="295" class="edge"/>
+  <text x="970" y="270" text-anchor="middle" class="small">persists domain state</text>
+  <line x1="880" y1="325" x2="1060" y2="455" class="edge"/>
+  <text x="968" y="395" text-anchor="middle" class="small">deploys app snapshot</text>
+  <line x1="290" y1="465" x2="500" y2="465" class="edge"/>
+  <text x="395" y="454" text-anchor="middle" class="small">maintains code and docs</text>
+  <rect x="40" y="610" width="1280" height="120" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="60" y="644" class="label">Notes</text>
+  <text x="60" y="672" class="small">Only systems evidenced in this repository are shown as runtime neighbors. The prompt mentions ChatGPT, Antigravity, Cloudflare, and LinkedIn, but this repo does not implement them as product integrations.</text>
+  <text x="60" y="694" class="small">GitHub appears indirectly through the documented engineering workflow rather than as an application runtime dependency.</text>
+</svg>

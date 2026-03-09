@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1080" viewBox="0 0 1680 1080" content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2026-03-09T12:00:00.000Z&quot; agent=&quot;Codex&quot; version=&quot;26.0.11&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;platform-content-flow&quot; name=&quot;Page-1&quot;&gt;&lt;mxGraphModel dx=&quot;1680&quot; dy=&quot;1080&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;1680&quot; pageHeight=&quot;1080&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&lt;root&gt;&lt;mxCell id=&quot;0&quot;/&gt;&lt;mxCell id=&quot;1&quot; parent=&quot;0&quot;/&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;&lt;/diagram&gt;&lt;/mxfile&gt;">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1680" height="1080" fill="#ffffff"/>
+  <text x="40" y="48" class="title">Ideas to Life Platform: Content Publishing Flow</text>
+
+  <rect x="70" y="100" width="1540" height="900" rx="14" ry="14" fill="#fffdf5" stroke="#c9b458" stroke-width="2"/>
+  <text x="100" y="135" class="label">Derived from the `astro:content` collections, route files, and the filesystem-backed architecture pages</text>
+
+  <rect x="110" y="200" width="220" height="95" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="220" y="238" text-anchor="middle" class="label">Authoring Input</text>
+  <text x="220" y="262" text-anchor="middle" class="small">markdown, frontmatter, images,</text>
+  <text x="220" y="282" text-anchor="middle" class="small">pattern SVGs, architecture SVGs</text>
+
+  <rect x="400" y="185" width="300" height="125" rx="14" ry="14" fill="#fff7ef" stroke="#d79b00" stroke-width="2"/>
+  <text x="550" y="225" text-anchor="middle" class="label">Collection Validation</text>
+  <text x="550" y="249" text-anchor="middle" class="small">`defineCollection` + Zod schemas</text>
+  <text x="550" y="271" text-anchor="middle" class="small">experiments, pages, learnings, patterns</text>
+
+  <rect x="780" y="185" width="320" height="125" rx="14" ry="14" fill="#ede7f6" stroke="#7e57c2" stroke-width="3"/>
+  <text x="940" y="225" text-anchor="middle" class="label">Build-Time Content Query Layer</text>
+  <text x="940" y="249" text-anchor="middle" class="small">`getCollection`, `getEntry`, filters, sorts,</text>
+  <text x="940" y="271" text-anchor="middle" class="small">and markdown `render()` for route modules</text>
+
+  <rect x="1180" y="185" width="320" height="125" rx="14" ry="14" fill="#eef5ff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1340" y="225" text-anchor="middle" class="label">Page Assembly</text>
+  <text x="1340" y="249" text-anchor="middle" class="small">routes compose layouts and cards into</text>
+  <text x="1340" y="271" text-anchor="middle" class="small">HTML, RSS, and static image references</text>
+
+  <rect x="220" y="420" width="280" height="120" rx="12" ry="12" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="360" y="460" text-anchor="middle" class="label">Content Collections</text>
+  <text x="360" y="484" text-anchor="middle" class="small">`src/content/experiments`</text>
+  <text x="360" y="504" text-anchor="middle" class="small">`src/content/learnings` and `pages`</text>
+
+  <rect x="560" y="420" width="280" height="120" rx="12" ry="12" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="700" y="460" text-anchor="middle" class="label">Pattern Catalogue Assets</text>
+  <text x="700" y="484" text-anchor="middle" class="small">pattern markdown links to</text>
+  <text x="700" y="504" text-anchor="middle" class="small">SVG diagrams under `public/patterns`</text>
+
+  <rect x="900" y="420" width="280" height="120" rx="12" ry="12" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1040" y="460" text-anchor="middle" class="label">Architecture Discovery</text>
+  <text x="1040" y="484" text-anchor="middle" class="small">Node `fs` scans `public/architecture`</text>
+  <text x="1040" y="504" text-anchor="middle" class="small">to list platform and experiment diagrams</text>
+
+  <rect x="1240" y="420" width="280" height="120" rx="12" ry="12" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1380" y="460" text-anchor="middle" class="label">Feed Generation</text>
+  <text x="1380" y="484" text-anchor="middle" class="small">`rss.xml.ts` filters weekly learnings</text>
+  <text x="1380" y="504" text-anchor="middle" class="small">and maps them into feed items</text>
+
+  <rect x="360" y="670" width="340" height="130" rx="14" ry="14" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="530" y="710" text-anchor="middle" class="label">Static Site Output</text>
+  <text x="530" y="734" text-anchor="middle" class="small">HTML pages, compiled CSS, copied images,</text>
+  <text x="530" y="756" text-anchor="middle" class="small">SVG diagrams, and RSS XML documents</text>
+
+  <rect x="860" y="670" width="420" height="130" rx="14" ry="14" fill="#eef5ff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1070" y="710" text-anchor="middle" class="label">Public Consumption</text>
+  <text x="1070" y="734" text-anchor="middle" class="small">site visitors navigate pages and architecture galleries</text>
+  <text x="1070" y="756" text-anchor="middle" class="small">RSS readers and social crawlers consume metadata and feeds</text>
+
+  <line x1="330" y1="248" x2="400" y2="248" class="edge"/>
+  <line x1="700" y1="248" x2="780" y2="248" class="edge"/>
+  <line x1="1100" y1="248" x2="1180" y2="248" class="edge"/>
+
+  <line x1="550" y1="310" x2="360" y2="420" class="edge"/>
+  <line x1="550" y1="310" x2="700" y2="420" class="edge"/>
+  <line x1="940" y1="310" x2="1040" y2="420" class="edge"/>
+  <line x1="1340" y1="310" x2="1380" y2="420" class="edge"/>
+
+  <line x1="500" y1="540" x2="530" y2="670" class="edge"/>
+  <line x1="840" y1="540" x2="530" y2="670" class="edge"/>
+  <line x1="1180" y1="540" x2="530" y2="670" class="edge"/>
+  <line x1="1380" y1="540" x2="530" y2="670" class="edge"/>
+  <line x1="700" y1="735" x2="860" y2="735" class="edge"/>
+
+  <rect x="70" y="980" width="1540" height="60" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="90" y="1016" class="small">Notes: all publishing is content-driven and build-time oriented. There is no runtime database in this repo; persistence is the repository itself plus static files in `public/`. Architecture pages are unusual because they discover SVG diagrams from the filesystem in addition to querying content collections.</text>
+</svg>

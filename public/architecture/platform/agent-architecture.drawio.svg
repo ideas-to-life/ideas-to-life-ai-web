@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1080" viewBox="0 0 1680 1080" content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2026-03-09T12:00:00.000Z&quot; agent=&quot;Codex&quot; version=&quot;26.0.11&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;platform-agent-architecture&quot; name=&quot;Page-1&quot;&gt;&lt;mxGraphModel dx=&quot;1680&quot; dy=&quot;1080&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;1680&quot; pageHeight=&quot;1080&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&lt;root&gt;&lt;mxCell id=&quot;0&quot;/&gt;&lt;mxCell id=&quot;1&quot; parent=&quot;0&quot;/&gt;&lt;mxCell id=&quot;user&quot; value=&quot;Author / Visitor&quot; style=&quot;rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;90&quot; y=&quot;160&quot; width=&quot;220&quot; height=&quot;90&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=&quot;orchestrator&quot; value=&quot;Astro Route + Layout Layer&quot; style=&quot;rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#7e57c2;fontStyle=1;strokeWidth=3;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;420&quot; y=&quot;130&quot; width=&quot;360&quot; height=&quot;120&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=&quot;agents&quot; value=&quot;Home, experiments, learnings, patterns, architecture pages&quot; style=&quot;rounded=1;whiteSpace=wrap;html=1;fillColor=#f7f2ff;strokeColor=#7e57c2;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;430&quot; y=&quot;320&quot; width=&quot;850&quot; height=&quot;260&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=&quot;tools&quot; value=&quot;astro:content, Node fs/path, page helpers&quot; style=&quot;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ef;strokeColor=#d79b00;fontStyle=1;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;90&quot; y=&quot;360&quot; width=&quot;240&quot; height=&quot;160&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=&quot;persistence&quot; value=&quot;Content Markdown + public assets + diagram SVG files&quot; style=&quot;shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;1360&quot; y=&quot;350&quot; width=&quot;220&quot; height=&quot;170&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&lt;mxCell id=&quot;providers&quot; value=&quot;Static hosting + browser + RSS consumers&quot; style=&quot;rounded=1;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#6c8ebf;fontStyle=1;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&lt;mxGeometry x=&quot;1340&quot; y=&quot;640&quot; width=&quot;260&quot; height=&quot;120&quot; as=&quot;geometry&quot;/&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;&lt;/diagram&gt;&lt;/mxfile&gt;">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1680" height="1080" fill="#ffffff"/>
+  <text x="40" y="48" class="title">Ideas to Life Platform: Agent Architecture</text>
+
+  <rect x="70" y="100" width="1540" height="900" rx="14" ry="14" fill="#fffdf5" stroke="#c9b458" stroke-width="2"/>
+  <text x="100" y="135" class="label">Derived from `src/pages/`, `src/layouts/`, `src/content/config.ts`, `src/components/`, `public/architecture/`, and `src/pages/rss.xml.ts`</text>
+
+  <rect x="90" y="180" width="220" height="95" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="200" y="218" text-anchor="middle" class="label">Author / Visitor</text>
+  <text x="200" y="242" text-anchor="middle" class="small">maintains markdown and assets</text>
+  <text x="200" y="262" text-anchor="middle" class="small">or browses the generated site</text>
+
+  <rect x="410" y="160" width="390" height="130" rx="14" ry="14" fill="#ede7f6" stroke="#7e57c2" stroke-width="3"/>
+  <text x="605" y="206" text-anchor="middle" class="label">Astro Route and Layout Layer</text>
+  <text x="605" y="232" text-anchor="middle" class="small">`BaseLayout` and `PageLayout` act as the central</text>
+  <text x="605" y="252" text-anchor="middle" class="small">composition boundary for all page experiences</text>
+
+  <rect x="410" y="340" width="900" height="320" rx="14" ry="14" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="440" y="375" class="label">Specialized Page Modules</text>
+
+  <rect x="460" y="415" width="170" height="88" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="545" y="450" text-anchor="middle" class="label">Home Route</text>
+  <text x="545" y="473" text-anchor="middle" class="small">pulls page, experiments,</text>
+  <text x="545" y="491" text-anchor="middle" class="small">and latest learning content</text>
+
+  <rect x="660" y="415" width="170" height="88" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="745" y="450" text-anchor="middle" class="label">Experiment Routes</text>
+  <text x="745" y="473" text-anchor="middle" class="small">list and detail views for</text>
+  <text x="745" y="491" text-anchor="middle" class="small">experiment markdown entries</text>
+
+  <rect x="860" y="415" width="170" height="88" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="945" y="450" text-anchor="middle" class="label">Learning Routes</text>
+  <text x="945" y="473" text-anchor="middle" class="small">weekly and thread content</text>
+  <text x="945" y="491" text-anchor="middle" class="small">rendered from collections</text>
+
+  <rect x="1060" y="415" width="190" height="88" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1155" y="450" text-anchor="middle" class="label">Pattern Routes</text>
+  <text x="1155" y="473" text-anchor="middle" class="small">catalogue and detail pages</text>
+  <text x="1155" y="491" text-anchor="middle" class="small">with related diagrams</text>
+
+  <rect x="560" y="545" width="220" height="88" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="670" y="580" text-anchor="middle" class="label">Architecture Routes</text>
+  <text x="670" y="603" text-anchor="middle" class="small">discover experiment folders</text>
+  <text x="670" y="621" text-anchor="middle" class="small">and platform diagram SVGs</text>
+
+  <rect x="830" y="545" width="220" height="88" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="940" y="580" text-anchor="middle" class="label">RSS Route</text>
+  <text x="940" y="603" text-anchor="middle" class="small">filters weekly learnings</text>
+  <text x="940" y="621" text-anchor="middle" class="small">into a feed document</text>
+
+  <rect x="90" y="390" width="260" height="235" rx="14" ry="14" fill="#fff7ef" stroke="#d79b00" stroke-width="2"/>
+  <text x="120" y="425" class="label">Tools and Deterministic Helpers</text>
+  <text x="120" y="458" class="small">`astro:content` collections and queries</text>
+  <text x="120" y="480" class="small">Zod schemas in `src/content/config.ts`</text>
+  <text x="120" y="512" class="small">`entry.render()` markdown compilation</text>
+  <text x="120" y="534" class="small">Node `fs` / `path` for diagram discovery</text>
+  <text x="120" y="566" class="small">UI components such as cards and nav</text>
+  <text x="120" y="588" class="small">title formatting helpers for SVG names</text>
+
+  <path d="M1360 360 C1360 340, 1580 340, 1580 360 L1580 500 C1580 520, 1360 520, 1360 500 Z" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <path d="M1360 360 C1360 380, 1580 380, 1580 360" fill="none" stroke="#9673a6" stroke-width="2"/>
+  <text x="1470" y="418" text-anchor="middle" class="label">Shared Content and Assets</text>
+  <text x="1470" y="442" text-anchor="middle" class="small">markdown in `src/content/*`</text>
+  <text x="1470" y="464" text-anchor="middle" class="small">images, cheat sheets, patterns,</text>
+  <text x="1470" y="484" text-anchor="middle" class="small">and architecture SVGs in `public/`</text>
+
+  <rect x="1330" y="620" width="290" height="165" rx="14" ry="14" fill="#eef5ff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1475" y="655" text-anchor="middle" class="label">Delivery and External Consumers</text>
+  <text x="1475" y="680" text-anchor="middle" class="small">Astro static output deployed to hosting</text>
+  <text x="1475" y="702" text-anchor="middle" class="small">browser requests for HTML, CSS, SVG, RSS</text>
+  <text x="1475" y="724" text-anchor="middle" class="small">social crawlers reading metadata tags</text>
+  <text x="1475" y="746" text-anchor="middle" class="small">RSS readers polling `/rss.xml`</text>
+
+  <rect x="1330" y="830" width="290" height="90" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="1475" y="865" text-anchor="middle" class="label">External Services Referenced</text>
+  <text x="1475" y="888" text-anchor="middle" class="small">Google Fonts, LinkedIn, GitHub links</text>
+
+  <line x1="310" y1="228" x2="410" y2="228" class="edge"/>
+  <text x="360" y="216" text-anchor="middle" class="small">requests pages and content</text>
+
+  <line x1="605" y1="290" x2="545" y2="415" class="edge"/>
+  <line x1="605" y1="290" x2="745" y2="415" class="edge"/>
+  <line x1="605" y1="290" x2="945" y2="415" class="edge"/>
+  <line x1="605" y1="290" x2="1155" y2="415" class="edge"/>
+  <line x1="605" y1="290" x2="670" y2="545" class="edge"/>
+  <line x1="605" y1="290" x2="940" y2="545" class="edge"/>
+
+  <line x1="350" y1="460" x2="460" y2="458" class="edge"/>
+  <text x="405" y="446" text-anchor="middle" class="small">content queries and rendering helpers</text>
+  <line x1="350" y1="560" x2="605" y2="262" class="edge"/>
+  <text x="420" y="522" text-anchor="middle" class="small">schema validation and discovery</text>
+
+  <line x1="1250" y1="459" x2="1360" y2="430" class="edge"/>
+  <line x1="1050" y1="590" x2="1360" y2="455" class="edge"/>
+  <line x1="780" y1="590" x2="1360" y2="475" class="edge"/>
+  <line x1="1475" y1="520" x2="1475" y2="620" class="edge"/>
+  <line x1="1475" y1="785" x2="1475" y2="830" class="edge"/>
+
+  <rect x="70" y="980" width="1540" height="60" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="90" y="1016" class="small">Notes: this repository does not implement runtime LLM agents. The closest analogue to an orchestrator is the Astro route/layout layer, which coordinates content loading, page composition, and filesystem-backed diagram discovery. Agent boundaries were inferred from route modules rather than invented conversational agents.</text>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1080" viewBox="0 0 1680 1080" content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2026-03-09T12:00:00.000Z&quot; agent=&quot;Codex&quot; version=&quot;26.0.11&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;platform-site-rendering&quot; name=&quot;Page-1&quot;&gt;&lt;mxGraphModel dx=&quot;1680&quot; dy=&quot;1080&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;1680&quot; pageHeight=&quot;1080&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&lt;root&gt;&lt;mxCell id=&quot;0&quot;/&gt;&lt;mxCell id=&quot;1&quot; parent=&quot;0&quot;/&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;&lt;/diagram&gt;&lt;/mxfile&gt;">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1680" height="1080" fill="#ffffff"/>
+  <text x="40" y="48" class="title">Ideas to Life Platform: Site Rendering Architecture</text>
+
+  <rect x="70" y="100" width="1540" height="900" rx="14" ry="14" fill="#fffdf5" stroke="#c9b458" stroke-width="2"/>
+  <text x="100" y="135" class="label">Derived from layout files, shared components, route modules, and the `public/` static asset tree</text>
+
+  <rect x="120" y="185" width="240" height="105" rx="12" ry="12" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="240" y="225" text-anchor="middle" class="label">Browser Request</text>
+  <text x="240" y="249" text-anchor="middle" class="small">requests route HTML, CSS, fonts,</text>
+  <text x="240" y="269" text-anchor="middle" class="small">images, diagrams, and RSS</text>
+
+  <rect x="430" y="170" width="300" height="135" rx="14" ry="14" fill="#ede7f6" stroke="#7e57c2" stroke-width="3"/>
+  <text x="580" y="212" text-anchor="middle" class="label">Base Layout Shell</text>
+  <text x="580" y="238" text-anchor="middle" class="small">global metadata, canonical URLs,</text>
+  <text x="580" y="260" text-anchor="middle" class="small">Google Fonts, navigation, footer, background</text>
+
+  <rect x="810" y="170" width="300" height="135" rx="14" ry="14" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="960" y="212" text-anchor="middle" class="label">Page Layout Variant</text>
+  <text x="960" y="238" text-anchor="middle" class="small">immersive hero, prose wrapper,</text>
+  <text x="960" y="260" text-anchor="middle" class="small">architecture and article presentation</text>
+
+  <rect x="1190" y="170" width="300" height="135" rx="14" ry="14" fill="#fff7ef" stroke="#d79b00" stroke-width="2"/>
+  <text x="1340" y="212" text-anchor="middle" class="label">Shared UI Components</text>
+  <text x="1340" y="238" text-anchor="middle" class="small">Navigation, Footer, Hero,</text>
+  <text x="1340" y="260" text-anchor="middle" class="small">ExperimentCard, WeeklyLearningCard</text>
+
+  <rect x="180" y="430" width="260" height="115" rx="12" ry="12" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="310" y="470" text-anchor="middle" class="label">Index and Listing Routes</text>
+  <text x="310" y="494" text-anchor="middle" class="small">home, experiments, patterns,</text>
+  <text x="310" y="514" text-anchor="middle" class="small">learnings, architecture index</text>
+
+  <rect x="500" y="430" width="260" height="115" rx="12" ry="12" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="630" y="470" text-anchor="middle" class="label">Detail Routes</text>
+  <text x="630" y="494" text-anchor="middle" class="small">experiment, pattern, learning,</text>
+  <text x="630" y="514" text-anchor="middle" class="small">and architecture experiment pages</text>
+
+  <rect x="820" y="430" width="260" height="115" rx="12" ry="12" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="950" y="470" text-anchor="middle" class="label">Architecture Platform Route</text>
+  <text x="950" y="494" text-anchor="middle" class="small">reads `public/architecture/platform`</text>
+  <text x="950" y="514" text-anchor="middle" class="small">and renders all platform diagrams</text>
+
+  <rect x="1140" y="430" width="260" height="115" rx="12" ry="12" fill="#f7f2ff" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1270" y="470" text-anchor="middle" class="label">RSS Route</text>
+  <text x="1270" y="494" text-anchor="middle" class="small">serializes filtered learnings</text>
+  <text x="1270" y="514" text-anchor="middle" class="small">for external feed readers</text>
+
+  <rect x="190" y="690" width="320" height="135" rx="14" ry="14" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="350" y="730" text-anchor="middle" class="label">Static Asset Layer</text>
+  <text x="350" y="754" text-anchor="middle" class="small">images, pattern SVGs, architecture SVGs,</text>
+  <text x="350" y="776" text-anchor="middle" class="small">cheatsheets, favicon, and copied build output</text>
+
+  <rect x="620" y="690" width="400" height="135" rx="14" ry="14" fill="#eef5ff" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="820" y="730" text-anchor="middle" class="label">Metadata and Distribution Surfaces</text>
+  <text x="820" y="754" text-anchor="middle" class="small">Open Graph and Twitter tags from `BaseLayout`</text>
+  <text x="820" y="776" text-anchor="middle" class="small">canonical URLs and RSS entry points for crawlers</text>
+
+  <rect x="1130" y="690" width="350" height="135" rx="14" ry="14" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="1305" y="730" text-anchor="middle" class="label">Client Experience</text>
+  <text x="1305" y="754" text-anchor="middle" class="small">glassmorphism UI, typography, gradients,</text>
+  <text x="1305" y="776" text-anchor="middle" class="small">content browsing, architecture galleries</text>
+
+  <line x1="360" y1="238" x2="430" y2="238" class="edge"/>
+  <line x1="730" y1="238" x2="810" y2="238" class="edge"/>
+  <line x1="1110" y1="238" x2="1190" y2="238" class="edge"/>
+
+  <line x1="580" y1="305" x2="310" y2="430" class="edge"/>
+  <line x1="580" y1="305" x2="630" y2="430" class="edge"/>
+  <line x1="960" y1="305" x2="950" y2="430" class="edge"/>
+  <line x1="580" y1="305" x2="1270" y2="430" class="edge"/>
+
+  <line x1="310" y1="545" x2="350" y2="690" class="edge"/>
+  <line x1="630" y1="545" x2="350" y2="690" class="edge"/>
+  <line x1="950" y1="545" x2="350" y2="690" class="edge"/>
+  <line x1="1270" y1="545" x2="820" y2="690" class="edge"/>
+  <line x1="510" y1="758" x2="620" y2="758" class="edge"/>
+  <line x1="1020" y1="758" x2="1130" y2="758" class="edge"/>
+
+  <rect x="70" y="980" width="1540" height="60" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="90" y="1016" class="small">Notes: the rendering model is static-site-first. Shared presentation concerns are centralized in `BaseLayout`, richer narrative pages layer on `PageLayout`, and route modules remain responsible for data loading and composition. The platform route is a special case because it renders whatever diagram files exist in `public/architecture/platform`.</text>
+</svg>

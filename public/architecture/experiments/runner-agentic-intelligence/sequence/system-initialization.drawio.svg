@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="980" viewBox="0 0 1700 980">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #222; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 14px; font-weight: 700; }
+      .small { font-size: 12px; }
+      .edge { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .life { stroke: #999; stroke-dasharray: 6 4; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="1700" height="980" fill="#fff"/>
+  <text x="40" y="48" class="title">Sequence: System Initialization</text>
+
+  <rect x="80" y="90" width="1500" height="830" rx="14" ry="14" fill="#fffdf5" stroke="#c9b458" stroke-width="2"/>
+  <text x="110" y="125" class="label">Observed flow from `app.py`, `src/_app/__main__.py`, `src/_app/gradio_app.py`, and `src/agents/orchestrator.py`</text>
+
+  <rect x="140" y="150" width="150" height="50" rx="10" ry="10" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  <text x="215" y="180" text-anchor="middle" class="label">Runtime</text>
+  <rect x="360" y="150" width="180" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="450" y="180" text-anchor="middle" class="label">launch_app</text>
+  <rect x="610" y="150" width="190" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="705" y="180" text-anchor="middle" class="label">create_orchestrator</text>
+  <rect x="880" y="150" width="220" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="990" y="180" text-anchor="middle" class="label">RunnerOrchestrator</text>
+  <rect x="1170" y="150" width="150" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1245" y="180" text-anchor="middle" class="label">Database</text>
+  <rect x="1390" y="150" width="150" height="50" rx="10" ry="10" fill="#ede7f6" stroke="#7e57c2" stroke-width="2"/>
+  <text x="1465" y="180" text-anchor="middle" class="label">Agents</text>
+
+  <line x1="215" y1="200" x2="215" y2="860" class="life"/>
+  <line x1="450" y1="200" x2="450" y2="860" class="life"/>
+  <line x1="705" y1="200" x2="705" y2="860" class="life"/>
+  <line x1="990" y1="200" x2="990" y2="860" class="life"/>
+  <line x1="1245" y1="200" x2="1245" y2="860" class="life"/>
+  <line x1="1465" y1="200" x2="1465" y2="860" class="life"/>
+
+  <line x1="215" y1="240" x2="450" y2="240" class="edge"/>
+  <text x="332" y="230" text-anchor="middle" class="small">start app entrypoint</text>
+  <line x1="450" y1="290" x2="705" y2="290" class="edge"/>
+  <text x="578" y="280" text-anchor="middle" class="small">await create_orchestrator()</text>
+  <line x1="705" y1="340" x2="990" y2="340" class="edge"/>
+  <text x="848" y="330" text-anchor="middle" class="small">get_orchestrator() / instantiate</text>
+  <line x1="990" y1="390" x2="1245" y2="390" class="edge"/>
+  <text x="1118" y="380" text-anchor="middle" class="small">initialize_schema()</text>
+  <line x1="990" y1="440" x2="1465" y2="440" class="edge"/>
+  <text x="1228" y="430" text-anchor="middle" class="small">instantiate Feature, Insights, Plan, Viz, Chat, Guardrail</text>
+  <line x1="705" y1="510" x2="990" y2="510" class="edge"/>
+  <text x="848" y="500" text-anchor="middle" class="small">await orchestrator.run([])</text>
+  <line x1="990" y1="560" x2="1245" y2="560" class="edge"/>
+  <text x="1118" y="550" text-anchor="middle" class="small">repos available for profile/snapshot state</text>
+  <line x1="990" y1="620" x2="1465" y2="620" class="edge"/>
+  <text x="1228" y="610" text-anchor="middle" class="small">pipeline can skip intelligence when no run data</text>
+  <line x1="990" y1="690" x2="705" y2="690" class="edge"/>
+  <text x="848" y="680" text-anchor="middle" class="small">return initialized orchestrator</text>
+  <line x1="705" y1="750" x2="450" y2="750" class="edge"/>
+  <text x="578" y="740" text-anchor="middle" class="small">attach to Gradio state</text>
+  <line x1="450" y1="810" x2="215" y2="810" class="edge"/>
+  <text x="332" y="800" text-anchor="middle" class="small">launch UI</text>
+
+  <rect x="120" y="875" width="1460" height="35" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="140" y="897" class="small">Note: `create_orchestrator()` eagerly calls `await orchestrator.run([])` to warm the app state even before any uploads exist.</text>
+</svg>
