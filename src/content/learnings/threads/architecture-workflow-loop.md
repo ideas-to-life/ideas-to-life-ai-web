@@ -13,7 +13,6 @@ Scope:
 
 - Derived from Weekly Learning published on 2026-03-09
 - Nature: Architecture workflow pattern observed during system evolution
-- No changes made to the original Weekly Learningnp
 
 ## Architecture signals (emergent)
 
