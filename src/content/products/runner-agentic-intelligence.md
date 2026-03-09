@@ -28,10 +28,10 @@ https://runner.ideas-to-life.ai
 
 ## Origin experiment
 
-Runner Agentic Intelligence
+[Runner Agentic Intelligence](https://ideas-to-life.ai/experiments/runner-agentic-intelligence/)
 
 ## Architecture
 
 See architecture diagrams for the system under:
 
-/architecture/experiments/runner-agentic-intelligence/
+[Runner Agentic Intelligence Architecture](https://ideas-to-life.ai/architecture/experiments/runner-agentic-intelligence/)
