@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Architecture Workflow Loop diagram">
+  <defs>
+    <style>
+      .bg { fill: #0b0b0c; }
+      .panel { fill: #111114; stroke: #2a2a2f; stroke-width: 2; rx: 18; }
+      .node { fill: #0f0f12; stroke: #3a3a42; stroke-width: 2; rx: 16; }
+      .title { font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #f2f2f4; }
+      .subtitle { font: 500 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #b8b8c2; }
+      .label { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e6e6ea; letter-spacing: 0.3px; }
+      .note { font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a6a6b1; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #b8b8c2; }
+      .arrow { stroke: #5a5a66; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 7 7; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#5a5a66"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="620" rx="22"/>
+
+  <rect class="panel" x="36" y="28" width="1128" height="92"/>
+  <text class="title" x="64" y="68">Architecture Workflow Loop</text>
+  <text class="subtitle" x="64" y="98">Continuous governance embedded in the delivery pipeline</text>
+  <text class="mono" x="1048" y="68" text-anchor="end">patternId: architecture-workflow-loop</text>
+
+  <rect class="panel" x="36" y="140" width="1128" height="452"/>
+
+  <!-- Node 1: Build -->
+  <rect class="node" x="70" y="280" width="180" height="120"/>
+  <text class="label" x="160" y="325" text-anchor="middle">Build</text>
+  <text class="note"  x="160" y="352" text-anchor="middle">implement</text>
+  <text class="note"  x="160" y="374" text-anchor="middle">experiment</text>
+
+  <!-- Node 2: Validate -->
+  <rect class="node" x="300" y="280" width="180" height="120"/>
+  <text class="label" x="390" y="325" text-anchor="middle">Validate</text>
+  <text class="note"  x="390" y="352" text-anchor="middle">tests / behavioral</text>
+  <text class="note"  x="390" y="374" text-anchor="middle">verification</text>
+
+  <!-- Node 3: Audit -->
+  <rect class="node" x="530" y="280" width="180" height="120"/>
+  <text class="label" x="620" y="325" text-anchor="middle">Audit</text>
+  <text class="note"  x="620" y="352" text-anchor="middle">arch review</text>
+  <text class="note"  x="620" y="374" text-anchor="middle">governance</text>
+
+  <!-- Node 4: Refactor -->
+  <rect class="node" x="760" y="280" width="180" height="120"/>
+  <text class="label" x="850" y="325" text-anchor="middle">Refactor</text>
+  <text class="note"  x="850" y="352" text-anchor="middle">structural</text>
+  <text class="note"  x="850" y="374" text-anchor="middle">corrections</text>
+
+  <!-- Node 5: Stabilize -->
+  <rect class="node" x="990" y="280" width="170" height="120"/>
+  <text class="label" x="1075" y="325" text-anchor="middle">Stabilize</text>
+  <text class="note"  x="1075" y="352" text-anchor="middle">merge / release</text>
+  <text class="note"  x="1075" y="374" text-anchor="middle">final check</text>
+
+  <path class="arrow" d="M 250 340 L 300 340"/>
+  <path class="arrow" d="M 480 340 L 530 340"/>
+  <path class="arrow" d="M 710 340 L 760 340"/>
+  <path class="arrow" d="M 940 340 L 990 340"/>
+
+  <!-- Return loop dashed arrow -->
+  <path class="arrow dashed" d="M 850 400 Q 620 500 160 400"/>
+
+  <text class="note" x="80" y="180">Notes: Audit is a mandatory checkpoint; refactoring prevents structural debt from compounding.</text>
+</svg>
