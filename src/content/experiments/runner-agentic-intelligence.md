@@ -54,3 +54,10 @@ This is an early, validating release intended to:
 - inform the next iteration of the system
 
 → https://runner.ideas-to-life.ai
+
+## Product
+
+This experiment evolved into the product:
+
+**Runner Intelligence**  
+https://runner.ideas-to-life.ai

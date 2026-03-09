@@ -10,8 +10,7 @@ draft: false
 
 ## What it does
 
-Runner Intelligence analyzes running activity data and generates insights
-that help runners improve performance, consistency, and training quality.
+Runner Intelligence supports your long-term health as a runner, not just individual workouts, u./sing transparent, data-driven insights to guide sustainable improvement and lasting joy in running.
 
 ## Who it is for
 
@@ -21,7 +20,7 @@ that help runners improve performance, consistency, and training quality.
 
 ## How it works
 
-Upload your runs → AI analysis → training insights.
+Upload your runs → AI analysis → performance insights.
 
 ## Live product
 
@@ -33,14 +32,6 @@ Runner Agentic Intelligence
 
 ## Architecture
 
-Links to architecture diagrams for the system.
+See architecture diagrams for the system under:
 
-## Patterns used
-
-- orchestrator-managed-pipeline
-- structured-output-via-schema
-- deterministic-guardrail
-
-## Learnings generated
-
-Links to weekly learnings derived from the experiment.
+/architecture/experiments/runner-agentic-intelligence/

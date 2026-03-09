@@ -99,9 +99,22 @@ const patternsCollection = defineCollection({
     }),
 });
 
+const productsCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        status: z.enum(['emerging', 'active', 'scaling']),
+        experiment: z.string(),
+        product_url: z.string().url(),
+        tags: z.array(z.string()),
+        draft: z.boolean().optional().default(false),
+    }),
+});
+
 export const collections = {
     'experiments': experimentsCollection,
     'pages': pagesCollection,
     'learnings': learningsCollection,
     'patterns': patternsCollection,
+    'products': productsCollection,
 };

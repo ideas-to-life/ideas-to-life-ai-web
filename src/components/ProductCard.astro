@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  product: CollectionEntry<'products'>;
+}
+
+const { product } = Astro.props;
+---
+
+<div class="glass group relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2 h-full flex flex-col p-8 space-y-6">
+  <div class="space-y-4 flex-1">
+    <div class="flex justify-between items-start gap-4">
+      <h3 class="font-display text-2xl font-bold leading-tight">{product.data.title}</h3>
+      <span class:list={[
+        "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/10",
+        {
+          "bg-emerald-500/20 text-emerald-300": product.data.status === 'scaling',
+          "bg-blue-500/20 text-blue-300": product.data.status === 'active',
+          "bg-purple-500/20 text-purple-300": product.data.status === 'emerging',
+        }
+      ]}>
+        {product.data.status}
+      </span>
+    </div>
+    
+    <p class="text-white/60 text-sm leading-relaxed">
+      {product.body.split('\n').find(line => line.trim() !== '' && !line.startsWith('#'))}
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {product.data.tags.map(tag => (
+        <span class="text-xs font-medium px-2 py-1 bg-white/5 rounded-md text-white/50 border border-white/5">
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-3 pt-6 border-t border-white/5">
+    <a href={product.data.product_url} target="_blank" class="flex items-center justify-between group/link text-sm font-medium text-white/80 hover:text-white transition-colors">
+      <span>Open product</span>
+      <span class="opacity-0 group-hover/link:opacity-100 transition-all translate-x-[-4px] group-hover/link:translate-x-0">→</span>
+    </a>
+    <a href={`/products/${product.slug}`} class="flex items-center justify-between group/link text-sm font-medium text-white/60 hover:text-white transition-colors">
+      <span>How it works</span>
+      <span class="opacity-0 group-hover/link:opacity-100 transition-all translate-x-[-4px] group-hover/link:translate-x-0">→</span>
+    </a>
+    <a href={`/experiments/${product.data.experiment}`} class="flex items-center justify-between group/link text-sm font-medium text-white/40 hover:text-white transition-colors">
+      <span>View experiment</span>
+      <span class="opacity-0 group-hover/link:opacity-100 transition-all translate-x-[-4px] group-hover/link:translate-x-0">→</span>
+    </a>
+    <a href={`/architecture/experiments/${product.data.experiment}`} class="flex items-center justify-between group/link text-sm font-medium text-white/40 hover:text-white transition-colors">
+      <span>View architecture</span>
+      <span class="opacity-0 group-hover/link:opacity-100 transition-all translate-x-[-4px] group-hover/link:translate-x-0">→</span>
+    </a>
+  </div>
+</div>

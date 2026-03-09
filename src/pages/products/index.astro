@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+const products = (await getCollection('products')).filter(p => !p.data.draft);
+
+const scaling = products.filter(p => p.data.status === 'scaling');
+const active = products.filter(p => p.data.status === 'active');
+const emerging = products.filter(p => p.data.status === 'emerging');
+
+const statusConfig = {
+    scaling: { emoji: '🚀', title: 'Scaling', desc: 'Products expanding their reach and impact.' },
+    active: { emoji: '⚡', title: 'Active', desc: 'Established products delivering value to users.' },
+    emerging: { emoji: '🌱', title: 'Emerging', desc: 'New products fresh from the lab.' }
+};
+---
+
+<BaseLayout title="Products | Ideas to Life" description="Real products emerged from our AI experiments.">
+    <!-- Header -->
+    <div class="pt-32 pb-12 px-6 text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">Product Foundry</h1>
+        <p class="text-xl text-white/60 max-w-2xl mx-auto">
+            From experimental code to real-world utility. 
+            These are the systems that proved their value and evolved into standalone products.
+        </p>
+    </div>
+
+    <main class="max-w-[1400px] mx-auto px-6 pb-32 space-y-24">
+        {scaling.length > 0 && (
+            <section>
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.scaling.emoji}</span>
+                        {statusConfig.scaling.title}
+                    </h2>
+                    <p class="text-white/50 pb-1 hidden md:block">{statusConfig.scaling.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {scaling.map(p => <ProductCard product={p} />)}
+                 </div>
+            </section>
+        )}
+
+        {active.length > 0 && (
+            <section>
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.active.emoji}</span>
+                        {statusConfig.active.title}
+                    </h2>
+                     <p class="text-white/50 pb-1 hidden md:block">{statusConfig.active.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {active.map(p => <ProductCard product={p} />)}
+                 </div>
+            </section>
+        )}
+
+        {emerging.length > 0 && (
+            <section>
+                 <div class="flex items-end gap-4 mb-12 pb-4 border-b border-white/5">
+                    <h2 class="font-display text-3xl font-bold flex items-center gap-3">
+                        <span>{statusConfig.emerging.emoji}</span>
+                        {statusConfig.emerging.title}
+                    </h2>
+                     <p class="text-white/50 pb-1 hidden md:block">{statusConfig.emerging.desc}</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {emerging.map(p => <ProductCard product={p} />)}
+                 </div>
+            </section>
+        )}
+    </main>
+
+    <section class="text-center pt-24">
+      <p class="text-white/50 max-w-3xl mx-auto text-lg border-t border-white/5 pt-12">
+        Every product here started as an experiment in <a href="/experiments" class="text-white hover:underline">The Lab</a>.
+        We bridge the gap between "possible" and "practical".
+      </p>
+    </section>
+</BaseLayout>
