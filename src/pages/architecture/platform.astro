@@ -9,22 +9,22 @@ const frontmatter = {
 };
 
 // Title generation helper
-const generateTitle = (filename) => {
+const generateTitle = (filename: string) => {
   return filename
     .replace('.drawio.svg', '')
     .replace(/-/g, ' ')
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 };
 
 // Discover platform diagrams
 const platformDir = path.join(process.cwd(), 'public/architecture/platform');
-let diagrams = [];
+let diagrams: any[] = [];
 if (fs.existsSync(platformDir)) {
   diagrams = fs.readdirSync(platformDir)
-    .filter(file => file.endsWith('.drawio.svg'))
-    .map(file => ({
+    .filter((file: string) => file.endsWith('.drawio.svg'))
+    .map((file: string) => ({
       filename: file,
       title: generateTitle(file),
       path: `/architecture/platform/${file}`

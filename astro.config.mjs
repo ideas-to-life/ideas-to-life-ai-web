@@ -5,6 +5,13 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  adapter: cloudflare(),
-  site: 'https://ideas-to-life.ai'
+  adapter: cloudflare({
+    imageService: 'compile'
+  }),
+  site: 'https://ideas-to-life.ai',
+  vite: {
+    ssr: {
+      external: ['node:fs', 'node:path']
+    }
+  }
 });

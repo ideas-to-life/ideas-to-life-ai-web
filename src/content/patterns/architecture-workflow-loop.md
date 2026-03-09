@@ -8,7 +8,7 @@ status: "exploring"
 confidence: "medium"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
-relatedLearnings: ["governing-experimentation-with-an-architecture-loop"]
+relatedLearnings: ["20260309"]
 sources: ["ideas-to-life", "runner-agentic-intelligence repo"]
 diagram: "/patterns/architecture-workflow-loop.svg"
 ---

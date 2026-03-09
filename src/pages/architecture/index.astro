@@ -11,19 +11,19 @@ const frontmatter = {
 
 // Discover experiment architecture folders
 const experimentsDir = path.join(process.cwd(), 'public/architecture/experiments');
-let experimentSlugs = [];
+let experimentSlugs: string[] = [];
 if (fs.existsSync(experimentsDir)) {
-  experimentSlugs = fs.readdirSync(experimentsDir).filter(file => {
+  experimentSlugs = fs.readdirSync(experimentsDir).filter((file: string) => {
     return fs.statSync(path.join(experimentsDir, file)).isDirectory();
   });
 }
 
 const experiments = await getCollection('experiments');
-const experimentLinks = experimentSlugs.map(slug => {
+const experimentLinks = experimentSlugs.map((slug: string) => {
   const experiment = experiments.find(e => e.slug === slug);
   return {
     slug,
-    title: experiment ? experiment.data.title : slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+    title: experiment ? experiment.data.title : slug.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
   };
 });
 ---

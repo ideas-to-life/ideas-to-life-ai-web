@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1020" viewBox="0 0 1800 1100">
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 Z" fill="#222"/>
+    </marker>
+    <style>
+      .font { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      .title { font-size: 22px; font-weight: 800; fill: #111; }
+      .laneTitle { font-size: 18px; font-weight: 700; fill: #111; }
+      .bubble { fill: #f0f0f5; stroke: #333; stroke-width: 1.5; }
+      .nodeStroke { stroke: #1f1f24; stroke-width: 2; }
+      .label { font-size: 14px; font-weight: 600; fill: #111; }
+      .labelSmall { font-size: 12.5px; font-weight: 600; fill: #111; }
+      .mono { font-size: 12px; font-weight: 700; fill: #111; }
+      .arrow { stroke: #222; stroke-width: 1; }
+      .dashed { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <text x="900" y="30" text-anchor="middle" class="font title">Ideas to Life — Processes Map (v5)</text>
+
+  <!-- Lane 1: Cheatsheet Creation -->
+  <rect x="40" y="40" width="1720" height="140" rx="18" ry="18" fill="#fff" stroke="#6b6eea" stroke-width="3"/>
+  <text x="900" y="68" text-anchor="middle" class="font laneTitle">🧾 Cheatsheet Creation</text>
+
+  <!-- Cheatsheet nodes -->
+  <g class="font">
+    <rect x="70" y="95" width="210" height="58" rx="16" ry="16" fill="#f6f6fb" class="nodeStroke"/>
+    <text x="175" y="120" text-anchor="middle" class="label">Choose topic</text>
+    <text x="175" y="140" text-anchor="middle" class="label">+ audience</text>
+
+    <line x1="290" y1="124" x2="350" y2="124" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="360" y="95" width="210" height="58" rx="16" ry="16" fill="#f6f6fb" class="nodeStroke"/>
+    <text x="465" y="128" text-anchor="middle" class="label">cheatsheet.generate.v1</text>
+
+    <line x1="580" y1="124" x2="640" y2="124" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="650" y="95" width="210" height="58" rx="16" ry="16" fill="#f6f6fb" class="nodeStroke"/>
+    <text x="755" y="120" text-anchor="middle" class="label">public/cheatsheets/</text>
+    <text x="755" y="140" text-anchor="middle" class="label">&lt;file&gt;.html</text>
+
+    <line x1="870" y1="124" x2="930" y2="124" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="940" y="95" width="210" height="58" rx="16" ry="16" fill="#f6f6fb" class="nodeStroke"/>
+    <text x="1045" y="118" text-anchor="middle" class="label">cheatsheet.wire-into-site</text>
+    <text x="1045" y="140" text-anchor="middle" class="label">.antigravity.v1</text>
+
+    <line x1="1160" y1="124" x2="1220" y2="124" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="1230" y="95" width="210" height="58" rx="16" ry="16" fill="#f6f6fb" class="nodeStroke"/>
+    <text x="1335" y="120" text-anchor="middle" class="label">Cheatsheet linked</text>
+    <text x="1335" y="140" text-anchor="middle" class="label">from experiment page</text>
+  </g>
+
+  <!-- Lane 2: Weekly Learnings -->
+  <rect x="40" y="210" width="1720" height="140" rx="18" ry="18" fill="#fff" stroke="#d28a2b" stroke-width="3"/>
+  <text x="900" y="238" text-anchor="middle" class="font laneTitle">🟦 Weekly Learnings (v2)</text>
+  <rect x="1060" y="221" width="380" height="36" rx="18" ry="18" class="bubble"/>
+  <text x="1250" y="242" text-anchor="middle" class="font mono">WEEKLY LEARNING TEMPLATE (weekly-learning.template.v1)</text>
+
+  <g class="font">
+    <rect x="70" y="265" width="240" height="58" rx="16" ry="16" fill="#fff7ef" class="nodeStroke"/>
+    <text x="190" y="298" text-anchor="middle" class="label">Conversation(s)</text>
+
+    <line x1="320" y1="294" x2="360" y2="294" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="370" y="265" width="240" height="58" rx="16" ry="16" fill="#fff7ef" class="nodeStroke"/>
+    <text x="490" y="298" text-anchor="middle" class="label">extract-raw-notes.v1</text>
+
+    <line x1="620" y1="294" x2="660" y2="294" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="670" y="265" width="240" height="58" rx="16" ry="16" fill="#fff7ef" class="nodeStroke"/>
+    <text x="790" y="298" text-anchor="middle" class="label">reflect-on-raw-notes.v1</text>
+
+    <line x1="920" y1="294" x2="960" y2="294" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="970" y="265" width="240" height="58" rx="16" ry="16" fill="#fff7ef" class="nodeStroke"/>
+    <text x="1090" y="298" text-anchor="middle" class="label">raw-to-structured.v2.1</text>
+
+    <line x1="1220" y1="294" x2="1260" y2="294" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="1270" y="265" width="240" height="58" rx="16" ry="16" fill="#fff7ef" class="nodeStroke"/>
+    <text x="1390" y="298" text-anchor="middle" class="label">Weekly Learning .md</text>
+
+    <line x1="1520" y1="294" x2="1560" y2="294" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="1570" y="265" width="180" height="58" rx="16" ry="16" fill="#fff7ef" class="nodeStroke"/>
+    <text x="1660" y="298" text-anchor="middle" class="label">Deploy + RSS</text>
+  </g>
+
+  <!-- Lane 3: Experiment Publishing -->
+  <rect x="40" y="380" width="1720" height="140" rx="18" ry="18" fill="#fff" stroke="#28b57a" stroke-width="3"/>
+  <text x="900" y="408" text-anchor="middle" class="font laneTitle">🧪 Experiment Publishing</text>
+  <rect x="1060" y="392" width="392" height="36" rx="18" ry="18" class="bubble"/>
+  <text x="1254" y="412" text-anchor="middle" class="font mono">EXPERIMENTS CHARTER (governance.experiments-charter.v1)</text>
+
+  <g class="font">
+    <rect x="70" y="435" width="260" height="58" rx="16" ry="16" fill="#f2fbf6" class="nodeStroke"/>
+    <text x="200" y="458" text-anchor="middle" class="label">Frame idea</text>
+    <text x="200" y="478" text-anchor="middle" class="label">(experiments.template.v1)</text>
+
+    <line x1="340" y1="464" x2="400" y2="464" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="410" y="435" width="260" height="58" rx="16" ry="16" fill="#f2fbf6" class="nodeStroke"/>
+    <text x="540" y="468" text-anchor="middle" class="label">Experiment Markdown</text>
+
+    <line x1="680" y1="464" x2="740" y2="464" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="750" y="435" width="260" height="58" rx="16" ry="16" fill="#f2fbf6" class="nodeStroke"/>
+    <text x="880" y="458" text-anchor="middle" class="label">experiments.deploy</text>
+    <text x="880" y="478" text-anchor="middle" class="label">.antigravity.v1</text>
+
+    <line x1="1020" y1="464" x2="1080" y2="464" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="1090" y="435" width="320" height="58" rx="16" ry="16" fill="#f2fbf6" class="nodeStroke"/>
+    <text x="1250" y="458" text-anchor="middle" class="label">Experiment card</text>
+    <text x="1250" y="478" text-anchor="middle" class="label">+ detail page live</text>
+  </g>
+
+  <!-- Lane 4: Architecture Patterns -->
+  <rect x="40" y="550" width="1720" height="335" rx="18" ry="18" fill="#fff" stroke="#8a63d2" stroke-width="3"/>
+  <text x="900" y="578" text-anchor="middle" class="font laneTitle">🧩 Architecture Patterns (v1)</text>
+  <rect x="1060" y="560" width="555" height="36" rx="18" ry="18" class="bubble"/>
+  <text x="1335" y="582" text-anchor="middle" class="font mono">PATTERN TEMPLATE (pattern-template.v1) + LIFECYCLE (exploring→validating→stable)</text>
+
+  <g class="font">
+    <rect x="70" y="605" width="250" height="58" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="195" y="628" text-anchor="middle" class="labelSmall">Target codebase /</text>
+    <text x="195" y="648" text-anchor="middle" class="labelSmall">execution context</text>
+
+    <line x1="330" y1="634" x2="370" y2="634" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="380" y="605" width="250" height="58" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="505" y="626" text-anchor="middle" class="labelSmall">architecture-patterns-extractor.v1</text>
+    <text x="505" y="646" text-anchor="middle" class="labelSmall">(JSON)</text>
+
+    <line x1="640" y1="634" x2="680" y2="634" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="690" y="605" width="250" height="58" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="815" y="626" text-anchor="middle" class="labelSmall">raw-to-pattern.v1</text>
+    <text x="815" y="646" text-anchor="middle" class="labelSmall">(MD)</text>
+
+    <line x1="950" y1="634" x2="990" y2="634" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="1000" y="605" width="250" height="58" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="1125" y="628" text-anchor="middle" class="labelSmall">src/content/patterns/</text>
+    <text x="1125" y="648" text-anchor="middle" class="labelSmall">&lt;patternId&gt;.md</text>
+
+    <line x1="1260" y1="634" x2="1300" y2="634" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="1310" y="605" width="250" height="58" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="1435" y="628" text-anchor="middle" class="labelSmall">Pattern page</text>
+    <text x="1435" y="648" text-anchor="middle" class="labelSmall">published</text>
+
+    <!-- Optional diagram augmentation (branch) -->
+    <line x1="1125" y1="663" x2="1125" y2="690" class="arrow dashed" marker-end="url(#arrow)"/>
+    <rect x="995" y="694" width="260" height="56" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="1125" y="716" text-anchor="middle" class="labelSmall">generate-pattern-diagram.v1</text>
+    <text x="1125" y="734" text-anchor="middle" class="labelSmall">public/patterns/&lt;patternId&gt;.svg</text>
+
+    <line x1="1125" y1="750" x2="1125" y2="778" class="arrow dashed" marker-end="url(#arrow)"/>
+    <rect x="995" y="782" width="303" height="56" rx="16" ry="16" fill="#f7f2ff" class="nodeStroke"/>
+    <text x="1147" y="804" text-anchor="middle" class="labelSmall">wire frontmatter: diagram="/patterns/&lt;id&gt;.svg"</text>
+    <text x="1147" y="822" text-anchor="middle" class="labelSmall">no prose edits (batch-safe)</text>
+
+    <line x1="1255" y1="783" x2="1310" y2="634" class="arrow dashed" marker-end="url(#arrow)"/>
+  </g>
+  <!-- Lane 5: Architecture Governance -->
+  <rect x="40" y="900" width="1720" height="170" rx="18" ry="18" fill="#fff" stroke="#64748b" stroke-width="3"/>
+  <text x="900" y="928" text-anchor="middle" class="font laneTitle">🛠 Architecture Workflow</text>
+
+  <g class="font">
+    <rect x="70" y="955" width="270" height="60" rx="16" ry="16" fill="#f1f5f9" class="nodeStroke"/>
+    <text x="205" y="990" text-anchor="middle" class="label">Thinking</text>
+    <text x="200" y="1008" text-anchor="middle" class="label">Idea.Hypothesis.Framing.Definition</text>
+
+    <line x1="350" y1="985" x2="420" y2="985" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="430" y="955" width="260" height="60" rx="16" ry="16" fill="#eef2ff" class="nodeStroke"/>
+    <text x="560" y="990" text-anchor="middle" class="label">Building</text>
+    <text x="560" y="1008" text-anchor="middle" class="label">Guardrail.Build.Validation.Evidence</text>
+
+    <line x1="699" y1="985" x2="765" y2="985" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="771" y="955" width="260" height="60" rx="16" ry="16" fill="#ecfeff" class="nodeStroke"/>
+    <text x="899" y="990" text-anchor="middle" class="label">Architecture Governance</text>
+    <text x="899" y="1008" text-anchor="middle" class="label">Audit.Refactor.Stabilise</text>
+
+    <line x1="1038" y1="990" x2="1095" y2="990" class="arrow" marker-end="url(#arrow)"/>
+    <rect x="1105" y="955" width="265" height="60" rx="16" ry="16" fill="#ecfeff" class="nodeStroke"/>
+    <text x="1219" y="990" text-anchor="middle" class="label">Learning</text>
+    <text x="1236" y="1008" text-anchor="middle" class="label">Evidence.Sysnthesis.Publish.Signals</text>
+    
+    <line x1="1385" y1="990" x2="1435" y2="990" class="arrow"/>
+    <line x1="1435" y1="990" x2="1435" y2="1055" class="arrow"/>
+    <line x1="1435" y1="1055" x2="85" y2="1055" class="arrow"/>
+    <line x1="385" y1="1055" x2="385" y2="995" class="arrow dashed" marker-end="url(#arrow)"/>
+    <line x1="85" y1="1055" x2="85" y2="1020" class="arrow dashed" marker-end="url(#arrow)"/>
+
+
+  </g>
+</svg>

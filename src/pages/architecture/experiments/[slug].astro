@@ -6,9 +6,9 @@ import path from 'node:path';
 
 export async function getStaticPaths() {
   const experimentsDir = path.join(process.cwd(), 'public/architecture/experiments');
-  let experimentSlugs = [];
+  let experimentSlugs: string[] = [];
   if (fs.existsSync(experimentsDir)) {
-    experimentSlugs = fs.readdirSync(experimentsDir).filter(file => {
+    experimentSlugs = fs.readdirSync(experimentsDir).filter((file: string) => {
       return fs.statSync(path.join(experimentsDir, file)).isDirectory();
     });
   }
@@ -27,7 +27,7 @@ const { slug } = Astro.params;
 // Discover experiment details
 const experiments = await getCollection('experiments');
 const experiment = experiments.find(e => e.slug === slug);
-const title = experiment ? experiment.data.title : slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+const title = experiment ? experiment.data.title : slug.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
 const frontmatter = {
   title: `${title} Architecture`,
@@ -35,25 +35,25 @@ const frontmatter = {
 };
 
 // Title generation helper
-const generateTitle = (filename) => {
+const generateTitle = (filename: string) => {
   return filename
     .replace('.drawio.svg', '')
     .replace(/-/g, ' ')
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 };
 
 // Scan for diagrams
 const baseDir = path.join(process.cwd(), `public/architecture/experiments/${slug}`);
-let mainDiagrams = [];
-let sequenceDiagrams = [];
+let mainDiagrams: any[] = [];
+let sequenceDiagrams: any[] = [];
 
 if (fs.existsSync(baseDir)) {
   // Main diagrams
   mainDiagrams = fs.readdirSync(baseDir)
-    .filter(file => file.endsWith('.drawio.svg'))
-    .map(file => ({
+    .filter((file: string) => file.endsWith('.drawio.svg'))
+    .map((file: string) => ({
       filename: file,
       title: generateTitle(file),
       path: `/architecture/experiments/${slug}/${file}`
@@ -63,8 +63,8 @@ if (fs.existsSync(baseDir)) {
   const sequenceDir = path.join(baseDir, 'sequence');
   if (fs.existsSync(sequenceDir) && fs.statSync(sequenceDir).isDirectory()) {
     sequenceDiagrams = fs.readdirSync(sequenceDir)
-      .filter(file => file.endsWith('.drawio.svg'))
-      .map(file => ({
+      .filter((file: string) => file.endsWith('.drawio.svg'))
+      .map((file: string) => ({
         filename: file,
         title: generateTitle(file),
         path: `/architecture/experiments/${slug}/sequence/${file}`
