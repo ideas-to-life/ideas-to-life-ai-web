@@ -15,7 +15,7 @@ diagram: "/patterns/architecture-workflow-loop.svg"
 
 ## Intent
 
-Ensure rapid experimentation does not degrade architectural integrity by embedding an explicit architecture audit and refactor step directly inside the development workflow.
+Ensure rapid experimentation does not create architectural debt by embedding an explicit architecture audit and refactor step directly inside the development workflow.
 
 ---
 
