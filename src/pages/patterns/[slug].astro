@@ -86,6 +86,7 @@ const confidenceColors = {
                 src={entry.data.diagram} 
                 alt={`Diagram for ${entry.data.title}`} 
                 class="max-w-full h-auto"
+                data-zoomable
             />
         </div>
     )}
@@ -141,3 +142,33 @@ const confidenceColors = {
   )}
 
 </PageLayout>
+
+<script>
+  import mediumZoom from 'medium-zoom';
+
+  // Initialize medium zoom on client side
+  document.addEventListener('astro:page-load', () => {
+    mediumZoom('[data-zoomable]', {
+      margin: 24,
+      background: 'rgba(15, 23, 42, 0.95)', // Tailwind slate-900 with high opacity for premium dark feel
+    });
+  });
+  
+  // Also run on initial load in case astro:page-load doesn't fire for the first navigation
+  mediumZoom('[data-zoomable]', {
+    margin: 24,
+    background: 'rgba(15, 23, 42, 0.95)', 
+  });
+</script>
+
+<style is:global>
+  /* Customize the medium-zoom overlay to perfectly match the site's glassmorphism */
+  .medium-zoom-overlay {
+    backdrop-filter: blur(10px);
+    z-index: 50;
+  }
+  .medium-zoom-image--opened {
+    z-index: 51;
+    border-radius: 0.5rem;
+  }
+</style>
