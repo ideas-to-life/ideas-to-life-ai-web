@@ -8,7 +8,7 @@ status: "exploring"
 confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 sources: ["agentic-ai-architecture"]
-diagram: "/patterns/dual-path-routing.svg"
+diagram: "/architecture/patterns/dual-path-routing.svg"
 ---
 
 Intent

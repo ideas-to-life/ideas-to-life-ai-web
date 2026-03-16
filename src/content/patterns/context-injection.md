@@ -9,7 +9,7 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Formalising the Pattern Publication System"]
-diagram: "/patterns/context-injection.svg"
+diagram: "/architecture/patterns/context-injection.svg"
 ---
 
 Intent

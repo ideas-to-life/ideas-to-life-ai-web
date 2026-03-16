@@ -8,7 +8,7 @@ status: "exploring"
 confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 sources: ["agentic-ai-architecture"]
-diagram: "/patterns/implicit-tool-state-mutation.svg"
+diagram: "/architecture/patterns/implicit-tool-state-mutation.svg"
 ---
 
 Intent

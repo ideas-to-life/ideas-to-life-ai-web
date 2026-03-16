@@ -10,7 +10,7 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 relatedLearnings: ["weekly-learning-2026-03-02"]
 sources: ["runner-agentic-intelligence"]
-diagram: "/patterns/pipeline-intelligence-snapshot.svg"
+diagram: "/architecture/patterns/pipeline-intelligence-snapshot.svg"
 ---
 
 ## Intent

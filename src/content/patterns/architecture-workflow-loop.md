@@ -10,7 +10,7 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 relatedLearnings: ["20260309"]
 sources: ["ideas-to-life", "runner-agentic-intelligence repo"]
-diagram: "/patterns/architecture-workflow-loop.svg"
+diagram: "/architecture/patterns/architecture-workflow-loop.svg"
 ---
 
 ## Intent
