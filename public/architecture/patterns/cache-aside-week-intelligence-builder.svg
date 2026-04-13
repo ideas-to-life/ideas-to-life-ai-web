@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Cache-Aside Week Intelligence Builder pattern diagram">
+  <defs><style>.bg { fill: #0b0b0c; } .panel { fill: #111114; stroke: #2a2a2f; stroke-width: 2; rx: 18; } .node { fill: #0f0f12; stroke: #3a3a42; stroke-width: 2; rx: 16; } .title { font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #f2f2f4; } .subtitle { font: 500 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #b8b8c2; } .label { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e6e6ea; letter-spacing: 0.3px; } .note { font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a6a6b1; } .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace; fill: #b8b8c2; } .arrow { stroke: #5a5a66; stroke-width: 3; fill: none; marker-end: url(#arrowhead); } .dashed { stroke-dasharray: 7 7; }</style><marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#5a5a66"/></marker></defs>
+  <rect class="bg" x="0" y="0" width="1200" height="720" rx="22"/>
+  <rect class="panel" x="36" y="28" width="1128" height="92"/>
+  <text class="title" x="64" y="68">Cache-Aside Week Intelligence Builder</text>
+  <text class="subtitle" x="64" y="98">The merge introduces a cache-aside path for week intelligence so dormant weeks are materialized only when the UI requests them.</text>
+  <text class="mono" x="1048" y="68" text-anchor="end">patternId: cache-aside-week-intelligence-builder</text>
+  <rect class="panel" x="36" y="140" width="1128" height="552"/>
+  <rect class="node" x="480" y="330" width="240" height="140"/>
+  <text class="label" x="600" y="368" text-anchor="middle">Orchestrator</text>
+  <text class="note" x="600" y="396" text-anchor="middle">select week path</text>
+  <text class="note" x="600" y="418" text-anchor="middle">gate rebuild or reuse</text>
+  <rect class="node" x="120" y="200" width="240" height="120"/>
+  <text class="label" x="240" y="235" text-anchor="middle">Repository state</text>
+  <text class="note" x="240" y="262" text-anchor="middle">week runs and history</text>
+  <text class="note" x="240" y="284" text-anchor="middle">durable inputs</text>
+  <rect class="node" x="840" y="200" width="240" height="120"/>
+  <text class="label" x="960" y="235" text-anchor="middle">Intelligence step</text>
+  <text class="note" x="960" y="262" text-anchor="middle">build only when needed</text>
+  <text class="note" x="960" y="284" text-anchor="middle">or scope allows</text>
+  <rect class="node" x="120" y="520" width="240" height="120"/>
+  <text class="label" x="240" y="555" text-anchor="middle">Visualization / brief</text>
+  <text class="note" x="240" y="582" text-anchor="middle">degrade or enrich output</text>
+  <text class="note" x="240" y="604" text-anchor="middle">persist resulting state</text>
+  <rect class="node" x="840" y="520" width="240" height="120"/>
+  <text class="label" x="960" y="555" text-anchor="middle">UI week view</text>
+  <text class="note" x="960" y="582" text-anchor="middle">active selection</text>
+  <text class="note" x="960" y="604" text-anchor="middle">cached response</text>
+  <path class="arrow" d="M 360 260 L 480 360"/><path class="arrow" d="M 840 260 L 720 360"/><path class="arrow" d="M 360 580 L 480 440"/><path class="arrow" d="M 840 580 L 720 440"/>
+  <rect class="node" x="480" y="520" width="240" height="90"/>
+  <text class="label" x="600" y="552" text-anchor="middle">Shared state</text>
+  <text class="note" x="600" y="576" text-anchor="middle">week-scoped context</text>
+  <path class="arrow dashed" d="M 600 470 L 600 520"/>
+</svg>

@@ -193,23 +193,20 @@ const relatedLearnings = allLearnings.filter(l =>
 <script>
   import mediumZoom from 'medium-zoom';
 
-  // Initialize medium zoom on client side
-  document.addEventListener('astro:page-load', () => {
+  const setupZoom = () => {
     mediumZoom('[data-zoomable]', {
       margin: 24,
-      background: 'rgba(15, 23, 42, 0.95)', // Tailwind slate-900 with high opacity for premium dark feel
+      background: 'rgba(15, 23, 42, 0.95)',
     });
-  });
-  
-  // Also run on initial load in case astro:page-load doesn't fire for the first navigation
-  mediumZoom('[data-zoomable]', {
-    margin: 24,
-    background: 'rgba(15, 23, 42, 0.95)', 
-  });
+  };
+
+  // Initial load
+  setupZoom();
+  // Navigation load (Astro View Transitions)
+  document.addEventListener('astro:page-load', setupZoom);
 </script>
 
 <style is:global>
-  /* Customize the medium-zoom overlay to perfectly match the site's glassmorphism */
   .medium-zoom-overlay {
     backdrop-filter: blur(10px);
     z-index: 50;
