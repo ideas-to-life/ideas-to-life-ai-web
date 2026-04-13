@@ -8,7 +8,7 @@ status: "exploring"
 confidence: "medium"
 domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
-relatedLearnings: ["weekly-learning-2026-03-02"]
+relatedLearnings: ["20260309"]
 sources: ["runner-agentic-intelligence"]
 diagram: "/architecture/patterns/pipeline-intelligence-snapshot.svg"
 ---

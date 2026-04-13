@@ -2,8 +2,8 @@
 title: "Ideas to Life: an AI product foundry"
 slug: threads/ai-product-foundry
 type: thread
-first-observed: 2026-03-09
-last-updated: 2026-03-09
+firstObserved: 2026-03-09
+lastUpdated: 2026-03-09
 tags: ["ideas-to-life", "architecture", "experimentation", "ai"]
 draft: false
 ---

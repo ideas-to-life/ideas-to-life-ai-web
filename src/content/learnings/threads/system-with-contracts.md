@@ -1,9 +1,9 @@
 ---
 title: "From components to a system with contracts"
 type: thread
-first-observed: 2026-01-23
-last-updated: 2026-01-23
-related-weeks: ["2026-01-23"]
+firstObserved: 2026-01-23
+lastUpdated: 2026-01-23
+relatedWeeks: ["2026-01-23"]
 tags: ["process", "experimentation", "platform", "governance"]
 ---
 

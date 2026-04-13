@@ -56,7 +56,7 @@ const learningsCollection = defineCollection({
                 type: z.literal('weekly'),
                 title: z.string().trim().min(8),
                 date: z.coerce.date(),
-                summary: z.string().trim().min(20).max(180),
+                summary: z.string().trim().min(20).max(190),
                 tags: z
                     .array(z.string().trim().toLowerCase().min(2).max(24))
                     .max(8)
@@ -71,6 +71,7 @@ const learningsCollection = defineCollection({
                 summary: z.string().optional(),     // Optional for threads
                 firstObserved: z.coerce.date().optional(),
                 lastUpdated: z.coerce.date().optional(),
+                relatedWeeks: z.array(z.string()).optional(),
                 tags: z
                     .array(z.string().trim().toLowerCase().min(2).max(24))
                     .max(8)

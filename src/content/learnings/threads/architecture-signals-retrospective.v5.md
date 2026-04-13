@@ -2,9 +2,9 @@
 title: "Observability Hardening & Deterministic-First Governance"
 slug: threads/architecture-signals-retrospective.v5
 type: thread
-first-observed: 2026-02-22
-last-updated: 2026-03-01
-related-weeks: ["2026-02-22"]
+firstObserved: 2026-02-22
+lastUpdated: 2026-03-01
+relatedWeeks: ["2026-02-22"]
 tags: ["architecture", "observability", "governance", "mvp"]
 draft: false
 ---

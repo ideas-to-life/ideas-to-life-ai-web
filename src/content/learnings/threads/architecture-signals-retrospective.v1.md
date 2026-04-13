@@ -2,9 +2,9 @@
 title: "Architecture signals & invalidated assumptions"
 slug: threads/architecture-signals-retrospective.v1
 type: thread
-first-observed: 2026-01-31
-last-updated: 2026-01-31
-related-weeks: ["2026-01-09", "2026-01-16", "2026-01-23", "2026-01-30"]
+firstObserved: 2026-01-31
+lastUpdated: 2026-01-31
+relatedWeeks: ["2026-01-09", "2026-01-16", "2026-01-23", "2026-01-30"]
 tags: ["architecture", "experimentation"]
 draft: false
 ---

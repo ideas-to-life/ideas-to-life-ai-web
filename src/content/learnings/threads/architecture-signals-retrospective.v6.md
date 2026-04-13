@@ -2,9 +2,9 @@
 title: "Architecture signals & invalidated assumptions"
 slug: threads/architecture-signals-retrospective.v6
 type: thread
-first-observed: 2026-03-02
-last-updated: 2026-03-08
-related-weeks: ["2026-03-08"]
+firstObserved: 2026-03-02
+lastUpdated: 2026-03-08
+relatedWeeks: ["2026-03-08"]
 tags: ["architecture", "experimentation", "agentic-ai", "pipeline"]
 draft: false
 ---

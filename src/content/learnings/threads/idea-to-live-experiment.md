@@ -1,9 +1,9 @@
 ---
 title: "From personal need to live experiment"
 type: thread
-first-observed: 2026-01-23
-last-updated: 2026-01-23
-related-weeks: ["2026-01-23"]
+firstObserved: 2026-01-23
+lastUpdated: 2026-01-23
+relatedWeeks: ["2026-01-23"]
 tags: ["experimentation", "process", "systems"]
 ---
 

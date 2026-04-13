@@ -2,9 +2,9 @@
 title: "Architecture workflow loop"
 slug: threads/architecture-workflow-loop
 type: thread
-first-observed: 2026-02-09-23
-last-updated: 2026-03-09
-related-weeks: ["2026-03-08"]
+firstObserved: 2026-02-23
+lastUpdated: 2026-03-09
+relatedWeeks: ["2026-03-08"]
 tags: ["architecture", "experimentation", "governance", "workflow"]
 draft: false
 ---

@@ -2,9 +2,9 @@
 title: "Architecture Inflection: Determinism, Observability & Provider Boundaries"
 slug: threads/architecture-signals-retrospective.v4
 type: thread
-first-observed: 2026-02-15
-last-updated: 2026-02-20
-related-weeks: ["2026-02-16"]
+firstObserved: 2026-02-15
+lastUpdated: 2026-02-20
+relatedWeeks: ["2026-02-16"]
 tags: ["architecture", "determinism", "observability", "multi-provider", "experimentation"]
 draft: false
 ---

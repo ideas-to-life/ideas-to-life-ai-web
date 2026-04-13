@@ -6,6 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "check:links": "node scripts/check-internal-links.mjs",
+    "check:content": "node scripts/check-content-references.mjs",
+    "check:site": "npm run build && npm run check:links && npm run check:content",
     "preview": "astro preview",
     "astro": "astro"
   },
