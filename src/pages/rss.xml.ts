@@ -1,24 +1,51 @@
 import rss from '@astrojs/rss';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export async function GET(context: any) {
     const learnings = await getCollection('learnings');
-    const validLearnings = learnings
-        .filter((entry): entry is CollectionEntry<'learnings'> & { data: { type: 'weekly' } } => {
-            return !entry.data.draft && entry.data.type === 'weekly';
-        })
-        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+    const experiments = await getCollection('experiments');
+    const patterns = await getCollection('patterns');
 
-    return rss({
-        title: 'Ideas to Life — Weekly Learnings',
-        description: 'Weekly learnings from building Ideas to Life experiments: what worked, what broke, and what I learned.',
-        site: context.site,
-        items: validLearnings.map((entry) => ({
-            title: entry.data.title,
-            pubDate: entry.data.date,
-            description: entry.data.summary,
+    // Filter and format learnings
+    const learningItems = learnings
+        .filter(entry => !entry.data.draft)
+        .map((entry) => ({
+            title: `[Learning] ${entry.data.title}`,
+            pubDate: entry.data.date || new Date(), // Handle optional date for threads
+            description: entry.data.summary || entry.data.title,
             link: `/learnings/${entry.slug}/`,
             categories: entry.data.tags ?? [],
-        })),
+        }));
+
+    // Filter and format experiments
+    const experimentItems = experiments
+        .filter(entry => !entry.data.draft)
+        .map((entry) => ({
+            title: `[Experiment] ${entry.data.title}`,
+            pubDate: entry.data.date || new Date(),
+            description: entry.data.description,
+            link: `/experiments/${entry.slug}/`,
+            categories: entry.data.tags ?? [],
+        }));
+
+    // Filter and format patterns (Architecture)
+    const patternItems = patterns.map((entry) => ({
+        title: `[Pattern] ${entry.data.title}`,
+        pubDate: entry.data.date,
+        description: entry.data.summary,
+        link: `/architecture/patterns/${entry.slug}/`,
+        categories: entry.data.tags ?? [],
+    }));
+
+    // Merge and sort all items by date (descending)
+    const allItems = [...learningItems, ...experimentItems, ...patternItems].sort(
+        (a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()
+    );
+
+    return rss({
+        title: 'Ideas to Life — Content Feed',
+        description: 'Updates from the Ideas to Life lab: experiments, architectural patterns, and weekly learnings.',
+        site: context.site,
+        items: allItems,
     });
 }
