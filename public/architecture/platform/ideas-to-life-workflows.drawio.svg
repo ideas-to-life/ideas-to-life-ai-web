@@ -169,7 +169,8 @@
 
   <!-- Future State Layer -->
   <rect x="1780" y="40" width="240" height="840" rx="18" ry="18" fill="#ffffff" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"/>
-  <text x="1900" y="70" text-anchor="middle" class="font laneTitle">🔮 Future State</text>
+  <text x="1900" y="55" text-anchor="middle" class="font labelSmall">Maintained to Generated</text>
+  <text x="1900" y="78" text-anchor="middle" class="font laneTitle">🔮 Future State</text>
 
   <g class="font">
     <rect x="1795" y="100" width="210" height="60" rx="12" ry="12" fill="#f8fafc" class="nodeStroke"/>
@@ -186,15 +187,15 @@
 
     <rect x="1795" y="340" width="210" height="60" rx="12" ry="12" fill="#f8fafc" class="nodeStroke"/>
     <text x="1900" y="370" text-anchor="middle" class="labelSmall">Knowledge Sync</text>
-    <text x="1900" y="388" text-anchor="middle" class="labelSmall">(docs, diagrams, systems)</text>
+    <text x="1900" y="388" text-anchor="middle" class="labelSmall">(generate + update docs/diagrams)</text>
 
     <rect x="1795" y="420" width="210" height="60" rx="12" ry="12" fill="#f8fafc" class="nodeStroke"/>
     <text x="1900" y="450" text-anchor="middle" class="labelSmall">Knowledge Layer</text>
-    <text x="1900" y="468" text-anchor="middle" class="labelSmall">(patterns, signals, assets)</text>
+    <text x="1900" y="468" text-anchor="middle" class="labelSmall">(living architecture knowledge)</text>
 
     <rect x="1795" y="500" width="210" height="60" rx="12" ry="12" fill="#f8fafc" class="nodeStroke"/>
     <text x="1900" y="530" text-anchor="middle" class="labelSmall">Access Layer</text>
-    <text x="1900" y="548" text-anchor="middle" class="labelSmall">(NL, UI, API)</text>
+    <text x="1900" y="548" text-anchor="middle" class="labelSmall">(query, explain, guide)</text>
   </g>
 
   <!-- Future State Connectors -->
