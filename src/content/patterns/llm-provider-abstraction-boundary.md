@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/llm-provider-abstraction-boundary.svg"
 knowledgeId: "llm-provider-abstraction-boundary"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

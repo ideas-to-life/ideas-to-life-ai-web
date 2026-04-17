@@ -14,7 +14,7 @@ diagram: "/architecture/patterns/pipeline-intelligence-snapshot.svg"
 knowledgeId: "pipeline-intelligence-snapshot"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260309"
 signals: []
 applies_to: []
 automation_ready: false

@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/prompt-as-code-separation.svg"
 knowledgeId: "prompt-as-code-separation"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

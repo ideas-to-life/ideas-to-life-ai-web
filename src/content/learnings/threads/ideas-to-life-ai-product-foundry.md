@@ -8,9 +8,10 @@ tags: ["ideas-to-life", "architecture", "experimentation", "ai"]
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "workflow"
 strength: "emerging"
-derived_from: []
+derived_from:
+  - "wl-20260309"
 knowledgeId: "threads/ai-product-foundry"
 ---
 

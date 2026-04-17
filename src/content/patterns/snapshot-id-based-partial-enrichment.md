@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/snapshot-id-based-partial-enrichment.svg"
 knowledgeId: "snapshot-id-based-partial-enrichment"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

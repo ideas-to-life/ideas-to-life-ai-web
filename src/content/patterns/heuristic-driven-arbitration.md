@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/heuristic-driven-arbitration.svg"
 knowledgeId: "heuristic-driven-arbitration"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

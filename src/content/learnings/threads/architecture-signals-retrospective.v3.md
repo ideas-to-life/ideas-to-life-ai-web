@@ -9,9 +9,10 @@ tags: ["architecture", "experimentation"]
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "governance"
 strength: "emerging"
-derived_from: []
+derived_from:
+  - "wl-20260209"
 knowledgeId: "threads/architecture-signals-retrospective.v3"
 ---
 

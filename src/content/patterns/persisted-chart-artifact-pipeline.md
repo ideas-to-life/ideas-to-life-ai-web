@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/persisted-chart-artifact-pipeline.svg"
 knowledgeId: "persisted-chart-artifact-pipeline"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

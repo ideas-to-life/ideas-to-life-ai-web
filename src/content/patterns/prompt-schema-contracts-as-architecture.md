@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/prompt-schema-contracts-as-architecture.svg"
 knowledgeId: "prompt-schema-contracts-as-architecture"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

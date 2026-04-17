@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/deterministic-guardrail.svg"
 knowledgeId: "deterministic-guardrail"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

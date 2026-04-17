@@ -9,9 +9,10 @@ tags: ["process", "experimentation", "platform", "governance"]
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "boundaries"
 strength: "emerging"
-derived_from: []
+derived_from:
+  - "wl-20260123"
 knowledgeId: "threads/system-with-contracts"
 ---
 

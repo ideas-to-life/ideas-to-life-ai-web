@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/week-scoped-repository-reconstruction.svg"
 knowledgeId: "week-scoped-repository-reconstruction"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

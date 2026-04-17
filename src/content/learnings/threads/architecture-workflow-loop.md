@@ -9,9 +9,10 @@ tags: ["architecture", "experimentation", "governance", "workflow"]
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "workflow"
 strength: "emerging"
-derived_from: []
+derived_from:
+  - "wl-20260308"
 knowledgeId: "threads/architecture-workflow-loop"
 ---
 

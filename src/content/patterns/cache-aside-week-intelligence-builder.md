@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/cache-aside-week-intelligence-builder.svg"
 knowledgeId: "cache-aside-week-intelligence-builder"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

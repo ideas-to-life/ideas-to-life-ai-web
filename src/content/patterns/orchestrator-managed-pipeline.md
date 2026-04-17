@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/orchestrator-managed-pipeline.svg"
 knowledgeId: "orchestrator-managed-pipeline"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

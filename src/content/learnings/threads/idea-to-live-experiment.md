@@ -9,9 +9,10 @@ tags: ["experimentation", "process", "systems"]
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "workflow"
 strength: "emerging"
-derived_from: []
+derived_from:
+  - "wl-20260123"
 knowledgeId: "threads/idea-to-live-experiment"
 ---
 

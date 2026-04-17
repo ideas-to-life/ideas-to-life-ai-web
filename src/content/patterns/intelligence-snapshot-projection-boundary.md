@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/intelligence-snapshot-projection-boundary.svg"
 knowledgeId: "intelligence-snapshot-projection-boundary"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

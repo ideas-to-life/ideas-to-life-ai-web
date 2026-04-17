@@ -8,13 +8,14 @@ relatedWeeks: ["2026-01-09", "2026-01-16", "2026-01-23", "2026-01-30"]
 tags: ["architecture", "experimentation"]
 draft: false
 knowledgeType: "signal"
-
-category: ""
-
-strength: "emerging"
-
-derived_from: []
 signalType: "curated-thread"
+category: "boundaries"
+strength: "emerging"
+derived_from:
+  - "wl-20260109"
+  - "wl-20260116"
+  - "wl-20260123"
+  - "wl-20260130"
 knowledgeId: "threads/architecture-signals-retrospective.v1"
 ---
 

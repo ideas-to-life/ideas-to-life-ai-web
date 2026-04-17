@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/derived-documentation-from-evidence.svg"
 knowledgeId: "derived-documentation-from-evidence"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260109"
 signals: []
 applies_to: []
 automation_ready: false

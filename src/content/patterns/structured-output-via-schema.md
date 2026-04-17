@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/structured-output-via-schema.svg"
 knowledgeId: "structured-output-via-schema"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

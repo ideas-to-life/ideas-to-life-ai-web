@@ -12,7 +12,7 @@ diagram: "/architecture/patterns/dual-path-routing.svg"
 knowledgeId: "dual-path-routing"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

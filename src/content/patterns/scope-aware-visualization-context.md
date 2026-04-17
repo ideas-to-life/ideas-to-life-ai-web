@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/scope-aware-visualization-context.svg"
 knowledgeId: "scope-aware-visualization-context"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

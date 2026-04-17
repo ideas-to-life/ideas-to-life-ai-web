@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/stabilise-core-loop-before-multimodal.svg"
 knowledgeId: "stabilise-core-loop-before-multimodal"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

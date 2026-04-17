@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/dirty-check-gated-lazy-recompute.svg"
 knowledgeId: "dirty-check-gated-lazy-recompute"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

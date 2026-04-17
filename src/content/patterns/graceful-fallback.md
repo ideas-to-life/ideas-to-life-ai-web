@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/graceful-fallback.svg"
 knowledgeId: "graceful-fallback"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

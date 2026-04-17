@@ -13,7 +13,7 @@ knowledgeId: "auto-injection-of-history"
 knowledgeType: "pattern"
 
 source:
-  learning: ""
+  learning: "wl_20260214"
 
 signals: []
 

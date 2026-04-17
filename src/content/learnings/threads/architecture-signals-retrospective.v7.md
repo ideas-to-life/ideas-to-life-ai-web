@@ -9,7 +9,7 @@ tags: ["architecture", "experimentation", "stability", "learning"]
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "boundaries"
 strength: "emerging"
 derived_from:
   - "wl-20260413"

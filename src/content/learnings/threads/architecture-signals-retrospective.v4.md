@@ -9,9 +9,10 @@ tags: ["architecture", "determinism", "observability", "multi-provider", "experi
 draft: false
 knowledgeType: "signal"
 signalType: "curated-thread"
-category: ""
+category: "state"
 strength: "emerging"
-derived_from: []
+derived_from:
+  - "wl-20260216"
 knowledgeId: "threads/architecture-signals-retrospective.v4"
 ---
 

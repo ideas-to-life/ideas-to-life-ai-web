@@ -12,7 +12,7 @@ diagram: "/architecture/patterns/implicit-tool-state-mutation.svg"
 knowledgeId: "implicit-tool-state-mutation"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260214"
 signals: []
 applies_to: []
 automation_ready: false

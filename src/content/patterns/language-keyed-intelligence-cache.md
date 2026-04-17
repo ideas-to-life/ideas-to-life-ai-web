@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/language-keyed-intelligence-cache.svg"
 knowledgeId: "language-keyed-intelligence-cache"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false

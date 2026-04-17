@@ -13,7 +13,7 @@ diagram: "/architecture/patterns/dto-backed-ui-contract.svg"
 knowledgeId: "dto-backed-ui-contract"
 knowledgeType: "pattern"
 source:
-  learning: ""
+  learning: "wl_20260413"
 signals: []
 applies_to: []
 automation_ready: false
