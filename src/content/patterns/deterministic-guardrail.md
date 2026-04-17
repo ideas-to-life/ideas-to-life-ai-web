@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Formalising the Pattern Publication System"]
 diagram: "/architecture/patterns/deterministic-guardrail.svg"
+knowledgeId: "deterministic-guardrail"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 Intent

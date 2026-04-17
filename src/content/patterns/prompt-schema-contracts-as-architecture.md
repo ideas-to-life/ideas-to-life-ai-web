@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Runner Agentic Intelligence weekly learnings: output quality improved via stricter prompt structure and JSON schema"]
 diagram: "/architecture/patterns/prompt-schema-contracts-as-architecture.svg"
+knowledgeId: "prompt-schema-contracts-as-architecture"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

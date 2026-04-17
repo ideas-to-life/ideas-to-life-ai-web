@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Optimization", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Week dirtiness comparison service", "Orchestrator lazy intelligence gating", "Lazy intelligence test coverage"]
 diagram: "/architecture/patterns/dirty-check-gated-lazy-recompute.svg"
+knowledgeId: "dirty-check-gated-lazy-recompute"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Multilingual", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Language-keyed snapshot cache", "Language-safe orchestrator week lookup"]
 diagram: "/architecture/patterns/language-keyed-intelligence-cache.svg"
+knowledgeId: "language-keyed-intelligence-cache"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -9,6 +9,13 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 sources: ["agentic-ai-architecture"]
 diagram: "/architecture/patterns/dual-path-routing.svg"
+knowledgeId: "dual-path-routing"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 Intent

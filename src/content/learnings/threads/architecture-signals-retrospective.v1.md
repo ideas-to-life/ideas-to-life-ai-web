@@ -7,6 +7,15 @@ lastUpdated: 2026-01-31
 relatedWeeks: ["2026-01-09", "2026-01-16", "2026-01-23", "2026-01-30"]
 tags: ["architecture", "experimentation"]
 draft: false
+knowledgeType: "signal"
+
+category: ""
+
+strength: "emerging"
+
+derived_from: []
+signalType: "curated-thread"
+knowledgeId: "threads/architecture-signals-retrospective.v1"
 ---
 
 Scope:

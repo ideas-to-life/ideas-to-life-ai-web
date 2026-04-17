@@ -15,7 +15,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 ---
 
-<a href={`/learnings/${learning.slug}`} class="block h-full group">
+<a href={`/learnings/${learning.id}`} class="block h-full group">
   <div class="glass p-8 rounded-[2rem] h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:bg-white/10">
     <div class="flex items-center justify-between mb-6">
       <span class="text-white/40 text-sm font-mono">{formattedDate}</span>

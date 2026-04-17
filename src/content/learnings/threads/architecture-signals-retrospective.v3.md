@@ -7,6 +7,12 @@ lastUpdated: 2026-02-14
 relatedWeeks: ["2026-02-09"]
 tags: ["architecture", "experimentation"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/architecture-signals-retrospective.v3"
 ---
 
 # Architecture Signals & Invalidated Assumptions — Retrospective

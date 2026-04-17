@@ -9,6 +9,17 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 sources: ["agentic-ai-architecture"]
 diagram: "/architecture/patterns/auto-injection-of-history.svg"
+knowledgeId: "auto-injection-of-history"
+knowledgeType: "pattern"
+
+source:
+  learning: ""
+
+signals: []
+
+applies_to: []
+
+automation_ready: false
 ---
 
 Intent

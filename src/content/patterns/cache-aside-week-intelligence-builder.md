@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Lazy Loading", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Cache-aside week intelligence builder", "Lazy intelligence test coverage"]
 diagram: "/architecture/patterns/cache-aside-week-intelligence-builder.svg"
+knowledgeId: "cache-aside-week-intelligence-builder"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

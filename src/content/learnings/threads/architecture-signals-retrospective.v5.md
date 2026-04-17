@@ -7,6 +7,12 @@ lastUpdated: 2026-03-01
 relatedWeeks: ["2026-02-22"]
 tags: ["architecture", "observability", "governance", "mvp"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/architecture-signals-retrospective.v5"
 ---
 
 # Architecture Signals & Invalidated Assumptions — Retrospective

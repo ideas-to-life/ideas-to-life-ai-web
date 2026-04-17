@@ -6,6 +6,12 @@ firstObserved: 2026-03-09
 lastUpdated: 2026-03-09
 tags: ["ideas-to-life", "architecture", "experimentation", "ai"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/ai-product-foundry"
 ---
 
 ## Purpose

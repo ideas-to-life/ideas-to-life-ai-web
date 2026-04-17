@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Gradio", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Chart serialization helpers", "Weekly snapshot chart persistence", "Intelligence snapshot serializer", "Gradio chart rendering path"]
 diagram: "/architecture/patterns/persisted-chart-artifact-pipeline.svg"
+knowledgeId: "persisted-chart-artifact-pipeline"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Runner Coaching", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Intelligence snapshot builder", "Runner intelligence snapshot model", "Runner API response contract"]
 diagram: "/architecture/patterns/intelligence-snapshot-projection-boundary.svg"
+knowledgeId: "intelligence-snapshot-projection-boundary"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

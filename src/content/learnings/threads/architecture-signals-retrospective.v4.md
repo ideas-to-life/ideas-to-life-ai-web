@@ -7,6 +7,12 @@ lastUpdated: 2026-02-20
 relatedWeeks: ["2026-02-16"]
 tags: ["architecture", "determinism", "observability", "multi-provider", "experimentation"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/architecture-signals-retrospective.v4"
 ---
 
 # Architecture Signals & Invalidated Assumptions — Retrospective

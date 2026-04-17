@@ -10,6 +10,17 @@ domain: ["Agentic AI", "Optimization", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Active-week orchestration heuristic", "Historical week deterministic fallback"]
 diagram: "/architecture/patterns/active-week-selective-intelligence.svg"
+knowledgeId: "active-week-selective-intelligence"
+knowledgeType: "pattern"
+
+source:
+  learning: "wl-20260413"
+
+signals: []
+
+applies_to: []
+
+automation_ready: false
 ---
 
 ## Intent

@@ -1,10 +1,18 @@
 ---
 title: "From personal need to live experiment"
+slug: threads/idea-to-live-experiment
 type: thread
 firstObserved: 2026-01-23
 lastUpdated: 2026-01-23
 relatedWeeks: ["2026-01-23"]
 tags: ["experimentation", "process", "systems"]
+draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/idea-to-live-experiment"
 ---
 
 ### This week’s focus

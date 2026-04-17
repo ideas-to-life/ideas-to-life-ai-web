@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Formalising the Pattern Publication System"]
 diagram: "/architecture/patterns/graceful-fallback.svg"
+knowledgeId: "graceful-fallback"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 Intent

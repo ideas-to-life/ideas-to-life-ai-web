@@ -7,6 +7,13 @@ lastUpdated: 2026-04-13
 relatedWeeks: ["2026-04-13"]
 tags: ["architecture", "experimentation", "stability", "learning"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from:
+  - "wl-20260413"
+knowledgeId: "threads/architecture-signals-retrospective.v7"
 ---
 
 Scope:

@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Runner Agentic Intelligence weekly learnings: multimodal deferred until core flow stabilized"]
 diagram: "/architecture/patterns/stabilise-core-loop-before-multimodal.svg"
+knowledgeId: "stabilise-core-loop-before-multimodal"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

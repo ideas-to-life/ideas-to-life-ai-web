@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Formalising the Pattern Publication System"]
 diagram: "/architecture/patterns/orchestrator-managed-pipeline.svg"
+knowledgeId: "orchestrator-managed-pipeline"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 Intent

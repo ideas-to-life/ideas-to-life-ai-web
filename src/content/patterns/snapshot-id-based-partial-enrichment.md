@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Persistence", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Snapshot recompute identity preservation", "Weekly snapshot enrichment by id", "Orchestrator chart enrichment flow"]
 diagram: "/architecture/patterns/snapshot-id-based-partial-enrichment.svg"
+knowledgeId: "snapshot-id-based-partial-enrichment"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Runner Agentic Intelligence weekly learnings: LLM abstraction via LiteLLM; cross-provider regression testing"]
 diagram: "/architecture/patterns/llm-provider-abstraction-boundary.svg"
+knowledgeId: "llm-provider-abstraction-boundary"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

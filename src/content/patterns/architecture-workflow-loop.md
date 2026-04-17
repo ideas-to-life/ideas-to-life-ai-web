@@ -11,6 +11,23 @@ relatedExperiments: ["runner-agentic-intelligence"]
 relatedLearnings: ["20260309"]
 sources: ["ideas-to-life", "runner-agentic-intelligence repo"]
 diagram: "/architecture/patterns/architecture-workflow-loop.svg"
+knowledgeId: "architecture-workflow-loop"
+knowledgeType: "pattern"
+
+source:
+  learning: "wl-2026-03-09"
+
+signals:
+  - "architecture-governance"
+  - "structural-drift"
+  - "audit-before-merge"
+
+applies_to:
+  - "delivery-workflow"
+  - "merge-process"
+  - "refactoring-cycle"
+
+automation_ready: true
 ---
 
 ## Intent

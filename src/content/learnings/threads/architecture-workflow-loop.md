@@ -7,6 +7,12 @@ lastUpdated: 2026-03-09
 relatedWeeks: ["2026-03-08"]
 tags: ["architecture", "experimentation", "governance", "workflow"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/architecture-workflow-loop"
 ---
 
 Scope:

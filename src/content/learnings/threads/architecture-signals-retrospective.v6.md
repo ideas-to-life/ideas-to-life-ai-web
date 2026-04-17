@@ -7,6 +7,12 @@ lastUpdated: 2026-03-08
 relatedWeeks: ["2026-03-08"]
 tags: ["architecture", "experimentation", "agentic-ai", "pipeline"]
 draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/architecture-signals-retrospective.v6"
 ---
 
 Scope:

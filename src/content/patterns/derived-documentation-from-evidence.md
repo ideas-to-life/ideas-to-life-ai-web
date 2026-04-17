@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Weekly Learnings 2026-01-09 to 2026-01-30"]
 diagram: "/architecture/patterns/derived-documentation-from-evidence.svg"
+knowledgeId: "derived-documentation-from-evidence"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -96,7 +96,7 @@ const steps = [
               <p class="text-white/60">{product.body.split('\n').find(line => line.trim() !== '' && !line.startsWith('#'))}</p>
               <div class="flex gap-4 pt-4">
                 <a href={product.data.product_url} target="_blank" class="text-white font-bold hover:underline">Open product →</a>
-                <a href={`/products/${product.slug}`} class="text-white/50 hover:text-white transition-colors">How it works</a>
+                <a href={`/products/${product.id}`} class="text-white/50 hover:text-white transition-colors">How it works</a>
               </div>
             </div>
           ))}

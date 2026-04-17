@@ -1,10 +1,18 @@
 ---
 title: "From components to a system with contracts"
+slug: threads/system-with-contracts
 type: thread
 firstObserved: 2026-01-23
 lastUpdated: 2026-01-23
 relatedWeeks: ["2026-01-23"]
 tags: ["process", "experimentation", "platform", "governance"]
+draft: false
+knowledgeType: "signal"
+signalType: "curated-thread"
+category: ""
+strength: "emerging"
+derived_from: []
+knowledgeId: "threads/system-with-contracts"
 ---
 
 ### This week’s focus

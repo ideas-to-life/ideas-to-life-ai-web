@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Runner Coaching", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Week-scoped orchestrator rebuild flow", "Week agent-context reconstruction service"]
 diagram: "/architecture/patterns/week-scoped-repository-reconstruction.svg"
+knowledgeId: "week-scoped-repository-reconstruction"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

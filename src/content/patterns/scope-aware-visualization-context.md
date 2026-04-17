@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Visualization", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["runner-agentic-intelligence PR132", "Pipeline visualization scope context", "Orchestrator weekly vs full chart flow", "Visualization step scoped rendering"]
 diagram: "/architecture/patterns/scope-aware-visualization-context.svg"
+knowledgeId: "scope-aware-visualization-context"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -1,17 +1,17 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const patterns = await getCollection('patterns');
   return patterns.map(entry => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const frontmatter = {
     title: entry.data.title,
@@ -103,7 +103,7 @@ const confidenceColors = {
                 <ul class="space-y-4">
                     {relatedLearnings.map(learn => learn && (
                         <li>
-                            <a href={`/learnings/${learn.slug}`} class="flex items-center gap-4 text-white/70 hover:text-white transition-colors">
+                            <a href={`/learnings/${learn.id}`} class="flex items-center gap-4 text-white/70 hover:text-white transition-colors">
                                 <span class="w-2 h-2 rounded-full bg-accent-blue"></span>
                                 <span class="font-medium underline decoration-white/20 underline-offset-4">{learn.data.title}</span>
                             </a>
@@ -129,7 +129,7 @@ const confidenceColors = {
                 <h3 class="font-display text-2xl font-bold mb-6">Related Experiments</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {relatedExperiments.map(exp => exp && (
-                        <a href={`/experiments/${exp.slug}`} class="glass p-6 rounded-2xl hover:bg-white/5 transition-colors group">
+                        <a href={`/experiments/${exp.id}`} class="glass p-6 rounded-2xl hover:bg-white/5 transition-colors group">
                             <h4 class="font-bold group-hover:text-accent-blue transition-colors">{exp.data.title}</h4>
                             <p class="text-sm text-white/50 mt-1">{exp.data.summary}</p>
                         </a>

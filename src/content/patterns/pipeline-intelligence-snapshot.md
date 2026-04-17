@@ -11,6 +11,13 @@ relatedExperiments: ["runner-agentic-intelligence"]
 relatedLearnings: ["20260309"]
 sources: ["runner-agentic-intelligence"]
 diagram: "/architecture/patterns/pipeline-intelligence-snapshot.svg"
+knowledgeId: "pipeline-intelligence-snapshot"
+knowledgeType: "pattern"
+source:
+  learning: ""
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 ## Intent

@@ -1,10 +1,19 @@
 ---
 title: "From personal need to repeatable human–AI workflow"
+slug: threads/human-ai-workflows
 type: thread
+knowledgeType: "signal"
+knowledgeId: "threads/human-ai-workflows"
+category: "human-ai-collaboration"
+strength: "emerging"
+derived_from:
+  - "wl-2026-01-23"
 firstObserved: 2026-01-23
 lastUpdated: 2026-01-23
 relatedWeeks: ["2026-01-23"]
 tags: ["human-ai", "workflow", "experimentation"]
+draft: false
+signalType: "curated-thread"
 ---
 
 ### This week’s focus
