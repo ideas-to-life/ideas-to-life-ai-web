@@ -4,7 +4,7 @@ summary: "Disrupting Enterprise Architecture Capability (People, Process, Tools,
 description: "Agentic Intelligence ecosystem designed to democratise enterprise architecture knowledge by enabling users to interact via natural language, while automating the generation of architectural artefacts and improving efficiency, collaboration and agility."
 image: "/assets/ea4all.ai.multi.agents.png"
 date: 2026-01-03
-status: "validating"
+status: "exploring"
 domain: ["Enterprise Architecture", "Multi-Agentic Intelligent Systems"]
 tags: ["agentic intelligence", "architecture", "enterprise"]
 demo: "https://huggingface.co/spaces/avfranco/ea4all_agentic_companion"
