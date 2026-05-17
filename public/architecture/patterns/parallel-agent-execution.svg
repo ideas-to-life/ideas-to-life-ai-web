@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="Parallel Agent Execution diagram">
+  <defs>
+    <style>
+      .bg { fill: #0b0b0c; }
+      .panel { fill: #111114; stroke: #2a2a2f; stroke-width: 2; rx: 18; }
+      .node { fill: #0f0f12; stroke: #3a3a42; stroke-width: 2; rx: 16; }
+      .title { font: 600 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #f2f2f4; }
+      .subtitle { font: 500 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #b8b8c2; }
+      .label { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e6e6ea; letter-spacing: 0.3px; }
+      .note { font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a6a6b1; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #b8b8c2; }
+      .arrow { stroke: #5a5a66; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 7 7; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#5a5a66"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="520" rx="22"/>
+
+  <rect class="panel" x="36" y="28" width="1128" height="92"/>
+  <text class="title" x="64" y="68">Parallel Agent Execution</text>
+  <text class="subtitle" x="64" y="98">Reducing end-to-end latency by concurrently executing independent agent tasks</text>
+  <text class="mono" x="1048" y="68" text-anchor="end">patternId: parallel-agent-execution</text>
+
+  <rect class="panel" x="36" y="140" width="1128" height="344"/>
+
+  <rect class="node" x="80" y="250" width="220" height="100"/>
+  <text class="label" x="190" y="295" text-anchor="middle">Orchestrator</text>
+  <text class="note"  x="190" y="320" text-anchor="middle">async fan-out</text>
+
+  <rect class="node" x="440" y="170" width="240" height="80"/>
+  <text class="label" x="560" y="210" text-anchor="middle">Insights Agent</text>
+  <text class="note"  x="560" y="232" text-anchor="middle">LLM analysis</text>
+
+  <rect class="node" x="440" y="270" width="240" height="80"/>
+  <text class="label" x="560" y="310" text-anchor="middle">Plan Agent</text>
+  <text class="note"  x="560" y="332" text-anchor="middle">Training logic</text>
+
+  <rect class="node" x="440" y="370" width="240" height="80"/>
+  <text class="label" x="560" y="410" text-anchor="middle">Viz Agent</text>
+  <text class="note"  x="560" y="432" text-anchor="middle">Chart generation</text>
+
+  <rect class="node" x="820" y="250" width="220" height="100"/>
+  <text class="label" x="930" y="295" text-anchor="middle">Sync Barrier</text>
+  <text class="mono"  x="930" y="320" text-anchor="middle">asyncio.gather()</text>
+
+  <path class="arrow" d="M 300 300 C 350 300, 350 210, 440 210"/>
+  <path class="arrow" d="M 300 300 L 440 310"/>
+  <path class="arrow" d="M 300 300 C 350 300, 350 410, 440 410"/>
+
+  <path class="arrow" d="M 680 210 C 750 210, 750 300, 820 300"/>
+  <path class="arrow" d="M 680 310 L 820 300"/>
+  <path class="arrow" d="M 680 410 C 750 410, 750 300, 820 300"/>
+
+  <text class="note" x="80" y="180">Notes: Requires strict isolation of context fields to prevent race conditions during concurrent writes.</text>
+</svg>

@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const experimentsCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/experiments" }),
     schema: z.object({
         title: z.string(),
         description: z.string(),
@@ -19,7 +20,7 @@ const experimentsCollection = defineCollection({
 });
 
 const pagesCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/pages" }),
     schema: z.object({
         title: z.string(),
         description: z.string(),
@@ -42,7 +43,7 @@ const pagesCollection = defineCollection({
 });
 
 const learningsCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/learnings" }),
     // Use preprocess to default 'type' to 'weekly' if missing
     schema: z.preprocess(
         (data) => {
@@ -83,7 +84,7 @@ const learningsCollection = defineCollection({
 });
 
 const patternsCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/patterns" }),
     schema: z.object({
         patternId: z.string(),
         title: z.string(),
@@ -101,7 +102,7 @@ const patternsCollection = defineCollection({
 });
 
 const productsCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/products" }),
     schema: z.object({
         title: z.string(),
         status: z.enum(['emerging', 'active', 'scaling']),

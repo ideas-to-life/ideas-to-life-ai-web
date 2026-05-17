@@ -13,7 +13,7 @@ export async function GET(context: any) {
             title: `[Learning] ${entry.data.title}`,
             pubDate: entry.data.date || new Date(), // Handle optional date for threads
             description: entry.data.summary || entry.data.title,
-            link: `/learnings/${entry.slug}/`,
+            link: `/learnings/${entry.id}/`,
             categories: entry.data.tags ?? [],
         }));
 
@@ -24,7 +24,7 @@ export async function GET(context: any) {
             title: `[Experiment] ${entry.data.title}`,
             pubDate: entry.data.date || new Date(),
             description: entry.data.description,
-            link: `/experiments/${entry.slug}/`,
+            link: `/experiments/${entry.id}/`,
             categories: entry.data.tags ?? [],
         }));
 
@@ -33,7 +33,7 @@ export async function GET(context: any) {
         title: `[Pattern] ${entry.data.title}`,
         pubDate: entry.data.date,
         description: entry.data.summary,
-        link: `/architecture/patterns/${entry.slug}/`,
+        link: `/architecture/patterns/${entry.id}/`,
         categories: entry.data.tags ?? [],
     }));
 

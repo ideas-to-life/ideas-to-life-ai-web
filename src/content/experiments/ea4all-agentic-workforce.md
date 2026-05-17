@@ -4,7 +4,7 @@ summary: "From static frameworks to dynamic, agentic-workforce ecosystems."
 description: "Refactoring of EA4ALL.AI to use agentic assistant workflow to interact with users and autonomously assign tasks to the best fit agent for the job."
 image: "/assets/ea4all.ai.workforce.png"
 date: 2026-01-03
-status: "validating"
+status: "exploring"
 domain: ["Enterprise Architecture", "Multi-Agentic Intelligent Systems"]
 tags: ["agentic intelligence", "architecture", "enterprise"]
 ---

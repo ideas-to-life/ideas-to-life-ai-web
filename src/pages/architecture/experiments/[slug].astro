@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
   // Also include slugs from content collection if they don't have folders yet (for "coming soon" state)
   const experiments = await getCollection('experiments');
-  const allSlugs = new Set([...experimentSlugs, ...experiments.map(e => e.slug)]);
+  const allSlugs = new Set([...experimentSlugs, ...experiments.map(e => e.id)]);
 
   return Array.from(allSlugs).map(slug => ({
     params: { slug },
@@ -26,7 +26,7 @@ const { slug } = Astro.params;
 
 // Discover experiment details
 const experiments = await getCollection('experiments');
-const experiment = experiments.find(e => e.slug === slug);
+const experiment = experiments.find(e => e.id === slug);
 const title = experiment ? experiment.data.title : slug.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
 const frontmatter = {
@@ -79,7 +79,7 @@ const experimentLink = experiment ? `/experiments/${slug}` : null;
 const allPatterns = await getCollection('patterns');
 const relatedPatterns = allPatterns.filter(p => 
   p.data.relatedExperiments?.includes(slug) || 
-  p.slug === slug ||
+  p.id === slug ||
   p.data.title.toLowerCase().includes(title.toLowerCase())
 );
 
@@ -154,7 +154,7 @@ const relatedLearnings = allLearnings.filter(l =>
           <ul class="space-y-4">
             {relatedPatterns.map(pattern => (
               <li>
-                <a href={`/architecture/patterns/${pattern.slug}`} class="text-lg font-medium text-white/80 hover:text-accent-sunset transition-colors flex items-center gap-2">
+                <a href={`/architecture/patterns/${pattern.id}`} class="text-lg font-medium text-white/80 hover:text-accent-sunset transition-colors flex items-center gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-accent-sunset"></span>
                   {pattern.data.title}
                 </a>
@@ -170,7 +170,7 @@ const relatedLearnings = allLearnings.filter(l =>
           <ul class="space-y-4">
             {relatedLearnings.map(learning => (
               <li>
-                <a href={`/learnings/${learning.slug}`} class="text-lg font-medium text-white/80 hover:text-accent-blue transition-colors flex items-center gap-2">
+                <a href={`/learnings/${learning.id}`} class="text-lg font-medium text-white/80 hover:text-accent-blue transition-colors flex items-center gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-accent-blue"></span>
                   {learning.data.title}
                 </a>

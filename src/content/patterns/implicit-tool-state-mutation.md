@@ -9,6 +9,13 @@ confidence: "high"
 domain: ["Agentic AI", "Architecture"]
 sources: ["agentic-ai-architecture"]
 diagram: "/architecture/patterns/implicit-tool-state-mutation.svg"
+knowledgeId: "implicit-tool-state-mutation"
+knowledgeType: "pattern"
+source:
+  learning: "wl_20260214"
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 Intent

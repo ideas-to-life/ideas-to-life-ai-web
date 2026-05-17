@@ -2,7 +2,7 @@
 title: "idea-to-song"
 summary: "Turn a simple idea or mood into a fully generated original song."
 description: "Turn a simple idea or mood into a fully generated original song."
-status: "exploring"
+status: "paused"
 domain: ["Audio Generation", "Music Composition"]
 image: "/assets/song.png"
 date: 2026-01-03

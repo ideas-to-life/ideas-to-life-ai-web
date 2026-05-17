@@ -10,6 +10,13 @@ domain: ["Agentic AI", "Architecture"]
 relatedExperiments: ["runner-agentic-intelligence"]
 sources: ["Formalising the Pattern Publication System"]
 diagram: "/architecture/patterns/heuristic-driven-arbitration.svg"
+knowledgeId: "heuristic-driven-arbitration"
+knowledgeType: "pattern"
+source:
+  learning: "wl_20260214"
+signals: []
+applies_to: []
+automation_ready: false
 ---
 
 Intent

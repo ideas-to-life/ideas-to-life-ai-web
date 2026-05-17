@@ -4,7 +4,7 @@ summary: "Gamified language learning powered by dynamic AI storytelling."
 description: "An interactive AI-powered, multimodal language-learning game designed to help English learners improve listening comprehension, spoken fluency, and confidence through immersive, interactive scenarios."
 image: "/assets/fluency.quest.ai.png"
 date: 2026-01-03
-status: "exploring"
+status: "paused"
 domain: ["EdTech", "Language Learning"]
 tags: ["education", "language", "genai"]
 ---

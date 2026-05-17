@@ -8,14 +8,14 @@ interface Props {
 const { experiment } = Astro.props;
 ---
 
-<a href={`/experiments/${experiment.slug}`} class="block h-full">
+<a href={`/experiments/${experiment.id}`} class="block h-full">
   <div class="glass group relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2 h-full flex flex-col">
     <div class="aspect-video overflow-hidden relative">
        <img 
          src={experiment.data.image} 
          alt={experiment.data.title} 
          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-         transition:name={`experiment-image-${experiment.slug}`}
+         transition:name={`experiment-image-${experiment.id}`}
        />
        <div class="absolute top-4 left-4">
          <span class:list={[
