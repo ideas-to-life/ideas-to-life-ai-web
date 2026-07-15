@@ -87,7 +87,7 @@ const relatedPatterns = allPatterns.filter(p =>
 const allLearnings = await getCollection('learnings');
 const relatedLearnings = allLearnings.filter(l => 
   l.data.title.toLowerCase().includes(title.toLowerCase()) ||
-  l.body.toLowerCase().includes(slug.toLowerCase())
+  (l.body || '').toLowerCase().includes(slug.toLowerCase())
 ).slice(0, 5); // Limit to 5
 ---
 

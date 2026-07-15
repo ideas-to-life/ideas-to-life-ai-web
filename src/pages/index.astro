@@ -93,7 +93,7 @@ const steps = [
           {emergingProducts.map(product => (
             <div class="glass p-8 rounded-3xl space-y-4">
               <h3 class="font-display text-2xl font-bold">{product.data.title}</h3>
-              <p class="text-white/60">{product.body.split('\n').find(line => line.trim() !== '' && !line.startsWith('#'))}</p>
+              <p class="text-white/60">{product.body?.split('\n').find(line => line.trim() !== '' && !line.startsWith('#'))}</p>
               <div class="flex gap-4 pt-4">
                 <a href={product.data.product_url} target="_blank" class="text-white font-bold hover:underline">Open product →</a>
                 <a href={`/products/${product.id}`} class="text-white/50 hover:text-white transition-colors">How it works</a>

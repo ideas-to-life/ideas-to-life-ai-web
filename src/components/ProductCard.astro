@@ -25,7 +25,7 @@ const { product } = Astro.props;
     </div>
     
     <p class="text-white/60 text-sm leading-relaxed">
-      {product.body.split('\n').find(line => line.trim() !== '' && !line.startsWith('#'))}
+      {product.body?.split('\n').find(line => line.trim() !== '' && !line.startsWith('#'))}
     </p>
 
     <div class="flex flex-wrap gap-2">
