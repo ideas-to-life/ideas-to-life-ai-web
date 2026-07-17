@@ -57,3 +57,9 @@ Validation will be considered complete when the workflow consistently demonstrat
 
 ## Related Learnings
 - [When the learning wasn't the problem, the publishing workflow was](/learnings/20260715)
+
+## Related Patterns
+- <a href="/architecture/patterns/judgement-before-execution">Judgement before Execution</a>
+
+## Architecture
+- <a href="/architecture/experiments/idea-to-editorial-reasoning-system">Idea to Editorial Reasoning System</a>
