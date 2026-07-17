@@ -54,3 +54,6 @@ This experiment is currently in the **Validating** phase.
 The reasoning workflow has been implemented and successfully generated its first editorial briefs. The next stage is to validate the quality of editorial decisions across multiple Weekly Learnings, observe whether the resulting publications better communicate ongoing explorations and professional thinking, and refine the reasoning model based on evidence.
 
 Validation will be considered complete when the workflow consistently demonstrates stronger editorial selection than direct document-to-post generation and the pattern can be reused independently of any specific publishing channel.
+
+## Related Learnings
+- [When the learning wasn't the problem, the publishing workflow was](/learnings/20260715)
