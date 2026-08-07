@@ -2,7 +2,7 @@
 title: Career Projection / Interview-Playbook Generator
 summary: Exploring how structured career evidence can generate role-specific career projections and evidence-grounded interview playbooks.
 description: An experiment in transforming reusable career and portfolio evidence into role-specific career projections and interview preparation artefacts using governed AI workflows.
-status: "exploring"
+status: "validating"
 domain: ["Career", "Generative AI"]
 date: 2026-08-07
 tags: ["career-projection", "interview-playbook", "skills", "sub-agents", "generative-ai"]
