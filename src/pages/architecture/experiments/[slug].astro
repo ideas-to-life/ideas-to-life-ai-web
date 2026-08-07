@@ -37,7 +37,8 @@ const frontmatter = {
 // Title generation helper
 const generateTitle = (filename: string) => {
   return filename
-    .replace('.drawio.svg', '')
+    .replace(/\.drawio\.svg$/i, '')
+    .replace(/\.(svg|png|jpg|jpeg|webp)$/i, '')
     .replace(/-/g, ' ')
     .split(' ')
     .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -52,7 +53,7 @@ let sequenceDiagrams: any[] = [];
 if (fs.existsSync(baseDir)) {
   // Main diagrams
   mainDiagrams = fs.readdirSync(baseDir)
-    .filter((file: string) => file.endsWith('.drawio.svg'))
+    .filter((file: string) => /\.(svg|png|jpg|jpeg|webp)$/i.test(file))
     .map((file: string) => ({
       filename: file,
       title: generateTitle(file),
@@ -63,7 +64,7 @@ if (fs.existsSync(baseDir)) {
   const sequenceDir = path.join(baseDir, 'sequence');
   if (fs.existsSync(sequenceDir) && fs.statSync(sequenceDir).isDirectory()) {
     sequenceDiagrams = fs.readdirSync(sequenceDir)
-      .filter((file: string) => file.endsWith('.drawio.svg'))
+      .filter((file: string) => /\.(svg|png|jpg|jpeg|webp)$/i.test(file))
       .map((file: string) => ({
         filename: file,
         title: generateTitle(file),
