@@ -2,7 +2,7 @@
 title: "Idea to Cheat Sheet"
 summary: "Interactive cheat sheets that lower the barrier to learning new tools, ideas, and frameworks."
 description: "An experiment exploring how interactive cheat sheets can turn ideas into fast, practical reference artifacts."
-status: "paused"
+status: "exploring"
 domain: ["Productivity", "Frameworks", "Learning"]
 image: "/assets/ideas-to-cheatsheet.png"
 date: 2026-01-17
