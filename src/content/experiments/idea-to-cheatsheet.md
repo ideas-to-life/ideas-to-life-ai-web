@@ -37,3 +37,4 @@ Current outputs from this experiment.
 - <a href="/cheatsheets/google-adk-index.html" target="_blank" rel="noopener noreferrer">Google ADK cheat sheet</a>
 - <a href="/cheatsheets/agentic-ai-patterns.html" target="_blank" rel="noopener noreferrer">Agentic AI Patterns cheat sheet</a>
 - <a href="/cheatsheets/powerpoint-index.html" target="_blank" rel="noopener noreferrer">PowerPoint cheat sheet</a>
+- <a href="/cheatsheets/strategic_exploratory_meeting_cheatsheet.html" target="_blank" rel="noopener noreferrer">Strategic Exploratory Meeting cheat sheet</a>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Exploratory Meeting Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .provenance {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-bottom: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.05rem;
+            max-width: 850px;
+            margin: 0 auto 18px;
+            line-height: 1.5;
+        }
+
+        .header-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: 0.8rem;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* ── SEARCH & FILTER ── */
+        .search-section {
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.15);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* ── CONTENT ── */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            color: #2d3561;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 22px 24px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            line-height: 1.7;
+        }
+
+        .card:hover {
+            background: #e9ecef;
+            transform: translateX(4px);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #2d3561;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul,
+        .card ol {
+            margin: 8px 0 10px 22px;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        /* ── SPECIAL CALLOUTS ── */
+        .quote {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 12px 0;
+            font-weight: 500;
+            color: #1e3a8a;
+            line-height: 1.6;
+        }
+
+        .quote.warm {
+            background: #fffbeb;
+            border-left-color: #f59e0b;
+            color: #92400e;
+        }
+
+        .good {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 16px 18px;
+            border-radius: 8px;
+            margin: 12px 0;
+            color: #064e3b;
+        }
+
+        .bad {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 16px 18px;
+            border-radius: 8px;
+            margin: 12px 0;
+            color: #7f1d1d;
+        }
+
+        .listen {
+            display: inline-block;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .q {
+            font-weight: 600;
+            color: #1e293b;
+            margin: 10px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .num {
+            display: inline-flex;
+            width: 24px;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #e0e7ff;
+            color: #4338ca;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .muted {
+            color: #64748b;
+            font-size: 0.92rem;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #e2e8f0;
+            color: #334155;
+            border-radius: 999px;
+            margin: 4px 4px 4px 0;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .pill:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* ── PROCESS FLOW ── */
+        .flow {
+            display: flex;
+            gap: 10px;
+            align-items: stretch;
+            flex-wrap: wrap;
+            margin: 14px 0;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 140px;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .step strong {
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        .arrow {
+            align-self: center;
+            color: #667eea;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding: 0 4px;
+        }
+
+        /* ── TABLE ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover td {
+            background: #f1f5f9;
+        }
+
+        .highlight {
+            background: #fff59d;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #000000;
+            color: #808080;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            color: #808080;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #808080;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #808080;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .search-section {
+                padding: 20px;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+                margin: 4px 0;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .search-section {
+                display: none;
+            }
+
+            .card {
+                break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="provenance">An Ideas to Life experiment · Frameworks & Advisory</div>
+            <h1>🤝 Strategic Exploratory Meeting</h1>
+            <p class="subtitle">Reusable cheatsheet for high-impact conversations with CEOs, founders, boutique consultancies, partners, and senior technology leaders.</p>
+            <div class="header-tags">
+                <span class="tag">Relationship First</span>
+                <span class="tag">Discover Before Positioning</span>
+                <span class="tag">Enterprise Architecture</span>
+                <span class="tag">AI Transformation</span>
+                <span class="tag">Find the Intersection</span>
+            </div>
+        </header>
+
+        <!-- SEARCH & FILTER -->
+        <div class="search-section">
+            <input type="text" id="searchBox" class="search-box"
+                placeholder="Search meeting objectives, questions, mental models, signals, positioning...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="foundations">Foundations</button>
+                <button class="filter-btn" data-filter="discovery">Discovery Questions</button>
+                <button class="filter-btn" data-filter="positioning">Positioning & Mindset</button>
+                <button class="filter-btn" data-filter="ai-strategy">AI & Transformation</button>
+                <button class="filter-btn" data-filter="signals">Signals & Rules</button>
+                <button class="filter-btn" data-filter="closing">Working Together & Next Steps</button>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content" id="content">
+
+            <!-- ══════════════════════════════════════════ -->
+            <!-- 1. FOUNDATIONS                            -->
+            <!-- ══════════════════════════════════════════ -->
+            <div class="section" data-category="foundations">
+                <h2 class="section-title">🧭 1. Foundations & Mindset</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">1. The Objective</div>
+                        <div class="quote">
+                            “Do not go in trying to sell. Go in trying to understand whether there is a valuable intersection.”
+                        </div>
+                        <p><strong>Primary goal:</strong> Understand the other person's business, clients, ambitions, capability model, and current challenges.</p>
+                        <p><strong>Secondary goal:</strong> Test whether your Enterprise Architecture + AI Transformation capability could extend what they already do.</p>
+                        <p><strong>Success criteria:</strong> A clear mutual opportunity or a concrete next conversation.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">2. My Mental Model</div>
+                        <div class="flow">
+                            <div class="step">
+                                <strong>Their world</strong><br>
+                                <span class="muted">Clients · Strategy · Services · Delivery</span>
+                            </div>
+                            <div class="arrow">+</div>
+                            <div class="step">
+                                <strong>Your world</strong><br>
+                                <span class="muted">Architecture · Transformation · Governance · AI</span>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="step">
+                                <strong>Potential value</strong><br>
+                                <span class="muted">A stronger client outcome</span>
+                            </div>
+                        </div>
+                        <p class="muted">This is a hypothesis to test, not a proposition to force.</p>
+                        <div class="quote warm">
+                            <strong>How I turn complexity into action:</strong><br>
+                            Take a complex, ambiguous situation → structure the problem → provide a way of thinking → provide questions for deciding → provide practical actions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">3. Start with Curiosity</div>
+                    <div class="q"><span class="num">1</span><span>“I'd love to understand more about what you're building and where you're seeing the most interesting opportunities.”</span></div>
+                    <div class="q"><span class="num">2</span><span>“What are you seeing in your clients at the moment?”</span></div>
+                    <div class="q"><span class="num">3</span><span>“What made you interested in having this conversation?”</span></div>
+                    <div class="listen">LISTEN FOR: Why the meeting is happening, what problem they are trying to solve, and whether they already have something specific in mind.</div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════ -->
+            <!-- 2. DISCOVERY QUESTIONS                     -->
+            <!-- ══════════════════════════════════════════ -->
+            <div class="section" data-category="discovery">
+                <h2 class="section-title">🔍 2. Deep Discovery</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">4. Understand Their Business</div>
+                        <div class="q"><span class="num">•</span><span>“How would you describe your proposition today?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Which types of clients and problems are you most focused on?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“What types of engagements are working particularly well?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Where are you seeing demand change?”</span></div>
+                        <div class="listen">AIM: Understand the business model, not merely the service catalogue.</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">5. Understand Their Ambition</div>
+                        <div class="q"><span class="num">•</span><span>“Where do you want the business to go over the next couple of years?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Are there capabilities you want to build or strengthen?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“What kinds of client problems would you like to be able to solve more deeply?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“What would make the biggest difference to the business?”</span></div>
+                        <div class="listen">LOOK FOR: Growth, differentiation, new advisory services, specialist capability, trusted associate networks, strategic partnerships.</div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">6. Understand the Capability Model</div>
+                        <div class="q"><span class="num">•</span><span>“How do you normally bring specialist expertise into client engagements?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Do you mainly build capabilities internally, or work with trusted specialists and partners?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“What makes someone a good fit for your client model?”</span></div>
+                        <div class="listen">INSIGHT: Reveals whether the relationship could be advisory, associate-based, partner-led, subcontracted, or simply networking.</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">9. Probe for Client Demand</div>
+                        <div class="q"><span class="num">•</span><span>“What problems are clients finding hardest to solve?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Where do clients need more senior guidance?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Where do strategy and execution tend to break down?”</span></div>
+                        <div class="q"><span class="num">•</span><span>“Are clients asking about AI? If so, what are they actually trying to achieve?”</span></div>
+                        <div class="listen">PRINCIPLE: Don't assume the answer is AI. Follow the client's actual problem.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════ -->
+            <!-- 3. POSITIONING & ARTEFACT PATTERN          -->
+            <!-- ══════════════════════════════════════════ -->
+            <div class="section" data-category="positioning">
+                <h2 class="section-title">🎯 3. Positioning & Framing</h2>
+
+                <div class="card">
+                    <div class="card-title">7. Introduce Yourself — When Earned</div>
+                    <p>Once you understand their context, connect your experience directly to what you have heard:</p>
+                    <div class="quote">
+                        “That resonates with some of the work I've been doing. My focus has increasingly been around helping organisations connect business strategy, architecture, governance, delivery, and AI into lasting organisational capability.”
+                    </div>
+                    <p>Then pause and ask:</p>
+                    <div class="quote warm">
+                        “Does that overlap with any of the challenges you're seeing?”
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">8. Your Core Positioning</div>
+                    <div class="quote">
+                        “I help organisations navigate transformation by connecting business strategy, architecture, governance, delivery, and AI into lasting organisational capability.”
+                    </div>
+                    <p class="muted">This is your anchor, not a rigid script. Adapt the language naturally to the conversation.</p>
+                    <div style="margin-top: 10px;">
+                        <span class="pill">Enterprise Architecture</span>
+                        <span class="pill">AI Transformation</span>
+                        <span class="pill">Operating Model</span>
+                        <span class="pill">Governance</span>
+                        <span class="pill">Transformation Roadmaps</span>
+                        <span class="pill">Architecture Leadership</span>
+                        <span class="pill">AI-enabled Capability</span>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">8a. From Complexity to Action</div>
+                        <div class="flow">
+                            <div class="step">
+                                <strong>Mostelli</strong><br>
+                                <span class="muted">Transforming complexity into clarity.</span>
+                            </div>
+                            <div class="arrow">↓</div>
+                            <div class="step">
+                                <strong>Alexandre</strong><br>
+                                <span class="muted">I turn complex transformation problems into practical ways of thinking, deciding, and acting.</span>
+                            </div>
+                            <div class="arrow">↓</div>
+                            <div class="step">
+                                <strong>Focus</strong><br>
+                                <span class="muted">Strategy · Architecture · Governance · Delivery · AI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">8b. The Artefact Pattern</div>
+                        <div class="quote">
+                            <strong>Complexity:</strong><br>
+                            “I have an exploratory meeting with a senior consultancy leader. What should I do?”
+                        </div>
+                        <div class="flow">
+                            <div class="step">
+                                <strong>Clarity</strong><br>
+                                <span class="muted">Understand world → Understand ambition → Identify gaps → Test intersection → Agree next step.</span>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="step">
+                                <strong>Action</strong><br>
+                                <span class="muted">A reusable conversation framework.</span>
+                            </div>
+                        </div>
+                        <p class="muted" style="margin-top: 8px;">The artefact turns ambiguity into a practical way of thinking, deciding, and acting.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════ -->
+            <!-- 4. AI & TRANSFORMATION                    -->
+            <!-- ══════════════════════════════════════════ -->
+            <div class="section" data-category="ai-strategy">
+                <h2 class="section-title">⚡ 4. AI & Transformation Journey</h2>
+
+                <div class="card">
+                    <div class="card-title">10. The AI Conversation</div>
+                    <div class="q"><span class="num">•</span><span>“Is AI currently more of an experimentation topic, a strategy topic, or a transformation topic for your clients?”</span></div>
+                    <div class="q"><span class="num">•</span><span>“Are clients struggling more with the technology or with how AI changes their operating model?”</span></div>
+                    <div class="q"><span class="num">•</span><span>“How are they thinking about governance, architecture, and responsible adoption?”</span></div>
+                    <div class="good">
+                        <strong>Your differentiator:</strong> Treat AI as an enterprise transformation problem — not simply an LLM or technology implementation.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">11. A Possible Transformation Pattern</div>
+                    <div class="flow">
+                        <div class="step">
+                            <strong>1. Discover</strong><br>
+                            <span class="muted">Business + technology + AI landscape</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <strong>2. Assess</strong><br>
+                            <span class="muted">Capabilities, architecture, opportunities, constraints</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <strong>3. Architect</strong><br>
+                            <span class="muted">Target state + operating model + governance</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <strong>4. Prioritise</strong><br>
+                            <span class="muted">Initiatives + investment + roadmap</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <strong>5. Enable</strong><br>
+                            <span class="muted">Delivery assurance + organisational capability</span>
+                        </div>
+                    </div>
+                    <p class="muted" style="margin-top: 8px;">Use this journey only when the conversation clearly points towards an active transformation problem.</p>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════ -->
+            <!-- 5. SIGNALS & RULES                         -->
+            <!-- ══════════════════════════════════════════ -->
+            <div class="section" data-category="signals">
+                <h2 class="section-title">📊 5. Signals & Decision Rules</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">12. Strong Signals (Green Lights)</div>
+                        <div class="good">
+                            <ul style="margin: 0 0 0 16px;">
+                                <li>They describe a real client problem you can address.</li>
+                                <li>They mention capability gaps, not just lack of capacity.</li>
+                                <li>They want to strengthen strategic advisory services.</li>
+                                <li>They need senior expertise without a permanent hire.</li>
+                                <li>They see architecture and AI as connected to business transformation.</li>
+                                <li>They suggest a specific next step.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">13. Weak Signals / Caution (Red Flags)</div>
+                        <div class="bad">
+                            <ul style="margin: 0 0 0 16px;">
+                                <li>Conversation quickly becomes day-rate resource supply.</li>
+                                <li>They mainly need execution capacity.</li>
+                                <li>There is no meaningful client demand for your capabilities.</li>
+                                <li>Their business model does not support external specialists.</li>
+                                <li>They want a generic “AI person” rather than transformation leadership.</li>
+                                <li>There is no obvious next step or mutual value.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">14. Avoid vs Prefer Matrix</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">Avoid</th>
+                                <th style="width: 50%;">Prefer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>“I can provide Enterprise Architecture services.”</td>
+                                <td>“Where does architecture fit into the transformation problems your clients are facing?”</td>
+                            </tr>
+                            <tr>
+                                <td>Leading with your CV.</td>
+                                <td>Establishing relevance through their problems.</td>
+                            </tr>
+                            <tr>
+                                <td>Presenting a service catalogue.</td>
+                                <td>Exploring demand and capability gaps.</td>
+                            </tr>
+                            <tr>
+                                <td>Assuming their website tells the whole story.</td>
+                                <td>Asking how the actual business operates.</td>
+                            </tr>
+                            <tr>
+                                <td>Trying to close a deal.</td>
+                                <td>Finding a problem worth exploring together.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════ -->
+            <!-- 6. WORKING TOGETHER & NEXT STEPS          -->
+            <!-- ══════════════════════════════════════════ -->
+            <div class="section" data-category="closing">
+                <h2 class="section-title">🤝 6. Collaboration Models & Next Steps</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">15. If They Ask: “What are you looking for?”</div>
+                        <div class="quote">
+                            “I'm exploring where my experience can create the most value next. I'm particularly interested in working with organisations where Enterprise Architecture, transformation, and AI need to come together — either directly with clients or through strong advisory and consulting relationships.”
+                        </div>
+                        <p class="muted">Then return the conversation: <em>“I'm interested in understanding whether you see that kind of need in your world.”</em></p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">16. If They Ask: “How could we work together?”</div>
+                        <p>Don't commit to a model prematurely. Explore flexible avenues:</p>
+                        <ul>
+                            <li>Specialist capability within an existing engagement</li>
+                            <li>Trusted senior associate relationship</li>
+                            <li>Joint advisory proposition</li>
+                            <li>Co-developed client offering</li>
+                            <li>Targeted discovery / assessment engagement</li>
+                        </ul>
+                        <div class="quote warm">
+                            “I'd rather understand where the client need is first, then work out the model that makes sense.”
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">17. Three Questions to Remember</div>
+                        <div class="quote">
+                            <strong>1.</strong> “What are your clients increasingly asking you for?”
+                        </div>
+                        <div class="quote">
+                            <strong>2.</strong> “Where do you see the biggest capability gap or opportunity?”
+                        </div>
+                        <div class="quote">
+                            <strong>3.</strong> “Where do you want the business to go next?”
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">18. Evaluating the Ideal Outcome</div>
+                        <p><strong>🌟 Best:</strong> A specific client problem, capability gap, or proposition worth exploring together.</p>
+                        <p><strong>👍 Good:</strong> Agreement to continue the conversation with a concrete purpose.</p>
+                        <p><strong>👌 Fine:</strong> A useful relationship with a clearer understanding of each other's worlds.</p>
+                        <div class="quote">
+                            The meeting is successful when you leave knowing more than when you arrived — and the other person sees a credible reason to speak again.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">19. Before You Leave</div>
+                    <div class="q"><span class="num">1</span><span>“Based on what we've discussed, is there an area where you think it would be useful for us to explore this further?”</span></div>
+                    <div class="q"><span class="num">2</span><span>“Would it be useful for me to put some thoughts around what that could look like?”</span></div>
+                    <div class="listen">
+                        ACTION: If there is a concrete opportunity, capture the problem, client context, desired outcome, your role, their role, and the agreed next step.
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <p>No results found. Try a different search term or category filter.</p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-title">Ideas to Life</div>
+                <div class="footer-subtitle">Published by Alexandre Franco · <a href="https://ideas-to-life.ai" target="_blank">ideas-to-life.ai</a></div>
+                <div class="footer-tagline">
+                    Turning ideas into consumer experiences with Generative AI.<br>
+                    — Built with transparency. Shipped with intent.
+                </div>
+                <div class="footer-links">
+                    <span>© 2026 Ideas to Life. All rights reserved.</span>
+                    <span>·</span>
+                    <a href="/" target="_blank">Home</a>
+                    <span>·</span>
+                    <a href="/experiments/idea-to-cheatsheet/" target="_blank">All Cheatsheets</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const content = document.getElementById('content');
+        const sections = document.querySelectorAll('.section');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const noResults = document.getElementById('noResults');
+
+        let currentFilter = 'all';
+
+        // Search functionality
+        searchBox.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            filterContent(searchTerm, currentFilter);
+        });
+
+        // Filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                filterContent(searchBox.value.toLowerCase().trim(), currentFilter);
+            });
+        });
+
+        function filterContent(searchTerm, filter) {
+            let visibleCount = 0;
+
+            sections.forEach(section => {
+                const category = section.dataset.category;
+                const matchesFilter = filter === 'all' || category === filter;
+
+                let matchesSearch = searchTerm === '';
+                let hasMatchingCards = false;
+
+                const sectionTitle = section.querySelector('.section-title').textContent.toLowerCase();
+                const cards = section.querySelectorAll('.card');
+
+                if (searchTerm !== '') {
+                    if (sectionTitle.includes(searchTerm)) {
+                        matchesSearch = true;
+                    }
+
+                    cards.forEach(card => {
+                        const cardText = card.textContent.toLowerCase();
+                        if (cardText.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            matchesSearch = true;
+                            hasMatchingCards = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                } else {
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if ((matchesSearch || hasMatchingCards) && matchesFilter) {
+                    section.classList.remove('hidden');
+                    visibleCount++;
+
+                    if (searchTerm !== '') {
+                        highlightCards(section, searchTerm);
+                    } else {
+                        removeHighlights(section);
+                    }
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function highlightCards(element, searchTerm) {
+            const cards = element.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('.card-title');
+                if (cardTitle && cardTitle.textContent.toLowerCase().includes(searchTerm)) {
+                    card.style.borderLeftColor = '#ffc107';
+                    card.style.background = '#fffdf0';
+                }
+            });
+        }
+
+        function removeHighlights(element) {
+            const cards = element.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.borderLeftColor = '#667eea';
+                card.style.background = '#f8f9fa';
+            });
+        }
+    </script>
+</body>
+
+</html>
