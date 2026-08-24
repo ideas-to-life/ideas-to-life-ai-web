@@ -78,6 +78,6 @@ The ongoing focus is understanding how governance, operational trust, and archit
 
 ## Links
 
-- <a href="https://avfranco-br.github.io/portfolio//narratives/cas/" target="_blank" rel="noopener noreferrer">CAS Narrative</a>
-- <a href="https://avfranco-br.github.io/portfolio/narratives/cas-coding-agent-collaboration/" target="_blank" rel="noopener noreferrer">Governance-Aware Coding Agent Collaboration</a>
+- <a href="https://alexandrefranco.dev/narratives/cas/" target="_blank" rel="noopener noreferrer">CAS Narrative</a>
+- <a href="https://alexandrefranco.dev/narratives/cas-coding-agent-collaboration/" target="_blank" rel="noopener noreferrer">Governance-Aware Coding Agent Collaboration</a>
 - <a href="/learnings/">Weekly Learnings</a>
