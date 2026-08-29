@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Architecture SOP Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .provenance {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .search-section {
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2d3561;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #2d3561;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .command {
+            background: #2d3561;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            background: #fff59d;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        footer {
+            background: #000000;
+            color: #808080;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            color: #808080;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #808080;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #808080;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .provenance {
+                font-size: 0.7rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .search-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="provenance">An Ideas to Life experiment</div>
+            <h1>🏗️ Enterprise Architecture SOP Cheat Sheet</h1>
+            <p class="subtitle">A problem-first, engagement-adaptive operating model connecting strategy to outcome</p>
+        </header>
+
+        <div class="search-section">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search stages, diagnostic tools, governance rules, or AI workflows...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="getting-started">Getting Started</button>
+                <button class="filter-btn" data-filter="engagement-stages">5 Engagement Stages</button>
+                <button class="filter-btn" data-filter="frameworks">Diagnostic & Decision Tools</button>
+                <button class="filter-btn" data-filter="archetypes">Archetypes & Roadmaps</button>
+                <button class="filter-btn" data-filter="ai-governance">AI Workflows & CAS</button>
+                <button class="filter-btn" data-filter="resources">Governance Commands</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- SECTION 1: GETTING STARTED & OVERVIEW -->
+            <div class="section" data-category="getting-started">
+                <h2 class="section-title">1. Getting Started & Architecture Philosophy</h2>
+                
+                <div class="card">
+                    <div class="card-title">Operating Model & Core Mission</div>
+                    <p>The Enterprise Architecture Standard Operating Procedure (SOP) is an engagement-adaptive operating model governing how business strategy is turned into resilient, evidence-backed operational outcomes without introducing rigid toolchain bloat.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">How I Work: The 5 Bridge Towers</div>
+                    <p>Turning uncertainty into evidence-backed outcomes—nothing skipped, nothing handed back half-built:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tower #</th>
+                                <th>Stage Name</th>
+                                <th>Core Operational Question</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>01</strong></td>
+                                <td><strong>Understand</strong></td>
+                                <td>What problem are we really solving, and what does success look like?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>02</strong></td>
+                                <td><strong>Architect</strong></td>
+                                <td>Design the solution and its boundaries before anything is built.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>03</strong></td>
+                                <td><strong>Define</strong></td>
+                                <td>Agree scope, what's in, what's out, and how we'll know it worked.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>04</strong></td>
+                                <td><strong>Deliver</strong></td>
+                                <td>Build the smallest useful version and prove that it works.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>05</strong></td>
+                                <td><strong>Handover</strong></td>
+                                <td>You and your team own it, fully documented, end to end.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">5 Core Architectural Principles</div>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Problem-First System Thinking:</strong> Put the <em>why</em> and <em>what</em> before the <em>how</em>. Technology choices serve business capabilities, never vice versa.</li>
+                        <li><strong>Engagement Agnosticism & Scalability:</strong> Adapt governance depth and artifact formats dynamically to the specific customer engagement mandate.</li>
+                        <li><strong>Technology Agnosticism:</strong> Evaluate traditional microservices, COTS/SaaS, and AI systems objectively based on ROI and business value.</li>
+                        <li><strong>Strategic Vendor Decoupling:</strong> Establish provider-agnostic abstraction layers to prevent lock-in and preserve strategic optionality.</li>
+                        <li><strong>Governance Through Enablement:</strong> Empower client teams with clear guardrails, reusable patterns, and auditable decision frameworks rather than acting as a rigid bottleneck.</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">Classification & Governance Policy</div>
+                    <p><strong>Master SOP Classification:</strong> <code>RESTRICTED / HIGHLY CONFIDENTIAL</code> — Enterprise Architecture Operating Model.<br><strong>Public Portfolio View:</strong> <code>PUBLIC</code> — Alexandre Franco Enterprise Architecture Portfolio.</p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: THE 5 CUSTOMER ENGAGEMENT STAGES -->
+            <div class="section" data-category="engagement-stages">
+                <h2 class="section-title">2. The 5 Customer Engagement Stages</h2>
+
+                <div class="card">
+                    <div class="card-title">Stage 01: Discover & Align (Strategy & Baseline)</div>
+                    <p>Establishes the strategic foundation by framing the core problem, defining Desired State intent, and auditing the Current State baseline.</p>
+                    <p style="margin-top: 8px;"><strong>Core Question:</strong> <em>"What problem are we really solving, where is the customer today, what does the desired state look like, and what are the critical gaps?"</em></p>
+                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.5;">
+                        <li><strong>Customer Strategy & Problem Definition:</strong> Deconstruct root business drivers and quantify success metrics.</li>
+                        <li><strong>Current State Baseline Audit:</strong> Map existing applications (LeanIX/TOGAF inventory), data flows, and technical debt.</li>
+                        <li><strong>Desired State Intent:</strong> Map required business capabilities, performance targets, and regulatory boundaries.</li>
+                        <li><strong>Domain Diagnostic & Gap Analysis:</strong> Run the 10-Domain Architecture Requirements Framework (130+ questions).</li>
+                    </ul>
+                    <div class="tip" style="margin-top: 10px;">
+                        <div class="tip-title">Stage Gate Check 01</div>
+                        <p>Do not proceed to Stage 02 until business strategy, baseline audit findings, and capability gaps are validated by client executive and technical leadership.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Stage 02: Target Architecture & Strategy (Options & Blueprint)</div>
+                    <p>Transforms Stage 01 gap analysis into a technology-agnostic, decoupled target architecture specification.</p>
+                    <p style="margin-top: 8px;"><strong>Core Question:</strong> <em>"How do we structure target boundaries and technology choices so the customer's enterprise remains resilient, decoupled, and fit-for-purpose?"</em></p>
+                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.5;">
+                        <li><strong>Options Evaluation:</strong> Score trade-offs across Microservices/API-first, Event-Driven, COTS/SaaS, and AI/Agentic options.</li>
+                        <li><strong>C4 Architecture Modeling:</strong> Level 1 System Context, Level 2 Container, and Level 3 Component diagrams.</li>
+                        <li><strong>Strategic Vendor Decoupling:</strong> Wrap databases (Repository interfaces), messaging (CloudEvents/Protobuf), and SaaS/AI calls behind provider-neutral wrappers.</li>
+                    </ul>
+                    <div class="tip" style="margin-top: 10px;">
+                        <div class="tip-title">Stage Gate Check 02</div>
+                        <p>All target cloud, SaaS, or AI model integrations must rely on explicit interface contracts. Direct coupling to proprietary SDKs requires an approved ADR.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Stage 03: Governance & Decision Framework (Controls & Guardrails)</div>
+                    <p>Converts target designs into auditable decision records, risk priorities, and enablement governance guardrails.</p>
+                    <p style="margin-top: 8px;"><strong>Core Question:</strong> <em>"How do we ensure safety, regulatory compliance, and auditable architectural decisions across the client organization?"</em></p>
+                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.5;">
+                        <li><strong>Architecture Decision Records (ADRs):</strong> Document context, decisions, trade-offs, and consequences in <code>docs/adr/</code>.</li>
+                        <li><strong>Risk & NFR Priority Matrix:</strong> Enforce strict P0 (Blocker), P1 (High SLA), P2 (Medium), and P3 (Nice to have) priorities.</li>
+                        <li><strong>ARB Charter & AI Guardrails:</strong> Set review cadence, escalation paths, and dual-layer AI safety controls (probabilistic + deterministic validation).</li>
+                    </ul>
+                    <div class="tip" style="margin-top: 10px;">
+                        <div class="tip-title">Stage Gate Check 03</div>
+                        <p>Governance rules must enable delivery autonomy. Clear escalation paths and P0–P3 boundaries must be agreed upon by architects and delivery leads.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Stage 04: Delivery Enablement & Execution Steering (Roadmap & Steering)</div>
+                    <p>Translates target blueprints and governance into actionable transformation roadmaps and execution quality gates.</p>
+                    <p style="margin-top: 8px;"><strong>Core Question:</strong> <em>"How do we translate target architecture into an executable roadmap and steer delivery teams to success?"</em></p>
+                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.5;">
+                        <li><strong>30/60/90 Transformation Roadmap:</strong> 30d Foundation & Spikes, 60d Core Capability Delivery, 90d Scaling & Hardening.</li>
+                        <li><strong>Delivery Principles:</strong> Contract-first delivery, scope discipline, and vendor abstraction enforcement.</li>
+                        <li><strong>Adaptive Quality Gates:</strong> Strategic compliance reviews for executive mandates; automated pipeline checks for repo-driven teams.</li>
+                    </ul>
+                    <div class="tip" style="margin-top: 10px;">
+                        <div class="tip-title">Stage Gate Check 04</div>
+                        <p>Delivery roadmaps must account for client team capability and operational limits. Never hand off a blueprint without a 30/60/90 roadmap.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Stage 05: Value Realisation & Organizational Handover (Impact & Enablement)</div>
+                    <p>Verifies business impact against baseline strategy, completes operational readiness reviews, and transfers self-sufficiency to the client.</p>
+                    <p style="margin-top: 8px;"><strong>Core Question:</strong> <em>"How do we verify value realization, ensure operational readiness, and empower client ownership?"</em></p>
+                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.5;">
+                        <li><strong>Value Realisation Audit:</strong> Benchmark actual operational performance against Stage 01 baseline metrics.</li>
+                        <li><strong>Operational Readiness Review (ORR):</strong> Validate DR protocols, backup systems, security controls, and support team readiness.</li>
+                        <li><strong>Empowered Handover:</strong> Deliver Executive Impact Brief, package architectural repository/runbooks, and train client teams.</li>
+                    </ul>
+                    <div class="tip" style="margin-top: 10px;">
+                        <div class="tip-title">Stage Gate Check 05</div>
+                        <p>Handover is complete only when client leadership confirms value realization and internal teams demonstrate full operational self-sufficiency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: DIAGNOSTIC & DECISION FRAMEWORKS -->
+            <div class="section" data-category="frameworks">
+                <h2 class="section-title">3. Diagnostic & Assessment Accelerators</h2>
+
+                <div class="card">
+                    <div class="card-title">10-Domain Architecture Requirements Framework</div>
+                    <p>A workshop-driven diagnostic tool evaluating over 130 structural questions across 7 core EA principles to map Current State baselines and Desired State gaps in Stage 01:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Domain</th>
+                                <th>Question Count</th>
+                                <th>Focus & Structural Coverage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. User Personas & Access</strong></td>
+                                <td>12 Questions</td>
+                                <td>Identity federation, access tiers, RBAC, user role requirements.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Data Sources & Integration</strong></td>
+                                <td>15 Questions</td>
+                                <td>Data silos, data lineage, event streams, API contract boundaries.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Reporting & Analytics</strong></td>
+                                <td>15 Questions</td>
+                                <td>Reporting gaps, executive analytics, operational dashboards.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. AI & Advanced Tech Strategy</strong></td>
+                                <td>16 Questions</td>
+                                <td>Justifying advanced automation vs traditional software patterns.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Performance & Scalability</strong></td>
+                                <td>12 Questions</td>
+                                <td>Throughput bottlenecks, concurrency limits, latency SLAs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6. Security & Compliance</strong></td>
+                                <td>15 Questions</td>
+                                <td>Compliance gaps, encryption, PII masking, regulatory mandates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7. Observability & Operations</strong></td>
+                                <td>15 Questions</td>
+                                <td>Distributed tracing, centralized logging, operational alerting.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>8. Cost & Budget</strong></td>
+                                <td>10 Questions</td>
+                                <td>Baseline run costs, cloud infrastructure, licensing TCO envelopes.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>9. Extensibility & Maintainability</strong></td>
+                                <td>12 Questions</td>
+                                <td>Monolithic coupling vs modular abstractions and vendor decoupling.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10. Deployment & Infrastructure</strong></td>
+                                <td>15 Questions</td>
+                                <td>Hosting constraints, multi-cloud, containerization, hybrid delivery.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Solutions & Target Architecture Assessment Scorecard</div>
+                    <p>A quantitative evaluation matrix used in Stages 02 & 03 to score candidate technology options, SaaS platforms, and vendor solutions across weighted criteria:</p>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Functional Fit:</strong> Alignment with business strategy and target capability requirements.</li>
+                        <li><strong>Technical & Architectural Quality:</strong> Scalability, determinism, modularity, and vendor decoupling.</li>
+                        <li><strong>Security & NFR Compliance:</strong> Data encryption, RBAC, SLA performance, and regulatory compliance.</li>
+                        <li><strong>Operational & TCO Impact:</strong> Implementation complexity, licensing overhead, and ongoing maintenance run cost.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Agentic Architecture Design Principles</div>
+                    <p>Mandatory design policy governing AI-native and agentic deployments in Stage 02:</p>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Single Responsibility Principle:</strong> Each AI agent must have a distinct, well-defined operational scope.</li>
+                        <li><strong>Autonomous Guardrails:</strong> Input/output boundary policies preventing unsafe tool execution or illegal state changes.</li>
+                        <li><strong>Observability First:</strong> Complete logging of agent reasoning steps, tool calls, and prompt trajectories.</li>
+                        <li><strong>Human-in-the-Loop (HITL):</strong> Explicit human approval checkpoints for high-risk actions.</li>
+                        <li><strong>Context Injection (RAG):</strong> Grounding agent prompts in verified, domain-specific knowledge bases.</li>
+                        <li><strong>Idempotency:</strong> Ensuring agentic tool actions can be safely retried without side effects.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">NFR Priority Matrix Structure (P0–P3)</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Priority Tier</th>
+                                <th>Classification</th>
+                                <th>Enforcement & Trade-off Policy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>P0</strong></td>
+                                <td>Critical / Blocker</td>
+                                <td>Non-negotiable security, data privacy, compliance, or core reliability. Must be verified before production.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>P1</strong></td>
+                                <td>High Priority</td>
+                                <td>Core SLA performance targets (e.g. sub-200ms latency), error handling, and primary tracing.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>P2</strong></td>
+                                <td>Medium Priority</td>
+                                <td>Secondary performance optimizations, extended analytics logging, automated developer tooling.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>P3</strong></td>
+                                <td>Low Priority / Nice-to-Have</td>
+                                <td>Cosmetic UI enhancements, experimental features, non-blocking optimizations.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SECTION 4: ARCHETYPES & ROADMAPS -->
+            <div class="section" data-category="archetypes">
+                <h2 class="section-title">4. Engagement Archetypes & Transformation Roadmaps</h2>
+
+                <div class="card">
+                    <div class="card-title">4 Engagement Archetypes (Adaptive SOP Depth)</div>
+                    <p>To prevent over-engineering non-development mandates, the SOP scales deliverable depth across 4 engagement archetypes:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Archetype</th>
+                                <th>Duration</th>
+                                <th>SOP Stages Covered</th>
+                                <th>Primary Deliverables</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Archetype A: Strategic EA Assessment</strong></td>
+                                <td>2–4 Weeks</td>
+                                <td>Stage 01 + Stage 04 (High-Level)</td>
+                                <td>Executive Context Map, Baseline Audit, 10-Domain Gap Triage, 30/60/90 Transformation Roadmap.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Archetype B: Target Blueprint</strong></td>
+                                <td>4–8 Weeks</td>
+                                <td>Stages 01 & 02</td>
+                                <td>Desired State Vision, Vendor/Technology Options Scorecard, C4 Models, Target Architecture Specs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Archetype C: Enterprise Governance Model</strong></td>
+                                <td>6–12 Weeks</td>
+                                <td>Stages 01, 02 & 03</td>
+                                <td>Governance Charter, ARB Operating Manual, ADR Catalog, NFR Matrix (P0–P3), Safety Guardrails.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Archetype D: Delivery Steering & Implementation</strong></td>
+                                <td>Ongoing / Sprints</td>
+                                <td>Stages 01 through 05</td>
+                                <td>Hands-on Delivery Guidance, ADR-as-Code, Pipeline Quality Gates, SDD Specs, Operational Telemetry.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">30 / 60 / 90 Day Transformation Roadmap Structure</div>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>First 30 Days (Foundation & Quick Wins):</strong> Establish governance rules, validate initial architectural POCs/spikes, finalize API interface contracts, align delivery teams.</li>
+                        <li><strong>First 60 Days (Core Capability Delivery):</strong> Execute Phase 1 core services, integrate CI/CD quality gates, conduct mid-point ARB architecture reviews.</li>
+                        <li><strong>First 90 Days (Scaling & Hardening):</strong> Deliver end-to-end integration, execute non-functional load/security tests, transition operational runbooks to client teams.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Multi-Audience Projection Engine</div>
+                    <p>Three target projections generated from the Master Enterprise Architecture SOP:</p>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Executive Projection:</strong> 1-Page Business Value Bridge & 30/60/90 Strategic Transformation Roadmap for C-suite sponsors.</li>
+                        <li><strong>Agentic Co-Pilot Projection:</strong> Structured System Prompts (<code>agent-architect-prompt.md</code>) and JSON schemas for AI pair-architects.</li>
+                        <li><strong>Delivery & Governance Projection:</strong> Governance charters, ARB checklists, NFR assessment matrices, and CI/CD quality gate workflows for engineering leads.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 5: AI WORKFLOWS & CAS GOVERNANCE -->
+            <div class="section" data-category="ai-governance">
+                <h2 class="section-title">5. AI Augmented Architecture Workflows & Governance</h2>
+
+                <div class="card">
+                    <div class="card-title">4 Pillars of AI-Augmented Architecture</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pillar</th>
+                                <th>Framework / Mechanism</th>
+                                <th>Operational Impact & Capability</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Workflow Automation</strong></td>
+                                <td><strong>EA4ALL.AI</strong></td>
+                                <td>Natural language strategy Q&A, automated requirement-to-C4 blueprint generation (Mermaid), multi-agent task routing.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Continuous Governance</strong></td>
+                                <td><strong>CAS (Continuous Architecture System)</strong></td>
+                                <td>Shift from post-project audits to dual-loop pre-commit prevention, automated terminology linters, and Git delta log extraction.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Pattern Mining</strong></td>
+                                <td><strong>Idea-to-Pattern</strong></td>
+                                <td>Mining evidence-backed design patterns directly from real-world implementation repositories and execution signals.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Coding Agent Collaboration</strong></td>
+                                <td><strong>Pair-Architect Orchestration</strong></td>
+                                <td>Governing AI coding agents (Antigravity, Gemini, Claude) via pair-architect personas (<code>agent-architect-prompt.md</code>) and deterministic safety guardrails.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">CAS Dual-Loop Governance Mechanism</div>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>1. Prevent Loop (Pre-Commit & PR Gates):</strong> Intercepts structural or narrative changes before merge. Runs policy linters (<code>scripts/validate_governance.py</code>) and enforces Specification-Driven Development (SDD) spec requirements in <code>specs/</code>.</li>
+                        <li><strong>2. Correct Loop (Actionable Guidance & Auto-Fix):</strong> Provides exact line-level error details and policy references instead of silent build failures, enabling automated correction scripts to fix formatting and terminology drift.</li>
+                        <li><strong>3. Git-Aware Delta Extraction:</strong> Continuously extracts architectural changes from commit history, linking pull requests back to originating ADRs and business intent.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Traditional vs AI-Augmented EA Practice</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Traditional EA Practice</th>
+                                <th>AI Augmented EA Practice</th>
+                                <th>Value & Impact Delivered</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Manual Documentation Overhead</td>
+                                <td>Automated natural language synthesis & C4 generation</td>
+                                <td>10x faster artifact creation</td>
+                            </tr>
+                            <tr>
+                                <td>Reactive Gatekeeping Audits</td>
+                                <td>CAS Prevent-and-Correct SDLC & CI/CD pipeline checks</td>
+                                <td>Zero architectural drift</td>
+                            </tr>
+                            <tr>
+                                <td>Theoretical Textbook Frameworks</td>
+                                <td>Evidence-based pattern mining from code repositories</td>
+                                <td>Reusable, proven designs</td>
+                            </tr>
+                            <tr>
+                                <td>Ivory-Tower Isolation</td>
+                                <td>Democratized EA knowledge access via conversational AI</td>
+                                <td>Cross-functional alignment</td>
+                            </tr>
+                            <tr>
+                                <td>Ungoverned AI Coding Sprawl</td>
+                                <td>Governance-aware coding agent collaboration</td>
+                                <td>Safe, scalable AI delivery</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SECTION 6: GOVERNANCE COMMANDS & RESOURCES -->
+            <div class="section" data-category="resources">
+                <h2 class="section-title">6. Local Validation Commands & Governance Resources</h2>
+
+                <div class="card">
+                    <div class="card-title">Local Validation & Governance Commands</div>
+                    <p>Click any command block to copy it directly to your clipboard:</p>
+
+                    <p style="margin-top: 10px; font-weight: 500;">Run Full Governance Validation (Build + Terminology Check):</p>
+                    <div class="command">bash scripts/run_governance.sh</div>
+
+                    <p style="margin-top: 10px; font-weight: 500;">Run Terminology Policy Linter Only:</p>
+                    <div class="command">python scripts/validate_governance.py</div>
+
+                    <p style="margin-top: 10px; font-weight: 500;">Build MkDocs Site in Strict Mode (Fails on Broken Links / Nav):</p>
+                    <div class="command">mkdocs build --strict</div>
+
+                    <p style="margin-top: 10px; font-weight: 500;">Serve Documentation Site Locally:</p>
+                    <div class="command">mkdocs serve</div>
+
+                    <p style="margin-top: 10px; font-weight: 500;">Run Pytest Test Suite for Governance Scripts:</p>
+                    <div class="command">pytest tests/</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Key SOP Specification & Prompt Files</div>
+                    <ul style="margin-left: 20px; line-height: 1.6;">
+                        <li><code>docs/sop/index.md</code> — Master SOP Overview & 5 Stage Summary</li>
+                        <li><code>docs/sop/01-discover-align.md</code> — Stage 01: Discover & Align</li>
+                        <li><code>docs/sop/02-target-architecture.md</code> — Stage 02: Target Architecture & Strategy</li>
+                        <li><code>docs/sop/03-governance-framework.md</code> — Stage 03: Governance & Decision Framework</li>
+                        <li><code>docs/sop/04-delivery-enablement.md</code> — Stage 04: Delivery Enablement & Execution Steering</li>
+                        <li><code>docs/sop/05-value-realisation-handover.md</code> — Stage 05: Value Realisation & Handover</li>
+                        <li><code>docs/sop/ai-augmented-architecture.md</code> — AI Augmented Workflows & Governance</li>
+                        <li><code>docs/sop/agent-architect-prompt.md</code> — Agent Architect Pair Prompt</li>
+                        <li><code>docs/how-i-work.md</code> — How I Work: The 5 Bridge Towers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="noResults" class="no-results" style="display: none;">
+                No matching stages, diagnostic tools, or governance topics found.
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-title">Ideas to Life</div>
+                <div class="footer-subtitle">Published by Alexandre Franco · <a href="https://ideas-to-life.ai" target="_blank" style="color: #667eea; text-decoration: underline;">ideas-to-life.ai</a><br>Turning ideas into consumer experiences with Generative AI.</div>
+                <div class="footer-tagline">— Built with transparency. Shipped with intent.</div>
+                <div class="footer-links">
+                    <a href="#">RSS Feed (Coming Soon)</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const sections = document.querySelectorAll('.section');
+        const noResults = document.getElementById('noResults');
+
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        searchBox.addEventListener('input', (e) => {
+            searchTerm = e.target.value.toLowerCase().trim();
+            filterContent();
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                filterContent();
+            });
+        });
+
+        function filterContent() {
+            let visibleCount = 0;
+
+            sections.forEach(section => {
+                const category = section.dataset.category;
+                const matchesFilter = currentFilter === 'all' || category === currentFilter;
+                
+                let matchesSearch = false;
+
+                if (searchTerm === '') {
+                    matchesSearch = true;
+                } else {
+                    const text = section.textContent.toLowerCase();
+                    matchesSearch = text.includes(searchTerm);
+                }
+
+                if (searchTerm !== '') {
+                    const cards = section.querySelectorAll('.card, .tip');
+                    let sectionCardMatch = false;
+                    cards.forEach(card => {
+                        const cardText = card.textContent.toLowerCase();
+                        if (cardText.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            sectionCardMatch = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    if (sectionCardMatch) matchesSearch = true;
+                } else {
+                    const cards = section.querySelectorAll('.card, .tip');
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if (matchesSearch && matchesFilter) {
+                    section.classList.remove('hidden');
+                    visibleCount++;
+                    if (searchTerm !== '') {
+                        highlightText(section, searchTerm);
+                    } else {
+                        removeHighlights(section);
+                    }
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function highlightText(element, searchTerm) {
+            const cards = element.querySelectorAll('.card, .tip');
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('.card-title, .tip-title');
+                if (cardTitle) {
+                    const text = cardTitle.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        card.style.borderLeftColor = '#ffc107';
+                        card.style.background = '#fff9e6';
+                    }
+                }
+            });
+        }
+
+        function removeHighlights(element) {
+            const cards = element.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.borderLeftColor = '#667eea';
+                card.style.background = '#f8f9fa';
+            });
+            const tips = element.querySelectorAll('.tip');
+            tips.forEach(tip => {
+                tip.style.borderLeftColor = '#ffc107';
+                tip.style.background = '#fff3cd';
+            });
+        }
+
+        document.querySelectorAll('.command').forEach(cmd => {
+            cmd.style.cursor = 'pointer';
+            cmd.title = 'Click to copy';
+            cmd.addEventListener('click', () => {
+                const text = cmd.textContent.replace(/\s+/g, ' ').trim();
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = cmd.style.background;
+                    cmd.style.background = '#4caf50';
+                    setTimeout(() => {
+                        cmd.style.background = original;
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
