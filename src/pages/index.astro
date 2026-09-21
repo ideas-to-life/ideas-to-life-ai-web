@@ -7,7 +7,20 @@ import WeeklyLearningCard from '../components/WeeklyLearningCard.astro';
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 
 const home = await getEntry('pages', 'home');
-const experiments = await getCollection('experiments');
+const statusOrder: Record<string, number> = {
+    shipping: 1,
+    validating: 2,
+    exploring: 3,
+};
+const experiments = (await getCollection('experiments'))
+    .filter(e => !e.data.draft && e.data.status in statusOrder)
+    .sort((a, b) => {
+        const statusDiff = statusOrder[a.data.status] - statusOrder[b.data.status];
+        if (statusDiff !== 0) return statusDiff;
+        const dateA = a.data.date ? new Date(a.data.date).valueOf() : 0;
+        const dateB = b.data.date ? new Date(b.data.date).valueOf() : 0;
+        return dateB - dateA;
+    });
 const products = await getCollection('products');
 const emergingProducts = products.filter(p => !p.data.draft && p.data.status === 'emerging');
 const learnings = await getCollection('learnings');

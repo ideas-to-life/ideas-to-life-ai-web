@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA NemoClaw Hermes Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .provenance {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .search-section {
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2d3561;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #2d3561;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .command {
+            background: #2d3561;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            background: #fff59d;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        footer {
+            background: #000000;
+            color: #808080;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            color: #808080;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #808080;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #808080;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .provenance {
+                font-size: 0.7rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .search-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="provenance">An Ideas to Life experiment</div>
+            <h1>🛰️ NVIDIA NemoClaw Hermes Cheat Sheet</h1>
+            <p class="subtitle">Keep your self-improving Hermes sandbox resilient, updated, and extendable</p>
+        </header>
+
+        <div class="search-section">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search commands, workflows, or troubleshooting steps...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="getting-started">Getting Started</button>
+                <button class="filter-btn" data-filter="essentials">Core Concepts</button>
+                <button class="filter-btn" data-filter="commands">Commands</button>
+                <button class="filter-btn" data-filter="workflows">Workflows</button>
+                <button class="filter-btn" data-filter="tips">Tips & Gotchas</button>
+                <button class="filter-btn" data-filter="resources">Resources</button>
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <div class="section" data-category="getting-started">
+                <h2 class="section-title">Getting Started</h2>
+
+                <div class="tip">
+                    <div class="tip-title">🛰️ 5-Minute Quick Start</div>
+                    <strong>1. Prereqs:</strong> Docker Desktop (or Colima) installed, running, and reachable from your shell<br>
+                    <strong>2. Install + onboard Hermes:</strong> <code>curl -fsSL https://www.nvidia.com/nemoclaw.sh | NEMOCLAW_AGENT=hermes bash</code><br>
+                    <strong>3. Follow the wizard:</strong> pick an inference provider/model, a sandbox name, and a network policy tier<br>
+                    <strong>4. Launch it:</strong> <code>nemohermes launch my-assistant</code><br>
+                    <strong>5. Check in anytime:</strong> <code>nemohermes my-assistant status</code><br><br>
+                    That's the whole loop: install once, then onboard → launch → status.
+                </div>
+
+                <div class="card">
+                    <div class="card-title">What NemoClaw + Hermes actually is</div>
+                    <p>NemoClaw is NVIDIA's open reference stack for running agents safely inside an <strong>OpenShell</strong> sandbox — it handles onboarding, managed inference, network policy, integrations, snapshots, and lifecycle. Hermes is Nous Research's self-improving agent runtime that NemoClaw can run in place of its default OpenClaw agent. Together, Hermes learns your team's preferred workflows and turns repeated guidance into durable "Hermes Skills," while OpenShell enforces which tools, data, and network destinations it's allowed to touch.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">The nemohermes alias</div>
+                    <p><code>nemohermes</code> is just <code>nemoclaw</code> with Hermes pre-selected as the agent. Use it for every day-to-day command instead of typing <code>nemoclaw --agent hermes</code> each time.</p>
+                    <div class="command">nemohermes onboard        # first-time setup wizard<br>nemohermes my-sandbox connect   # shell into a Hermes sandbox<br>nemohermes launch my-sandbox    # connect AND start the Hermes agent</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Non-interactive / scripted install</div>
+                    <p>For CI or repeatable setup, skip the wizard prompts:</p>
+                    <div class="command">curl -fsSL https://www.nvidia.com/nemoclaw.sh | \<br>&nbsp;&nbsp;NEMOCLAW_AGENT=hermes \<br>&nbsp;&nbsp;NEMOCLAW_SANDBOX_NAME=my-assistant \<br>&nbsp;&nbsp;NEMOCLAW_ACCEPT_THIRD_PARTY_SOFTWARE=1 \<br>&nbsp;&nbsp;bash -s -- --local-model-runtime=vllm</div>
+                    <p style="margin-top: 10px;">No hosted inference credentials yet? Install without onboarding and run it later:</p>
+                    <div class="command">curl -fsSL https://www.nvidia.com/nemoclaw.sh | NEMOCLAW_AGENT=hermes bash -s -- --defer-onboarding<br># later, once credentials are ready:<br>nemohermes onboard</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Where things live</div>
+                    <table>
+                        <thead>
+                            <tr><th>Thing</th><th>Location / default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Hermes config &amp; state</td><td><code>/sandbox/.hermes</code> (memories, sessions, skills, plugins, cron, kanban.db)</td></tr>
+                            <tr><td>Hermes dashboard</td><td>host port <code>18789</code></td></tr>
+                            <tr><td>OpenAI-compatible API</td><td>host port <code>8642</code> (next free port up to 8652 if taken)</td></tr>
+                            <tr><td>Built-in NemoClaw plugin</td><td><code>/opt/hermes/plugins/nemoclaw</code> (don't remove or replace)</td></tr>
+                            <tr><td>Local registry / config</td><td><code>~/.nemoclaw/</code> on the host</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section" data-category="essentials">
+                <h2 class="section-title">Core Concepts</h2>
+
+                <div class="card">
+                    <div class="card-title">The moving pieces</div>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li><strong>OpenShell gateway</strong> — the host-side supervisor that owns sandbox lifecycle, credentials, and policy enforcement</li>
+                        <li><strong>Sandbox container</strong> — where Hermes actually runs, isolated from your host filesystem and network by default</li>
+                        <li><strong>policy.yaml</strong> — declares exactly which network destinations the sandbox may reach; anything else gets a 403</li>
+                        <li><strong>config.yaml</strong> — Hermes' own agent configuration inside the sandbox</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Network policy tiers</div>
+                    <table>
+                        <thead><tr><th>Tier</th><th>What it allows</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Restricted</strong></td><td>Baseline only — nothing extra unless you add it</td></tr>
+                            <tr><td><strong>Balanced</strong> (default)</td><td>Dev tooling, package installs, model downloads, one web search provider — no messaging platforms</td></tr>
+                            <tr><td><strong>Open</strong></td><td>Broad access, including supported messaging &amp; productivity integrations</td></tr>
+                            <tr><td><strong>Personal</strong></td><td>Unrestricted outbound web (ports 80/443) for trusted personal use only</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Hermes doesn't use slash commands</div>
+                    <p>Unlike OpenClaw, Hermes has no in-chat <code>/</code> slash-command surface for lifecycle work. All status, recovery, policy, and inference operations happen from the <strong>host side</strong> with <code>nemohermes &lt;name&gt; ...</code>. Inside the sandbox, the bundled NemoClaw plugin exposes status/environment tools and a skill-reload hook to the model itself.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">What survives a rebuild</div>
+                    <p>Hermes' durable state — memories, sessions, learned skills, plugins, cron jobs, scripts, logs, plans, workspace files, messaging state, and its kanban board — is backed up and restored automatically around rebuilds and recreations, as long as you let NemoClaw manage the process (don't delete containers by hand).</p>
+                </div>
+            </div>
+
+            <div class="section" data-category="commands">
+                <h2 class="section-title">Commands to Keep It Resilient</h2>
+
+                <div class="card">
+                    <div class="card-title">Health check-in (run these first, always)</div>
+                    <table>
+                        <thead><tr><th>Command</th><th>What it tells you</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>nemohermes list</code></td><td>All registered sandboxes, their model/provider, and active sessions</td></tr>
+                            <tr><td><code>nemohermes &lt;name&gt; status</code></td><td>Whether the container, gateway, and Hermes process are actually up</td></tr>
+                            <tr><td><code>nemohermes &lt;name&gt; doctor</code></td><td>Deeper diagnostics when status alone isn't enough</td></tr>
+                            <tr><td><code>nemohermes host probe</code></td><td>Checks host/Docker/gateway readiness before you even touch a sandbox</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Recovery &amp; lifecycle</div>
+                    <table>
+                        <thead><tr><th>Command</th><th>When to use it</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>nemohermes &lt;name&gt; recover</code></td><td>Sandbox crashed, or status shows the gateway/container isn't running — repairs it without opening a shell</td></tr>
+                            <tr><td><code>nemohermes &lt;name&gt; gateway restart</code></td><td>Force the in-sandbox gateway to reload config or plugins</td></tr>
+                            <tr><td><code>nemohermes &lt;name&gt; stop</code> / <code>start</code></td><td>Manual stop/start of the sandbox container</td></tr>
+                            <tr><td><code>nemohermes &lt;name&gt; rebuild</code></td><td>Recreate the sandbox from its recorded settings, no reconfiguration</td></tr>
+                            <tr><td><code>nemohermes &lt;name&gt; destroy</code></td><td>Remove a sandbox for good</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Backups &amp; snapshots</div>
+                    <div class="command">nemohermes my-assistant snapshot create<br>nemohermes my-assistant snapshot list<br>nemohermes my-assistant snapshot restore [selector] [--to &lt;dst&gt;]<br><br># Back up every registered sandbox at once<br>nemohermes backup-all</div>
+                    <p style="margin-top: 10px;">Take a snapshot before any risky change: a rebuild, a policy edit, or adding an untested integration.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Keeping software current</div>
+                    <div class="command"># Update the NemoClaw CLI itself<br>nemohermes update<br><br># Roll every registered sandbox onto the current image<br>nemohermes upgrade-sandboxes</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Integrations at a glance</div>
+                    <table>
+                        <thead><tr><th>Integration type</th><th>Command family</th></tr></thead>
+                        <tbody>
+                            <tr><td>MCP server</td><td><code>nemohermes &lt;name&gt; mcp add / list / status / restart / remove</code></td></tr>
+                            <tr><td>Messaging channel</td><td><code>nemohermes &lt;name&gt; channels add / remove / start / stop / status</code></td></tr>
+                            <tr><td>Hermes plugin</td><td>installed under <code>/sandbox/.hermes/plugins/&lt;name&gt;</code>, separate from MCP and skills</td></tr>
+                            <tr><td>Reusable Hermes Skill</td><td><code>nemohermes &lt;name&gt; skill install &lt;path&gt; / skill remove &lt;skill&gt;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Poking inside the sandbox</div>
+                    <div class="command">nemohermes my-assistant exec -- hermes --version<br>nemohermes my-assistant config get<br>nemohermes my-assistant logs</div>
+                    <p style="margin-top: 10px;">Use <code>nemohermes &lt;name&gt; exec</code> instead of raw <code>docker exec</code> — it runs as the correct sandbox user with the right <code>HOME</code>, so Hermes config actually resolves.</p>
+                </div>
+            </div>
+
+            <div class="section" data-category="workflows">
+                <h2 class="section-title">Common Workflows</h2>
+
+                <div class="card">
+                    <div class="card-title">🔁 You restarted your Mac</div>
+                    <p>Docker doesn't come back on its own after a reboot, and neither does the OpenShell gateway or your sandbox — bring them up in this order:</p>
+                    <div class="command">1. Start Docker Desktop (or run `colima start`) and wait until it's fully up<br>2. nemohermes my-assistant status      # this can recover a stopped container on its own<br>3. nemohermes my-assistant connect     # or: nemohermes launch my-assistant</div>
+                    <p style="margin-top: 10px;">On reboot, OpenShell rotates its SSH host keys, so <code>connect</code> will detect the stale identity, prune the old <code>openshell-*</code> entries from <code>~/.ssh/known_hosts</code>, and retry automatically — no need to re-run onboarding just because of a reboot.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🐳 You upgraded Docker</div>
+                    <p>An ordinary Docker Desktop/Colima version bump usually needs nothing beyond restarting Docker and re-checking status:</p>
+                    <div class="command">nemohermes my-assistant status<br>nemohermes my-assistant recover   # if status shows the gateway isn't reachable</div>
+                    <p style="margin-top: 10px;">If the <em>installer</em> detects your OpenShell gateway version has fallen outside the range the current NemoClaw release supports, it will back up every sandbox, retire the old gateway, and install the compatible OpenShell version automatically — confirm the prompt, or for scripted upgrades set <code>NEMOCLAW_ACCEPT_EXPERIMENTAL_OPENSHELL_UPGRADE=1</code> ahead of the install command. Never delete or replace the gateway by hand outside this flow.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🔌 You want to add a new integration</div>
+                    <p>Pick the right path for what you're connecting:</p>
+                    <div class="command"># MCP server (tools, data sources, APIs)<br>export GITHUB_MCP_TOKEN=ghp_...<br>nemohermes my-assistant mcp add github \<br>&nbsp;&nbsp;--url https://api.githubcopilot.com/mcp/ --env GITHUB_MCP_TOKEN<br>unset GITHUB_MCP_TOKEN<br><br># Messaging channel (Slack, Telegram, Discord, WhatsApp...)<br>nemohermes my-assistant channels add slack<br>nemohermes my-assistant rebuild<br><br># Hermes-native plugin<br># drop it under /sandbox/.hermes/plugins/&lt;plugin-name&gt;</div>
+                    <p style="margin-top: 10px;">MCP servers must be HTTPS with a publicly reachable, TLS-matching endpoint — NemoClaw enforces this so credentials are never sent in the clear. Adding a channel usually requires a sandbox rebuild to pick up the new credentials and policy preset.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">✨ You want to activate a new feature or setting</div>
+                    <p>Three patterns cover most cases:</p>
+                    <div class="command"># 1. Small config change with live reload<br>nemohermes my-assistant config set --key agents.defaults.model.primary \<br>&nbsp;&nbsp;--value nvidia/nemotron --restart<br><br># 2. Feature that needs a fresh sandbox (new agent flags, GPU passthrough, tool-disclosure mode)<br>nemohermes onboard --name my-assistant --recreate-sandbox --tool-disclosure direct<br><br># 3. Custom image change (added a package, edited the managed Dockerfile)<br>nemohermes my-assistant rebuild</div>
+                    <p style="margin-top: 10px;"><code>--recreate-sandbox</code> backs up your workspace state first and restores it into the replacement automatically — but take a manual snapshot beforehand anyway if the change is significant.</p>
+                </div>
+            </div>
+
+            <div class="section" data-category="tips">
+                <h2 class="section-title">Tips &amp; Gotchas</h2>
+
+                <div class="tip">
+                    <div class="tip-title">🍎 macOS Docker Desktop socket quirks</div>
+                    Docker Desktop on macOS doesn't always expose <code>/var/run/docker.sock</code> the way Linux does. If the gateway can't reach the daemon, confirm Docker Desktop is actually running (not just installed) before assuming something is broken.
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">🍎 Colima's default resources are too small</div>
+                    Colima ships with 2 vCPU / 2 GiB by default, which isn't enough for the sandbox image build — it can silently stall onboarding with no error. Raise Colima's resources (or Docker Desktop's, under Settings → Resources) to at least 4 vCPU / 8 GiB before onboarding.
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">🚫 Don't manage the container with raw Docker commands</div>
+                    Avoid <code>docker restart</code>, <code>docker rm</code>, or <code>docker exec</code> directly on a NemoClaw-managed container. OpenShell tracks lifecycle state (Ready/Starting/Stopped) itself; bypassing it can strand the sandbox in a state <code>nemohermes</code> commands can't recover from.
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">🚫 Don't touch the bundled plugin path</div>
+                    Never remove or overwrite <code>/opt/hermes/plugins/nemoclaw</code> — it's the image-owned integration that gives Hermes its status tools and skill-reload hook. Add your own plugins alongside it, not over it.
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">🔑 MCP servers require HTTPS</div>
+                    If <code>mcp add</code> rejects a plain HTTP or local URL, that's the managed-registration boundary working as intended, not a bug — OpenShell only forwards bearer credentials over TLS to a publicly reachable, certificate-matching endpoint.
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">💾 Snapshot before you experiment</div>
+                    <code>nemohermes &lt;name&gt; snapshot create</code> takes seconds and gives you a clean rollback point before a rebuild, a policy tier change, or a new integration you haven't tested yet.
+                </div>
+            </div>
+
+            <div class="section" data-category="resources">
+                <h2 class="section-title">Links &amp; Resources</h2>
+
+                <div class="card">
+                    <div class="card-title">Official Documentation</div>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li><strong>NemoClaw docs:</strong> <a href="https://docs.nvidia.com/nemoclaw/" target="_blank">docs.nvidia.com/nemoclaw</a></li>
+                        <li><strong>NemoClaw GitHub:</strong> <a href="https://github.com/NVIDIA/NemoClaw" target="_blank">github.com/NVIDIA/NemoClaw</a></li>
+                        <li><strong>NemoClaw product page:</strong> <a href="https://www.nvidia.com/en-us/ai/nemoclaw/" target="_blank">nvidia.com/en-us/ai/nemoclaw</a></li>
+                        <li><strong>Hermes Agent (Nous Research):</strong> <a href="https://github.com/NousResearch/hermes-agent" target="_blank">github.com/NousResearch/hermes-agent</a></li>
+                        <li><strong>Discord community:</strong> linked from the NemoClaw docs sidebar</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">If you get stuck</div>
+                    <p>Run <code>nemohermes &lt;name&gt; doctor</code> first, then check the Troubleshooting and Troubleshoot MCP Servers pages in the official docs before opening a GitHub issue — most reboot, socket, and permission problems on macOS are already documented there.</p>
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <p>No results found. Try a different search term or filter.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-title">Ideas to Life</div>
+                <div class="footer-subtitle">Published by Alexandre Franco · <a href="https://ideas-to-life.ai" target="_blank">ideas-to-life.ai</a></div>
+                <div class="footer-tagline">
+                    Turning ideas into consumer experiences with Generative AI.<br>
+                    — Built with transparency. Shipped with intent.
+                </div>
+                <div class="footer-links">
+                    <span>© 2026 Ideas to Life. All rights reserved.</span>
+                    <span>·</span>
+                    <a href="#" target="_blank">RSS</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const content = document.getElementById('content');
+        const sections = document.querySelectorAll('.section');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const noResults = document.getElementById('noResults');
+
+        let currentFilter = 'all';
+
+        // Search functionality
+        searchBox.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filterContent(searchTerm, currentFilter);
+        });
+
+        // Filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                filterContent(searchBox.value.toLowerCase(), currentFilter);
+            });
+        });
+
+        function filterContent(searchTerm, filter) {
+            let visibleCount = 0;
+
+            sections.forEach(section => {
+                const category = section.dataset.category;
+                
+                // Check if category matches the filter
+                const matchesFilter = filter === 'all' || category === filter;
+                
+                // For search, check both section title and individual cards
+                let matchesSearch = searchTerm === '';
+                let hasMatchingCards = false;
+                
+                if (searchTerm !== '') {
+                    const sectionTitle = section.querySelector('.section-title').textContent.toLowerCase();
+                    const cards = section.querySelectorAll('.card, .tip');
+                    
+                    // Check section title
+                    if (sectionTitle.includes(searchTerm)) {
+                        matchesSearch = true;
+                    }
+                    
+                    // Check individual cards and hide/show them
+                    cards.forEach(card => {
+                        const cardText = card.textContent.toLowerCase();
+                        if (cardText.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            matchesSearch = true;
+                            hasMatchingCards = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                } else {
+                    // Show all cards when no search term
+                    const cards = section.querySelectorAll('.card, .tip');
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if (matchesSearch && matchesFilter) {
+                    section.classList.remove('hidden');
+                    visibleCount++;
+                    
+                    // Highlight search term
+                    if (searchTerm !== '') {
+                        highlightText(section, searchTerm);
+                    } else {
+                        removeHighlights(section);
+                    }
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function highlightText(element, searchTerm) {
+            const cards = element.querySelectorAll('.card, .tip');
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('.card-title, .tip-title');
+                if (cardTitle) {
+                    const text = cardTitle.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        card.style.borderLeftColor = '#ffc107';
+                        card.style.background = '#fff9e6';
+                    }
+                }
+            });
+        }
+
+        function removeHighlights(element) {
+            const cards = element.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.borderLeftColor = '#667eea';
+                card.style.background = '#f8f9fa';
+            });
+            const tips = element.querySelectorAll('.tip');
+            tips.forEach(tip => {
+                tip.style.borderLeftColor = '#ffc107';
+                tip.style.background = '#fff3cd';
+            });
+        }
+
+        // Add copy functionality to code blocks
+        document.querySelectorAll('.command').forEach(cmd => {
+            cmd.style.cursor = 'pointer';
+            cmd.title = 'Click to copy';
+            cmd.addEventListener('click', () => {
+                const text = cmd.textContent.replace(/\s+/g, ' ').trim();
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = cmd.style.background;
+                    cmd.style.background = '#4caf50';
+                    setTimeout(() => {
+                        cmd.style.background = original;
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
